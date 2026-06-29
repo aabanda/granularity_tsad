@@ -1,4 +1,4 @@
-# granularity_tsad
+# Granularity misalignments in time series anomaly detection
 
 Granularity-aware evaluation for **time-series anomaly detection (TSAD)**, the
 clean, reusable implementation behind the paper *"Granularity misalignments in
