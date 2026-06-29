@@ -51,7 +51,7 @@ def _import_methods(method_names: list[str]) -> None:
         if name in getattr(builtins_mod, "__dict__", {}):
             continue
         # Custom detectors: importing the module triggers metaclass registration.
-        for module in (f"MyAlgo.{name}", name):
+        for module in (f"lib.MyAlgo.{name}", f"MyAlgo.{name}", name):
             try:
                 importlib.import_module(module)
                 break

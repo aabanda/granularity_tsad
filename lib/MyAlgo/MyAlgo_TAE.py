@@ -1,4 +1,4 @@
-from MyAlgo._compat import BaseMethod, TSData, tsdalia
+from ._compat import BaseMethod, TSData, tsdalia
 import numpy as np
 import torch
 from torch.utils.data import DataLoader
@@ -13,8 +13,7 @@ transformer_autoencoder = tsdalia("models.transformer_autoencoder")
 diffusion = tsdalia("models.diffusion")
 diffusion_autoencoder = tsdalia("models.diffusion_autoencoder")
 basic_autoencoder = tsdalia("models.basic_autoencoder")
-ConditionalDiffusionTrainingNetwork = diffusion.ConditionalDiffusionTrainingNetwork
-Unet = tsdalia("models.unet").Unet
+
 
 model_backprop_function = {
     "transformer_autoencoder": transformer_autoencoder.backprop,
@@ -24,48 +23,24 @@ model_backprop_function = {
 
 
 
-class MyAlgo_DM(BaseMethod):
+class MyAlgo_TAE(BaseMethod):
     def __init__(self, hparams) -> None:
         super().__init__()
         self.__anomaly_score = None
         self.window_size = 100
         self.ts_dims = 1
-        self.batch_size = 128
+        self.batch_size = 256
         self.lr = 0.00001
         self.num_epochs = 1000
-        self.noise_steps: int = 100
-        self.denoise_steps: int = 50
-        self.diff_lambda: float = 0.1
-        self.diffusion_training_net: any = None
-        self.params_specific: dict = None
-        self.score_train = None
-        self.model_name = "diffusion"
+        self.model_name = "transformer_autoencoder"
         self.device = "cuda"
+        self.score_train = None
         self.y_hat_train = None
-
-        self.params_specific = {
-            "noise_steps": self.noise_steps,
-            "denoise_steps": self.denoise_steps,
-            "diff_lambda": self.diff_lambda,
-        }
-
-
-        self.diffusion_training_net = ConditionalDiffusionTrainingNetwork(
-            nr_feats=self.ts_dims,
-            window_size=int(self.window_size),
-            batch_size=self.batch_size,
-            **self.params_specific,
-        ).float()
-
+        
 
     def train_valid_phase(self, tsTrain: TSData):
-        
-        self.denoise_fn = Unet(
-            dim=self.ts_dims,
-            channels=1,
-            resnet_block_groups=1,
-            init_size=torch.Size([self.ts_dims, self.window_size, self.ts_dims]),
-        )
+
+
         train =  DataLoader(tsTrain.train, batch_size=tsTrain.train.shape[0])
         train = next(iter(train))
         trainD = convert_to_windows(train, self.window_size).cpu()
@@ -81,8 +56,6 @@ class MyAlgo_DM(BaseMethod):
             dims=self.ts_dims,
             batch_size=self.batch_size,
             device=self.device,
-            diffusion_training_net=self.diffusion_training_net,
-            params_specific=self.params_specific,
         )
 
         len_dataloader = len(trainD) // self.model.batch
@@ -107,9 +80,7 @@ class MyAlgo_DM(BaseMethod):
                 training=True,
                 dims=self.ts_dims,
                 batch_size=self.batch_size,
-                window_size=self.window_size,            
-                diffusion_training_net=self.diffusion_training_net,
-                **self.params_specific,
+                window_size=self.window_size,
             )
             loss_train_hist.append(np.mean(loss_train))
 
@@ -123,8 +94,6 @@ class MyAlgo_DM(BaseMethod):
             dims=self.ts_dims,
             batch_size=self.batch_size,
             window_size=self.window_size,
-            diffusion_training_net=self.diffusion_training_net,
-            **self.params_specific,
         )
         self.train_error = np.abs(trainD - recons_train[:,:,0]).numpy()
 
@@ -132,24 +101,25 @@ class MyAlgo_DM(BaseMethod):
             self.train_error.shape[0] * self.train_error.shape[1], self.ts_dims
         )
 
+        
+        reconstruction = recons_train.reshape(
+            (
+                recons_train.shape[0] * self.window_size,
+                recons_train.shape[2],
+            )
+        )
 
-        self.loss_test = loss_train.reshape(
+
+        loss_train = loss_train.reshape(
             (
                 loss_train.shape[0] * loss_train.shape[1],
                 loss_train.shape[2],
             )
         )
 
-        loss_train = np.mean(loss_train, axis=1)[:len(train)]
+        self.score_train = np.mean(loss_train, axis=1)[:len(train)]
+        self.y_hat_train = reconstruction
 
-        self.score_train =  loss_train
-        self.y_hat_train =  recons_train.reshape(
-            (
-                recons_train.shape[0] * self.window_size,
-                recons_train.shape[2],
-            )
-        )
-        
     def test_phase(self, tsData: TSData):
 
         test =  DataLoader(tsData.test, batch_size=tsData.test.shape[0])
@@ -166,10 +136,21 @@ class MyAlgo_DM(BaseMethod):
             dims=self.ts_dims,
             batch_size=self.batch_size,
             window_size=self.window_size,
-            diffusion_training_net=self.diffusion_training_net,
-            **self.params_specific,
         )
 
+        reconstruction = reconstruction.reshape(
+            (
+                reconstruction.shape[0] * self.window_size,
+                reconstruction.shape[2],
+            )
+        )
+
+
+        # import matplotlib.pyplot as plt
+        # plt.figure(figsize=(10, 5))
+        # plt.plot(test, label="test")
+        # plt.plot(reconstruction, label="reconstruction")
+        # plt.legend()
 
         self.loss_test = self.loss_test.reshape(
             (

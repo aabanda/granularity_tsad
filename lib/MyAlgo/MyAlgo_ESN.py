@@ -1,4 +1,4 @@
-from MyAlgo._compat import BaseMethod, TSData
+from ._compat import BaseMethod, TSData
 import numpy as np
 import torch
 from pyrcn.echo_state_network import ESNRegressor

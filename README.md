@@ -4,6 +4,12 @@ Granularity-aware evaluation for **time-series anomaly detection (TSAD)**, the
 clean, reusable implementation behind the paper *"Granularity misalignments in
 time series anomaly detection"*.
 
+![Aggregated point-wise anomaly score over a sequence-anomaly](assets/heatmap_example.png)
+
+*UCR series 111: a point-dense sequence-anomaly (shaded), with the curve colored
+by the aggregated point-wise anomaly score (red = high). Reproduce heatmaps like
+this on any UCR series with `scripts/heatmap_from_scratch.py`.*
+
 The package separates the three granularities discussed in the paper — **data**,
 **models** and **metrics** — and provides:
 
@@ -60,7 +66,10 @@ granularity_tsad/
 │   ├── 2_compute_metrics.py       # scores -> f1_point/f1_seq/f1_pak/f1_wpak CSVs
 │   ├── 3_generate_figures.py      # dendrogram, profiles, boxplots, bayesian (Fig 6-12)
 │   └── heatmap_from_scratch.py    # single-series heatmap end to end
-├── MyAlgo/                        # custom EasyTSAD detector wrappers
+├── lib/                           # vendored deps + custom detectors
+│   ├── EasyTSAD/                  # EasyTSAD benchmark (GPL-3.0)
+│   ├── tsadalia/                  # tsdalia models (MIT)
+│   └── MyAlgo/                    # custom EasyTSAD detector wrappers (MIT)
 └── data/                          # raw UCR data + cached metrics (gitignored)
 ```
 
@@ -106,11 +115,11 @@ score arrays and intermediate pickles are gitignored.
 
 ## Licensing
 
-This project's own code — the `granularity_tsad` package, the `MyAlgo`
-detector wrappers and the `scripts/` — is released under the **MIT License**
+This project's own code — the `granularity_tsad` package, the `scripts/`, and
+the `lib/MyAlgo` detector wrappers — is released under the **MIT License**
 (see `LICENSE`).
 
-The `lib/` directory bundles third-party libraries, each kept under its own
+The rest of `lib/` bundles third-party libraries, each kept under its own
 license:
 
 * `lib/EasyTSAD` — the EasyTSAD benchmark, licensed **GPL-3.0**
