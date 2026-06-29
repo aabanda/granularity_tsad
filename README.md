@@ -111,7 +111,7 @@ using `prts.ts_fscore` with the package default parameters.
 ## Data
 
 All datasets used in this work are public and come from the **UCR Time Series
-Anomaly Detection** archive[^keogh], available at
+Anomaly Detection** archive, available at
 <https://www.cs.ucr.edu/~eamonn/time_series_data_2018/>.
 
 The series are bundled in this repository under
@@ -162,7 +162,7 @@ If you find this work useful, please cite the paper:
 
 </details>
 
-## Licensing
+<!-- ## Licensing
 
 This project's own code — the `granularity_tsad` package, the `scripts/`, and
 the `lib/MyAlgo` detector wrappers — is released under the **MIT License**
@@ -186,4 +186,4 @@ this repository, keep each bundled library under its original license.
 
 [1] Keogh, E., Taposh, D.R., Naik, U., Agrawal, A.: Multi-dataset time-series
 anomaly detection competition. In: ACM SIGKDD International Conference on
-Knowledge Discovery and Data Mining, vol. 29 (2021)
+Knowledge Discovery and Data Mining, vol. 29 (2021) -->
