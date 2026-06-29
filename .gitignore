@@ -10,7 +10,7 @@ dist/
 .eggs/
 
 # Raw data, detector scores and intermediate caches (large / regenerable)
-data/
+
 Results/
 *.npy
 *.npz
