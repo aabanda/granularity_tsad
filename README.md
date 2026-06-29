@@ -146,7 +146,7 @@ If you use these datasets, please cite the original source:
 If you find this work useful, please cite the paper:
 
 > Abanda, A., Oregi, I., Del Ser, J. *Granularity misalignments in time series
-> anomaly detection.* Data Mining and Knowledge Discovery (2026).
+> anomaly detection. (2026).
 
 <details>
 <summary>BibTeX</summary>
