@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "granularity_tsad"
+version = "0.1.0"
+description = "Granularity-aware evaluation for time-series anomaly detection"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.23",
+    "pandas>=1.5",
+    "scipy>=1.9",
+    "scikit-learn>=1.2",
+    "matplotlib>=3.6",
+    "seaborn>=0.12",
+    "pyyaml>=6.0",
+    "tadpak>=0.1.0",
+    "baycomp>=1.0.2",
+    "prts>=1.0.0.3",
+]
+
+[tool.setuptools.packages.find]
+include = ["granularity_tsad*"]

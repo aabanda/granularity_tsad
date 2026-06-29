@@ -1,0 +1,28 @@
+numpy>=1.23
+pandas>=1.5
+scipy>=1.9
+scikit-learn>=1.2
+matplotlib>=3.6
+seaborn>=0.12
+pyyaml>=6.0
+tadpak>=0.1.0
+baycomp>=1.0.2
+prts>=1.0.0.3
+
+# --- Optional: only needed to RUN detectors from scratch ---
+# (scripts/1_run_detectors.py and scripts/heatmap_from_scratch.py). The metrics
+# and figure pipeline (scripts 2 and 3) work from cached scores without these.
+#
+# EasyTSAD benchmark (built-in detectors). Install and make it importable, e.g.:
+#   pip install git+https://github.com/dawnvince/EasyTSAD.git
+#
+# Custom MyAlgo_* detector wrappers additionally need:
+#   torch            # MyAlgo_DM, MyAlgo_TAE
+#   pyod             # MyAlgo_ISOF (IForest), MyAlgo_CLOF (CBLOF)
+#   pyrcn            # MyAlgo_ESN (Echo State Network)
+#   transformers     # MyAlgo_DM, MyAlgo_TAE (LR scheduler)
+#   tqdm             # MyAlgo_DM, MyAlgo_TAE
+#   tsdalia          # TECNALIA models for MyAlgo_DM / MyAlgo_TAE; install with:
+#                    #   pip install -e <path>/tsadalia
+# The MyAlgo imports resolve either the installed packages (EasyTSAD, tsdalia)
+# or a vendored "lib." layout (lib.EasyTSAD.EasyTSAD, lib.tsadalia.tsdalia).

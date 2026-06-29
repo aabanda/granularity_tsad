@@ -1,0 +1,44 @@
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Raw data, detector scores and intermediate caches (large / regenerable)
+data/
+Results/
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.zip
+
+# Generated figures (keep the folder, drop the artifacts)
+figures/*
+!figures/.gitkeep
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Vendored third-party libraries (lib/EasyTSAD, lib/tsadalia): committed as
+# source, but exclude their virtualenvs, caches and nested git metadata.
+# Licensing: lib/EasyTSAD is GPL-3.0, lib/tsadalia is MIT (see README.md).
+lib/**/venv/
+lib/**/.venv/
+lib/**/__pycache__/
+lib/**/*.egg-info/
+lib/**/.git/
+lib/**/.vscode/
+lib/EasyTSAD/Mkdocs/site/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store

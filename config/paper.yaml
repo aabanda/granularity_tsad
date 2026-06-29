@@ -1,0 +1,49 @@
+# Configuration for the granularity_tsad package.
+# Reproduces "Granularity misalignments in time series anomaly detection".
+# Uses the UCR Time Series Anomaly Archive.
+
+dataset:
+  name: UCR
+  type: UTS
+  data_dir: data
+  # Keep only sequence-anomalies: drop the 3 single-point and 17 two-point series
+  # (20 in total), leaving the 230 sequence-anomalies used in the paper (Section 3.1).
+  exclude_point_anomalies: true
+  min_anomaly_length: 2   # anomaly length = end - start; len<=1 are point-anomalies
+
+benchmark:
+  training_schema: naive
+  preprocess: min-max
+  results_dir: Results            # <workspace>/Results/Scores/<method>/<schema>/<dataset>/<curve>.npy
+
+# Detectors (EasyTSAD built-ins + custom MyAlgo wrappers).
+methods:
+  point_wise:
+    - AE
+    - FCVAE
+    - EncDecAD
+    - Donut
+    - SRCNN
+    - LSTMADalpha
+    - LSTMADbeta
+    - TimesNet
+    - FITS
+    - MyAlgo_DM
+    - MyAlgo_TAE
+    - MyAlgo_ESN
+    - MyAlgo_CLOF
+    - MyAlgo_ISOF
+  sequence_wise:
+    - SubLOF
+    - SubOCSVM
+    - SAND
+    - MatrixProfile
+
+metrics:
+  # Logarithmic k-grid used for the PAK curves (paper Section 3).
+  pak_k_values: [0, 1, 2, 3, 5, 6, 8, 11, 15, 19, 25, 33, 44, 58, 76, 100]
+  wpak_weight: "1/k"
+  bayesian_rope: 0.025
+
+figures:
+  output_dir: figures
