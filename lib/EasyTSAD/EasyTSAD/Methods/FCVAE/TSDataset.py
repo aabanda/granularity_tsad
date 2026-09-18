@@ -23,7 +23,7 @@ def point_ano(x, y, z, rate):
         ano_noise2 = torch.randint(
             low=-20, high=-1, size=(aug_size - int(aug_size / 2),)
         )
-        ano_noise = (torch.cat((ano_noise1, ano_noise2), dim=0) / 2).to("cuda")
+        ano_noise = (torch.cat((ano_noise1, ano_noise2), dim=0) / 2).to(x.device)
         x_aug[:, 0, -1] += ano_noise
         y_aug[:, -1] = torch.logical_or(y_aug[:, -1], torch.ones_like(y_aug[:, -1]))
     return x_aug, y_aug, z_aug

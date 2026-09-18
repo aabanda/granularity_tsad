@@ -4,6 +4,7 @@ from .bayesian import (
     compare_against_all,
     compare_two,
     group_paired_scores,
+    plot_point_vs_seq_grid,
     point_vs_seq,
     point_vs_seq_by_cluster,
     rope_from_mad,
@@ -13,12 +14,19 @@ from .dendrogram import plot_dendrogram
 from .heatmap import plot_cluster_heatmaps, plot_score_heatmap
 from .pak_curves import plot_pak_curves, plot_wpak_weighting
 from .profiles import plot_profiles_by_cluster
-from .style import CLUSTER_COLORS, SCORE_CMAP, set_paper_style, style_axes
+from .style import (
+    CLUSTER_COLORS,
+    CLUSTER_DISPLAY_ORDER,
+    SCORE_CMAP,
+    set_paper_style,
+    style_axes,
+)
 
 __all__ = [
     "set_paper_style",
     "style_axes",
     "CLUSTER_COLORS",
+    "CLUSTER_DISPLAY_ORDER",
     "SCORE_CMAP",
     "plot_score_heatmap",
     "plot_cluster_heatmaps",
@@ -33,5 +41,6 @@ __all__ = [
     "rope_from_mad",
     "point_vs_seq",
     "point_vs_seq_by_cluster",
+    "plot_point_vs_seq_grid",
     "plot_dendrogram",
 ]

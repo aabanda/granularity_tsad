@@ -9,9 +9,10 @@ dist/
 *.egg-info/
 .eggs/
 
-# Raw data, detector scores and intermediate caches (large / regenerable)
-
+# Raw data, detector scores and intermediate caches (large / regenerable).
+# Keep data/synthetic_rho/*.txt (sources); ignore EasyTSAD-converted UTS/.
 Results/
+data/UTS/
 *.npy
 *.npz
 *.pkl
@@ -21,6 +22,7 @@ Results/
 # Generated figures (keep the folder, drop the artifacts)
 figures/*
 !figures/.gitkeep
+!figures/seriejavi_scores/
 
 # Virtual environments
 .venv/

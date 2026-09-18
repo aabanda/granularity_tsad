@@ -41,9 +41,8 @@ from granularity_tsad.data import (  # noqa: E402
 from granularity_tsad.plots import (  # noqa: E402
     plot_dendrogram,
     plot_metric_comparison_by_density,
+    plot_point_vs_seq_grid,
     plot_profiles_by_cluster,
-    point_vs_seq,
-    point_vs_seq_by_cluster,
     set_paper_style,
 )
 
@@ -67,34 +66,17 @@ def _bayesian_figures(
     fig_dir: Path,
     tag: str,
 ) -> None:
-    """Save per-(metric, cluster) simplex plots and a combined summary table."""
-    summaries = []
-    for metric_name, table in metric_tables.items():
-        summary = point_vs_seq_by_cluster(
-            table.dropna(how="all"), point_methods, seq_methods, cluster_names
-        )
-        if summary.empty:
-            continue
-        summary.insert(0, "Metric", metric_name)
-        summaries.append(summary)
-
-        aligned = cluster_names.reindex(table.index)
-        rope = float(summary["rope"].iloc[0])
-        for cluster in summary["Cluster"]:
-            sub = table.loc[aligned.index[aligned == cluster]]
-            probs, fig, _ = point_vs_seq(
-                sub, point_methods, seq_methods, rope=rope, plot=True
-            )
-            if fig is None:
-                continue
-            safe = f"{metric_name}_{cluster}".replace(" ", "_").replace("/", "-")
-            fig.savefig(fig_dir / f"bayesian_{safe}.pdf")
-            plt.close(fig)
-
-    if summaries:
-        out = pd.concat(summaries, ignore_index=True)
-        out.to_csv(fig_dir / f"bayesian_{tag}.csv", index=False)
-        print(f"Saved bayesian_{tag}.csv ({len(out)} rows)")
+    """Save one unified Bayesian grid (rows=metrics, cols=clusters) + CSV."""
+    fig, summary = plot_point_vs_seq_grid(
+        metric_tables, point_methods, seq_methods, cluster_names
+    )
+    fig.savefig(fig_dir / f"bayesian_{tag}.pdf")
+    plt.close(fig)
+    if not summary.empty:
+        summary.to_csv(fig_dir / f"bayesian_{tag}.csv", index=False)
+        print(f"Saved bayesian_{tag}.pdf / .csv ({len(summary)} cells)")
+    else:
+        print(f"No Bayesian cells for tag={tag}")
 
 
 def main() -> None:
@@ -107,24 +89,40 @@ def main() -> None:
     set_paper_style()
     fig_dir = cfg.figures_dir
     fig_dir.mkdir(parents=True, exist_ok=True)
-    metrics_dir = cfg.data_dir / "metrics"
+    metrics_dir = cfg.repo_root / "data" / "metrics"
+    if not metrics_dir.exists():
+        metrics_dir = cfg.data_dir / "metrics"
     ucr_dir = cfg.data_dir / "raw" / "UCR_Anomaly_FullData"
     if not ucr_dir.exists():
         print(f"UCR data not found at {ucr_dir}. See the 'Data' section in README.md.")
         return
     methods = args.methods or cfg.all_methods
-    point_methods = cfg.methods_point_wise
+    point_methods_cluster = cfg.point_methods_for_clustering
+    point_methods_analysis = cfg.point_methods_for_analysis
     seq_methods = cfg.methods_sequence_wise
+    mode = "split" if cfg.split_point_wise else "all point_wise"
+    print(
+        f"Method mode: {mode}\n"
+        f"  clustering ({len(point_methods_cluster)}): {point_methods_cluster}\n"
+        f"  analysis   ({len(point_methods_analysis)}): {point_methods_analysis}"
+    )
 
     # --- Detectability profiles -> clustering (Fig 6 & 7) ---
     anomaly_df = cfg.filter_sequence_anomalies(build_anomaly_df(ucr_dir))
     datasets = anomaly_df.index.tolist()
     targets = build_binary_targets(anomaly_df)
     df_scores = load_scores(
-        cfg.results_dir / "Scores", point_methods, datasets, schema=cfg.training_schema
+        cfg.results_dir / "Scores",
+        point_methods_cluster,
+        datasets,
+        schema=cfg.training_schema,
     )
-    frames = compute_pak_curve_frames(df_scores, targets, point_methods, cfg.k_values or None)
-    profiles = build_profiles(frames["precision"], frames["recall"], point_methods)
+    frames = compute_pak_curve_frames(
+        df_scores, targets, point_methods_cluster, cfg.k_values or None
+    )
+    profiles = build_profiles(
+        frames["precision"], frames["recall"], point_methods_cluster
+    )
 
     cluster_names = pd.Series(dtype=object)
     if not profiles.empty:
@@ -165,19 +163,29 @@ def main() -> None:
     # --- Boxplots of metrics by anomaly cluster (Fig 9) ---
     group = cluster_names.reindex(next(iter(metric_tables.values())).index)
     fig = plot_metric_comparison_by_density(
-        metric_tables, group, group_name="Anomaly cluster", algorithm_order=point_methods
+        metric_tables,
+        group,
+        group_name="Anomaly cluster",
+        algorithm_order=point_methods_analysis,
     )
     fig.savefig(fig_dir / "metrics_by_cluster.pdf")
     plt.close(fig)
     print("Saved metrics_by_cluster.pdf (Fig 9)")
 
     # --- Bayesian point-wise vs sequence-wise by cluster (Fig 10) ---
-    _bayesian_figures(metric_tables, point_methods, seq_methods, cluster_names, fig_dir, "pak")
+    _bayesian_figures(
+        metric_tables, point_methods_analysis, seq_methods, cluster_names, fig_dir, "pak"
+    )
 
     # --- Same comparison under wF1_PAK (Fig 12) ---
     if wpak_table is not None:
         _bayesian_figures(
-            {wpak_name: wpak_table}, point_methods, seq_methods, cluster_names, fig_dir, "wpak"
+            {wpak_name: wpak_table},
+            point_methods_analysis,
+            seq_methods,
+            cluster_names,
+            fig_dir,
+            "wpak",
         )
 
     print("Figures written to", fig_dir)

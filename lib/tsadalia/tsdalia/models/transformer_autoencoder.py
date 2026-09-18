@@ -49,7 +49,7 @@ class Transformer_Autoencoder(nn.Module):  # TransformerBasicBottleneckScaling f
 
 
 def backprop(epoch: int, model: any, data: torch.Tensor, optimizer, scheduler, training: bool = True,
-             device: str = 'cuda', dims: int = 1, batch_size: int = 256, window_size: int = 100,
+             device: str = 'cpu', dims: int = 1, batch_size: int = 256, window_size: int = 100,
              noise_steps: int = 100,
              denoise_steps: int = 50,
              diff_lambda: float = 0.1, 

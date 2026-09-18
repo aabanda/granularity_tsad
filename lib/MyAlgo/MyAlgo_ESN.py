@@ -1,6 +1,18 @@
-from ._compat import BaseMethod, TSData
+from ._compat import BaseMethod, TSData, pick_torch_device
 import numpy as np
 import torch
+
+# pyrcn is incompatible with scikit-learn >= 1.4 (removed private helper).
+# Provide a minimal shim so ESNRegressor can still import.
+import sklearn.utils.validation as _sk_validation
+
+if not hasattr(_sk_validation, "_check_fit_params"):
+
+    def _check_fit_params(X, params, indices=None):  # noqa: N802
+        return params
+
+    _sk_validation._check_fit_params = _check_fit_params
+
 from pyrcn.echo_state_network import ESNRegressor
 
 
@@ -12,17 +24,12 @@ class MyAlgo_ESN(BaseMethod):
         self.score_train = None
         self.y_hat_train = None
 
-        self.cuda = True
-        if self.cuda == True and torch.cuda.is_available():
-            self.device = torch.device("cuda")
-            print("=== Using CUDA ===")
-        else:
-            if self.cuda == True and not torch.cuda.is_available():
-                print("=== CUDA is unavailable ===")
-            self.device = torch.device("cpu")
-            print("=== Using CPU ===")
-            
-        self.p = params["window_size"]
+        self.device = pick_torch_device()
+        self.cuda = self.device.type == "cuda"
+        print(f"=== Using {self.device.type.upper()} ===")
+
+        params = params or {}
+        self.p = int(params.get("window_size", 100))
 
         
     def train_valid_phase(self, tsTrain: TSData):

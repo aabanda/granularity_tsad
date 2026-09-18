@@ -6,8 +6,13 @@ Wraps :func:`baycomp.two_on_multiple` to produce the posterior over
 
 from __future__ import annotations
 
+import io
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+
+from ..clustering import CLUSTER_DISPLAY_ORDER
 
 
 def _two_on_multiple():
@@ -111,6 +116,13 @@ def point_vs_seq(
     return probs, fig, r
 
 
+def _cluster_order(cluster_names: pd.Series) -> list[str]:
+    present = set(cluster_names.dropna().unique())
+    ordered = [c for c in CLUSTER_DISPLAY_ORDER if c in present]
+    extras = sorted(present - set(ordered))
+    return ordered + extras
+
+
 def point_vs_seq_by_cluster(
     metric_df: pd.DataFrame,
     point_methods: list[str],
@@ -128,7 +140,7 @@ def point_vs_seq_by_cluster(
     if rope is None:
         rope = rope_from_mad(group_paired_scores(metric_df, point_methods, seq_methods))
     rows = []
-    for name in pd.unique(aligned.dropna()):
+    for name in _cluster_order(aligned):
         sub = metric_df.loc[aligned.index[aligned == name]]
         probs, _, _ = point_vs_seq(
             sub, point_methods, seq_methods, rope=rope, plot=False
@@ -146,6 +158,77 @@ def point_vs_seq_by_cluster(
             }
         )
     return pd.DataFrame(rows)
+
+
+def plot_point_vs_seq_grid(
+    metric_tables: dict[str, pd.DataFrame],
+    point_methods: list[str],
+    seq_methods: list[str],
+    cluster_names: pd.Series,
+    cluster_order: list[str] | None = None,
+) -> tuple[plt.Figure, pd.DataFrame]:
+    """Unified Bayesian grid: rows = metrics, columns = clusters.
+
+    Each cell is the point-wise vs sequence-wise simplex for that
+    (metric, cluster). Returns ``(figure, summary_table)``.
+    """
+    metrics = list(metric_tables.keys())
+    clusters = cluster_order or _cluster_order(cluster_names)
+    n_rows, n_cols = len(metrics), len(clusters)
+    fig, axs = plt.subplots(
+        n_rows,
+        n_cols,
+        figsize=(3.6 * max(n_cols, 1), 3.4 * max(n_rows, 1)),
+        squeeze=False,
+    )
+    summaries = []
+
+    for i, metric_name in enumerate(metrics):
+        table = metric_tables[metric_name].dropna(how="all")
+        aligned = cluster_names.reindex(table.index)
+        rope = rope_from_mad(group_paired_scores(table, point_methods, seq_methods))
+        for j, cluster in enumerate(clusters):
+            ax = axs[i, j]
+            sub = table.loc[aligned.index[aligned == cluster]]
+            probs, subfig, used_rope = point_vs_seq(
+                sub, point_methods, seq_methods, rope=rope, plot=True
+            )
+            if i == 0:
+                ax.set_title(cluster, fontsize=12)
+            if j == 0:
+                ax.set_ylabel(metric_name, fontsize=12)
+            if probs is None or subfig is None:
+                ax.set_axis_off()
+                ax.text(
+                    0.5, 0.5, "n/a", ha="center", va="center", transform=ax.transAxes
+                )
+                if subfig is not None:
+                    plt.close(subfig)
+                continue
+            buf = io.BytesIO()
+            subfig.savefig(buf, format="png", dpi=160, bbox_inches="tight")
+            plt.close(subfig)
+            buf.seek(0)
+            img = plt.imread(buf)
+            ax.imshow(img)
+            ax.set_xticks([])
+            ax.set_yticks([])
+            for spine in ax.spines.values():
+                spine.set_visible(False)
+            p_point, p_rope, p_seq = probs
+            summaries.append(
+                {
+                    "Metric": metric_name,
+                    "Cluster": cluster,
+                    "P(point better)": p_point,
+                    "P(rope)": p_rope,
+                    "P(sequence better)": p_seq,
+                    "rope": used_rope,
+                }
+            )
+
+    fig.tight_layout()
+    return fig, pd.DataFrame(summaries)
 
 
 def compare_against_all(

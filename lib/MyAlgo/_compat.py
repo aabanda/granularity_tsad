@@ -57,3 +57,40 @@ _methods = easytsad("Methods")
 BaseMethod = _methods.BaseMethod
 TSData = _methods.TSData
 BaseMethodMeta = _methods.BaseMethodMeta
+
+
+def pick_torch_device():
+    """Return a usable torch device; never raise on broken CUDA drivers."""
+    import torch
+
+    # Some hosts report a CUDA driver error inside ``is_available()`` itself
+    # (e.g. Error 304). Patch once so the rest of the stack stays on CPU.
+    if not getattr(torch.cuda, "_granularity_safe_is_available", False):
+        _orig = torch.cuda.is_available
+
+        def _safe_is_available() -> bool:
+            try:
+                return bool(_orig())
+            except Exception:
+                return False
+
+        torch.cuda.is_available = _safe_is_available  # type: ignore[method-assign]
+        torch.cuda._granularity_safe_is_available = True
+
+    try:
+        if torch.cuda.is_available():
+            return torch.device("cuda")
+    except Exception:
+        pass
+    return torch.device("cpu")
+
+
+def pick_torch_device_str() -> str:
+    return "cuda" if pick_torch_device().type == "cuda" else "cpu"
+
+
+# Apply the CUDA safety patch as soon as this shim is imported.
+try:
+    pick_torch_device()
+except Exception:
+    pass

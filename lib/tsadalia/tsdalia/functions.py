@@ -32,7 +32,7 @@ def load_model(
     window_size: int = 100,
     dims: int = 1,
     batch_size: int = 128,
-    device: str = "cuda",
+    device: str = "cpu",
     params_specific: dict = None,
     diffusion_training_net=None,
 ):

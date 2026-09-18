@@ -1,4 +1,4 @@
-from ._compat import BaseMethod, TSData, tsdalia
+from ._compat import BaseMethod, TSData, tsdalia, pick_torch_device_str
 import numpy as np
 import torch
 from torch.utils.data import DataLoader
@@ -40,7 +40,7 @@ class MyAlgo_DM(BaseMethod):
         self.params_specific: dict = None
         self.score_train = None
         self.model_name = "diffusion"
-        self.device = "cuda"
+        self.device = pick_torch_device_str()
         self.y_hat_train = None
 
         self.params_specific = {
@@ -107,7 +107,8 @@ class MyAlgo_DM(BaseMethod):
                 training=True,
                 dims=self.ts_dims,
                 batch_size=self.batch_size,
-                window_size=self.window_size,            
+                window_size=self.window_size,
+                device=self.device,
                 diffusion_training_net=self.diffusion_training_net,
                 **self.params_specific,
             )
@@ -123,6 +124,7 @@ class MyAlgo_DM(BaseMethod):
             dims=self.ts_dims,
             batch_size=self.batch_size,
             window_size=self.window_size,
+            device=self.device,
             diffusion_training_net=self.diffusion_training_net,
             **self.params_specific,
         )
@@ -166,6 +168,7 @@ class MyAlgo_DM(BaseMethod):
             dims=self.ts_dims,
             batch_size=self.batch_size,
             window_size=self.window_size,
+            device=self.device,
             diffusion_training_net=self.diffusion_training_net,
             **self.params_specific,
         )

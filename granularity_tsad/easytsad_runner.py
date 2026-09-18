@@ -18,14 +18,19 @@ import numpy as np
 
 
 def _import_controller():
+    errors: list[str] = []
     for module in ("EasyTSAD.Controller", "lib.EasyTSAD.EasyTSAD.Controller"):
         try:
             return importlib.import_module(module).TSADController
-        except ImportError:
+        except ImportError as exc:
+            errors.append(f"{module}: {exc}")
             continue
+    details = "\n".join(f"  - {e}" for e in errors)
     raise ImportError(
-        "Could not import EasyTSAD. Install it or make `EasyTSAD` importable "
-        "(e.g. add the EasyTSAD checkout to PYTHONPATH)."
+        "Could not import EasyTSAD. Tried pip package and vendored lib/.\n"
+        f"{details}\n"
+        "Use the project venv (.venv/bin/python) — system Python often lacks "
+        "deps like `toml`. Or: pip install -e lib/EasyTSAD"
     )
 
 
@@ -42,21 +47,40 @@ def _import_methods(method_names: list[str]) -> None:
         try:
             builtins_mod = importlib.import_module(module)
             break
-        except ImportError:
+        except ImportError as exc:
+            print(f"[WARN] Could not import {module}: {exc}")
             continue
     if builtins_mod is None:
         raise ImportError("Could not import EasyTSAD.Methods.")
 
+    registry = getattr(
+        getattr(builtins_mod, "BaseMethodMeta", None), "registry", {}
+    )
+
     for name in method_names:
-        if name in getattr(builtins_mod, "__dict__", {}):
+        if name in getattr(builtins_mod, "__dict__", {}) or name in registry:
             continue
+        # Built-in not re-exported from Methods/__init__.py — import the module.
         # Custom detectors: importing the module triggers metaclass registration.
-        for module in (f"lib.MyAlgo.{name}", f"MyAlgo.{name}", name):
+        candidates = [
+            f"lib.EasyTSAD.EasyTSAD.Methods.{name}.{name}",
+            f"EasyTSAD.Methods.{name}.{name}",
+            f"lib.MyAlgo.{name}",
+            f"MyAlgo.{name}",
+            name,
+        ]
+        loaded = False
+        last_err: Exception | None = None
+        for module in candidates:
             try:
                 importlib.import_module(module)
+                loaded = True
                 break
-            except ImportError:
+            except ImportError as exc:
+                last_err = exc
                 continue
+        if not loaded:
+            print(f"[WARN] Could not import detector {name}: {last_err}")
 
 
 class EasyTSADRunner:
@@ -77,8 +101,21 @@ class EasyTSADRunner:
         self.preprocess = preprocess
         self._controller_cls = _import_controller()
 
-    def run(self, methods: list[str], curves: list[str], replace: bool = True) -> None:
-        """Run the given detectors on the specified UCR curve(s)."""
+    def run(
+        self,
+        methods: list[str],
+        curves: list[str],
+        replace: bool = True,
+        *,
+        continue_on_error: bool = True,
+    ) -> list[str]:
+        """Run the given detectors on the specified curve(s).
+
+        Returns
+        -------
+        failed
+            Method names that raised during ``run_exps`` (empty if all succeeded).
+        """
         gctrl = self._controller_cls()
         gctrl.set_dataset(
             dataset_type="UTS",
@@ -89,13 +126,21 @@ class EasyTSADRunner:
         )
         # Ensure the method classes are importable even if not auto-registered.
         _import_methods(methods)
+        failed: list[str] = []
         for method in methods:
-            gctrl.run_exps(
-                method=method,
-                training_schema=self.training_schema,
-                replace=replace,
-                preprocess=self.preprocess,
-            )
+            try:
+                gctrl.run_exps(
+                    method=method,
+                    training_schema=self.training_schema,
+                    replace=replace,
+                    preprocess=self.preprocess,
+                )
+            except Exception as exc:
+                failed.append(method)
+                print(f"[WARN] Method {method} failed: {exc}")
+                if not continue_on_error:
+                    raise
+        return failed
 
     def score_path(self, method: str, curve: str) -> Path:
         return (

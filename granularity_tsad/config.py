@@ -11,21 +11,21 @@ import yaml
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONFIG = REPO_ROOT / "config" / "paper.yaml"
 
-# Point-wise detectors aggregated to build point-detectability profiles
-# (paper Section 3.2). Order matters only for reproducibility of aggregations.
+# Point-wise detectors used to build point-detectability profiles
+# (paper Section 3.2 / main_paper ``alg_list_pred``). Overridden by config.
 DEFAULT_POINTWISE_METHODS: list[str] = [
-    "MyAlgo_ESN",
-    "LSTMADbeta",
-    "LSTMADalpha",
-    "MyAlgo_TAE",
-    "FITS",
-    "MyAlgo_DM",
-    "EncDecAD",
-    "FCVAE",
-    "TimesNet",
     "AE",
+    "FCVAE",
+    "EncDecAD",
     "Donut",
     "SRCNN",
+    "MyAlgo_DM",
+    "MyAlgo_TAE",
+    "LSTMADalpha",
+    "LSTMADbeta",
+    "TimesNet",
+    "FITS",
+    "MyAlgo_ESN",
 ]
 
 
@@ -36,7 +36,10 @@ class PaperConfig:
     results_dir: Path
     figures_dir: Path
     methods_point_wise: list[str] = field(default_factory=list)
+    methods_point_wise_for_clustering: list[str] = field(default_factory=list)
+    methods_point_wise_for_analysis: list[str] = field(default_factory=list)
     methods_sequence_wise: list[str] = field(default_factory=list)
+    split_point_wise: bool = True
     training_schema: str = "naive"
     preprocess: str = "min-max"
     k_values: list[int] = field(default_factory=list)
@@ -46,7 +49,30 @@ class PaperConfig:
 
     @property
     def all_methods(self) -> list[str]:
-        return self.methods_point_wise + self.methods_sequence_wise
+        seen: list[str] = []
+        for name in (
+            self.methods_point_wise
+            + self.methods_point_wise_for_clustering
+            + self.methods_point_wise_for_analysis
+            + self.methods_sequence_wise
+        ):
+            if name not in seen:
+                seen.append(name)
+        return seen
+
+    @property
+    def point_methods_for_clustering(self) -> list[str]:
+        """Detectors used to build profiles / clusters (Fig 6–7)."""
+        if self.split_point_wise:
+            return self.methods_point_wise_for_clustering or self.methods_point_wise
+        return self.methods_point_wise
+
+    @property
+    def point_methods_for_analysis(self) -> list[str]:
+        """Detectors used in boxplots / Bayesian P-vs-S (Fig 9–12)."""
+        if self.split_point_wise:
+            return self.methods_point_wise_for_analysis or self.methods_point_wise
+        return self.methods_point_wise
 
     def filter_sequence_anomalies(self, anomaly_df):
         """Drop point-anomaly series (paper Section 3.1) when configured.
@@ -72,13 +98,34 @@ def load_config(path: Path | None = None) -> PaperConfig:
     figures = raw.get("figures", {})
     metrics = raw.get("metrics", {})
 
+    point_wise = list(methods.get("point_wise", []))
+    for_clustering = list(
+        methods.get("point_wise_for_clustering", point_wise or DEFAULT_POINTWISE_METHODS)
+    )
+    for_analysis = list(methods.get("point_wise_for_analysis", point_wise))
+    if not point_wise:
+        # Keep legacy ``point_wise`` as the ordered union of the two splits.
+        seen: list[str] = []
+        for name in for_clustering + for_analysis:
+            if name not in seen:
+                seen.append(name)
+        point_wise = seen
+    split_point_wise = bool(methods.get("split_point_wise", True))
+
+    def _resolve(path_value: str | Path, default: str) -> Path:
+        path = Path(path_value if path_value is not None else default)
+        return path if path.is_absolute() else (REPO_ROOT / path)
+
     return PaperConfig(
         repo_root=REPO_ROOT,
-        data_dir=REPO_ROOT / dataset.get("data_dir", "data"),
-        results_dir=REPO_ROOT / benchmark.get("results_dir", "Results"),
-        figures_dir=REPO_ROOT / figures.get("output_dir", "figures"),
-        methods_point_wise=list(methods.get("point_wise", [])),
+        data_dir=_resolve(dataset.get("data_dir", "data"), "data"),
+        results_dir=_resolve(benchmark.get("results_dir", "Results"), "Results"),
+        figures_dir=_resolve(figures.get("output_dir", "figures"), "figures"),
+        methods_point_wise=point_wise,
+        methods_point_wise_for_clustering=for_clustering,
+        methods_point_wise_for_analysis=for_analysis,
         methods_sequence_wise=list(methods.get("sequence_wise", [])),
+        split_point_wise=split_point_wise,
         training_schema=benchmark.get("training_schema", "naive"),
         preprocess=benchmark.get("preprocess", "min-max"),
         k_values=list(metrics.get("pak_k_values", [])),

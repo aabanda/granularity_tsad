@@ -5,11 +5,26 @@
 dataset:
   name: UCR
   type: UTS
-  data_dir: data
+  # Parent of UTS/ (EasyTSAD) and raw/UCR_Anomaly_FullData (metrics).
+  # Absolute paths are supported; relative paths are resolved from the repo root.
+  data_dir: /home/110646@TRI.LAN/PycharmProjects/tsad/data
   # Keep only sequence-anomalies: drop the 3 single-point and 17 two-point series
   # (20 in total), leaving the 230 sequence-anomalies used in the paper (Section 3.1).
   exclude_point_anomalies: true
   min_anomaly_length: 2   # anomaly length = end - start; len<=1 are point-anomalies
+
+# Custom series outside UCR (plain .txt → EasyTSAD .npy → detector scores):
+#   data/synthetic_rho/  ->  python scripts/0_run_synthetic_rho.py
+#   data/seriejavi/      ->  python scripts/run_seriejavi.py
+# Filename: <curve_id>_<train_index>_<anomaly_start>_<anomaly_end>.txt
+# Scores: Results/Scores/<method>/naive/<dataset>/<curve_id>.npy
+synthetic_rho:
+  source_dir: data/synthetic_rho
+  dataset_name: synthetic_rho
+
+seriejavi:
+  source_dir: data/seriejavi
+  dataset_name: seriejavi
 
 benchmark:
   training_schema: naive
@@ -17,22 +32,49 @@ benchmark:
   results_dir: Results            # <workspace>/Results/Scores/<method>/<schema>/<dataset>/<curve>.npy
 
 # Detectors (EasyTSAD built-ins + custom MyAlgo wrappers).
+# Canonical point-wise set used for detectability profiles in the paper
+# (main_paper.py ``alg_list_pred``): 12 methods — CLOF/ISOF are optional extras.
+#   AE, FCVAE, EncDecAD, Donut, SRCNN, DM, TAE,
+#   LSTMADα, LSTMADβ, TimesNet, FITS, ESN  (+ CLOF, ISOF)
+# Behaviour-paired 7/7 split when ``split_point_wise: true``.
 methods:
+  # If true: clustering uses point_wise_for_clustering and analysis uses
+  # point_wise_for_analysis (held-out split). If false: both use point_wise.
+  split_point_wise: false
+  # Fig 6–7: point-detectability profiles + hierarchical clustering.
+  point_wise_for_clustering:
+    - AE
+    - FCVAE
+    - EncDecAD
+    - Donut
+    - SRCNN
+    - MyAlgo_DM
+    - MyAlgo_TAE
+  # Fig 9–10 / 12: boxplots + Bayesian point-vs-sequence comparisons.
+  point_wise_for_analysis:
+    - LSTMADalpha
+    - LSTMADbeta
+    - TimesNet
+    - FITS
+    - MyAlgo_ESN
+    - MyAlgo_CLOF
+    - MyAlgo_ISOF
+  # Union / all-methods mode. Default = paper ``alg_list_pred`` (12 methods).
+  # CLOF/ISOF were NOT in the original dendrogram; keep them in the analysis
+  # split list only, or add them here if you intentionally want them in profiles.
   point_wise:
     - AE
     - FCVAE
     - EncDecAD
     - Donut
     - SRCNN
+    - MyAlgo_DM
+    - MyAlgo_TAE
     - LSTMADalpha
     - LSTMADbeta
     - TimesNet
     - FITS
-    - MyAlgo_DM
-    - MyAlgo_TAE
     - MyAlgo_ESN
-    - MyAlgo_CLOF
-    - MyAlgo_ISOF
   sequence_wise:
     - SubLOF
     - SubOCSVM
@@ -46,4 +88,6 @@ metrics:
   bayesian_rope: 0.025
 
 figures:
+  # Default (all-methods) figures land here; split-method runs go to figures/split/
+  # (and a copy of the all-methods set is kept under figures/all_methods/).
   output_dir: figures

@@ -13,6 +13,8 @@ import pandas as pd
 from sklearn.cluster import AgglomerativeClustering
 
 CLUSTER_NAMES = ["Point-sparse", "Point-normal", "Point-dense"]
+# Display order for all figures (dendrogram legend, profiles, metrics, Bayesian).
+CLUSTER_DISPLAY_ORDER = ["Point-dense", "Point-sparse", "Point-normal"]
 CLUSTER_COLORS = {
     "Point-sparse": "#2196F3",
     "Point-normal": "#4CAF50",

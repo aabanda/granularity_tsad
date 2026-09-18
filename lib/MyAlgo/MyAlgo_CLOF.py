@@ -1,4 +1,4 @@
-from ._compat import BaseMethod, TSData
+from ._compat import BaseMethod, TSData, pick_torch_device_str
 import numpy as np
 from pyod.models.cblof import CBLOF
 
@@ -10,7 +10,7 @@ class MyAlgo_CLOF(BaseMethod):
         super().__init__()
         self.__anomaly_score = None
         self.model_name = "CBLOF"
-        self.device = "cuda"
+        self.device = pick_torch_device_str()
         self.outliers_fraction = 0.05
         self.window_size = 100
         self.score_train = None

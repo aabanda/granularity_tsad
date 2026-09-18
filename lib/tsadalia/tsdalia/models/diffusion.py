@@ -43,7 +43,7 @@ class Diffusion_model(nn.Module):
 
         x = x.reshape(-1, 1, self.window_size, self.n_feats)
         if self.training:
-            t = torch.randint(0, self.timesteps, (x.shape[0],), device="cuda").long()
+            t = torch.randint(0, self.timesteps, (x.shape[0],), device=x.device).long()
             diffusion_loss = p_losses(self.denoise_fn, x, t)
         else:
             x_recon = sample(
@@ -178,7 +178,7 @@ def p_sample_loop(model, shape, x_start, denoise_steps):
     # device = next(model.parameters()).device
     # timesteps = 200
     timesteps = denoise_steps
-    device = "cuda"
+    device = next(model.parameters()).device
 
     b = shape[0]
     # start from pure noise (for each example in the batch)
@@ -243,7 +243,7 @@ class ConditionalDiffusionTrainingNetwork(nn.Module):
 
         x = x.reshape(-1, 1, self.window_size, self.nr_feats)
         if self.training:
-            t = torch.randint(0, self.timesteps, (x.shape[0],), device="cuda").long()
+            t = torch.randint(0, self.timesteps, (x.shape[0],), device=x.device).long()
             diffusion_loss = p_losses(self.denoise_fn, x, t)
         else:
             x_recon = sample(
@@ -270,7 +270,7 @@ def backprop(
     batch_size: int = 128,
     window_size: int = 100,
     training: bool = True,
-    device="cuda",
+    device="cpu",
     dims: int = 1,
     noise_steps: int = 100,
     denoise_steps: int = 50,

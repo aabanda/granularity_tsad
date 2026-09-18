@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from ..clustering import CLUSTER_COLORS, CLUSTER_NAMES
+from ..clustering import CLUSTER_COLORS, CLUSTER_DISPLAY_ORDER, CLUSTER_NAMES
 from .style import style_axes
 
 
@@ -32,9 +32,9 @@ def plot_profiles_by_cluster(
     cluster_names : per-series cluster name, indexed like ``profiles``.
     n_k : length ``K`` of each curve; defaults to ``profiles.shape[1] // 2`` and
         is used to draw the precision/recall divider.
-    order : cluster display order; defaults to :data:`CLUSTER_NAMES`.
+    order : cluster display order; defaults to :data:`CLUSTER_DISPLAY_ORDER`.
     """
-    names = order or [c for c in CLUSTER_NAMES if c in set(cluster_names)]
+    names = order or [c for c in CLUSTER_DISPLAY_ORDER if c in set(cluster_names)]
     if not names:
         names = list(pd.unique(cluster_names))
     n_features = profiles.shape[1]

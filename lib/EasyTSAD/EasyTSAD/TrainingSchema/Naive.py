@@ -26,8 +26,9 @@ class Naive(BaseSchema):
         
     def do_exp(self, tsDatas,replace, hparams=None):
         for dataset_name, value in tsDatas.items():
+            model_params = {}
             if "Model_Params" in self.cfg:
-                model_params = self.cfg["Model_Params"]["Default"]
+                model_params = dict(self.cfg["Model_Params"].get("Default", {}))
                 if dataset_name in self.cfg["Model_Params"]:
                     specific_params = self.cfg["Model_Params"][dataset_name]
                     for k, v in specific_params.items():
@@ -68,21 +69,9 @@ class Naive(BaseSchema):
                     self.test_timer.tic()
                     method.test_phase(curve)
                     self.test_timer.toc()
-                    
-                    # pd.DataFrame(method.reconstructed_sequence).to_csv(self.pm.get_yhat_path(self.method, self.schema, dataset_name, curve_name), index=False)
-                    # pd.DataFrame(method.y_hats).to_csv(self.pm.get_yhat_path(self.method, self.schema, dataset_name, curve_name), index=False)
-                    # pd.DataFrame(method.get_output()).to_csv(self.pm.get_yhat_path(self.method, self.schema, dataset_name, curve_name), index=False)
-                    # pd.DataFrame(method.get_y_hat()).to_csv(self.pm.get_yhat_path(self.method, self.schema, dataset_name, curve_name), index=False)
-                    # score = method.anomaly_score()
 
-                    # np.save(score_path, score)
-                    # a =np.load('/home/110646@TRI.LAN/PycharmProjects/tsad/Results/Scores/AE/naive/UCR/1.npy')
-                    # b =np.load('/home/110646@TRI.LAN/PycharmProjects/tsad/Results/Test_Scores/AE/naive/UCR/1.npy')
-                    # import matplotlib.pyplot as plt
-                    # plt.plot(a, label='a')
-                    # plt.plot(b, label='b')
-                    # plt.legend()
-                    
+                    score = method.anomaly_score()
+                    np.save(score_path, score)
                     
             # save running time info
             time_path = self.pm.get_rt_time_path(self.method, self.schema, dataset_name)

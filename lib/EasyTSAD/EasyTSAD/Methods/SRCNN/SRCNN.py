@@ -210,7 +210,7 @@ class SRCNN(BaseMethod):
             l2_reg = l2_reg + W.norm(2)
         kpiweight = torch.ones(lb.shape)
         kpiweight[lb == 1] = self.win_size // 100
-        kpiweight = kpiweight.cuda()
+        kpiweight = kpiweight.to(self.device)
         BCE = F.binary_cross_entropy(x, lb, weight=kpiweight, reduction='sum')
         return l2_reg * l2_weight + BCE
     

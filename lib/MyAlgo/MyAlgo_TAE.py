@@ -1,4 +1,4 @@
-from ._compat import BaseMethod, TSData, tsdalia
+from ._compat import BaseMethod, TSData, tsdalia, pick_torch_device_str
 import numpy as np
 import torch
 from torch.utils.data import DataLoader
@@ -33,7 +33,7 @@ class MyAlgo_TAE(BaseMethod):
         self.lr = 0.00001
         self.num_epochs = 1000
         self.model_name = "transformer_autoencoder"
-        self.device = "cuda"
+        self.device = pick_torch_device_str()
         self.score_train = None
         self.y_hat_train = None
         
@@ -81,6 +81,7 @@ class MyAlgo_TAE(BaseMethod):
                 dims=self.ts_dims,
                 batch_size=self.batch_size,
                 window_size=self.window_size,
+                device=self.device,
             )
             loss_train_hist.append(np.mean(loss_train))
 
@@ -94,6 +95,7 @@ class MyAlgo_TAE(BaseMethod):
             dims=self.ts_dims,
             batch_size=self.batch_size,
             window_size=self.window_size,
+            device=self.device,
         )
         self.train_error = np.abs(trainD - recons_train[:,:,0]).numpy()
 
@@ -136,6 +138,7 @@ class MyAlgo_TAE(BaseMethod):
             dims=self.ts_dims,
             batch_size=self.batch_size,
             window_size=self.window_size,
+            device=self.device,
         )
 
         reconstruction = reconstruction.reshape(

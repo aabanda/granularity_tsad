@@ -127,6 +127,7 @@ from .AR.AR import AR
 from .Donut.Donut import Donut
 from .EncDecAD.EncDecAD import EncDecAD
 from .FCVAE.FCVAE import FCVAE
+from .FITS.FITS import FITS
 from .LSTMADalpha.LSTMADalpha import LSTMADalpha
 from .LSTMADbeta.LSTMADbeta import LSTMADbeta
 from .SRCNN.SRCNN import SRCNN

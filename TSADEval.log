@@ -1,0 +1,538 @@
+(2026-09-17 11:54:10,735) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-09-17 11:54:10,738) [INFO]: Dataset Directory has been loaded.
+(2026-09-17 11:59:43,868) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-09-17 11:59:43,871) [INFO]: Dataset Directory has been loaded.
+(2026-09-17 12:05:51,683) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-09-17 12:05:51,686) [INFO]: Dataset Directory has been loaded.
+(2026-09-17 12:05:57,670) [INFO]: Run Experiments. Method[AE], Schema[naive].
+(2026-09-17 12:05:57,670) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/AE/config.toml
+(2026-09-17 12:05:57,671) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 12:05:57,671) [INFO]:     [Load Data (Specify)] DataSets: UCR 
+(2026-09-17 12:06:01,059) [INFO]:     [AE] handling dataset UCR | curve 1 
+(2026-09-17 12:06:48,616) [INFO]:     [AE] handling dataset UCR | curve 2 
+(2026-09-17 12:07:35,920) [INFO]:     [AE] handling dataset UCR | curve 3 
+(2026-09-17 12:12:32,831) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-09-17 12:12:32,832) [INFO]: Dataset Directory has been loaded.
+(2026-09-17 12:12:32,833) [INFO]: Run Experiments. Method[AE], Schema[naive].
+(2026-09-17 12:12:32,833) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/AE/config.toml
+(2026-09-17 12:12:32,833) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 12:12:32,833) [INFO]:     [Load Data (Specify)] DataSets: synthetic_rho 
+(2026-09-17 12:12:32,960) [INFO]:     [AE] handling dataset synthetic_rho | curve javi 
+(2026-09-17 12:13:52,846) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-09-17 12:13:52,847) [INFO]: Dataset Directory has been loaded.
+(2026-09-17 12:13:52,847) [INFO]: Run Experiments. Method[AE], Schema[naive].
+(2026-09-17 12:13:52,847) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/AE/config.toml
+(2026-09-17 12:13:52,847) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 12:13:52,847) [INFO]:     [Load Data (Specify)] DataSets: synthetic_rho 
+(2026-09-17 12:13:52,850) [INFO]:     [AE] handling dataset synthetic_rho | curve javi 
+(2026-09-17 16:23:59,792) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-09-17 16:23:59,794) [INFO]: Dataset Directory has been loaded.
+(2026-09-17 16:24:01,945) [INFO]: Run Experiments. Method[AE], Schema[naive].
+(2026-09-17 16:24:01,945) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/AE/config.toml
+(2026-09-17 16:24:01,946) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 16:24:01,946) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:24:01,951) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:24:02,034) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 16:24:02,098) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 16:24:02,163) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 16:24:02,229) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 16:24:02,294) [INFO]: Run Experiments. Method[FCVAE], Schema[naive].
+(2026-09-17 16:24:02,295) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/FCVAE/config.toml
+(2026-09-17 16:24:02,297) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 16:24:02,297) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:24:02,303) [INFO]:     [FCVAE] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:27:55,451) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-09-17 16:27:55,454) [INFO]: Dataset Directory has been loaded.
+(2026-09-17 16:27:58,684) [INFO]: Run Experiments. Method[AE], Schema[naive].
+(2026-09-17 16:27:58,684) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/AE/config.toml
+(2026-09-17 16:27:58,685) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 16:27:58,685) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:27:58,695) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:27:59,257) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 16:27:59,355) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 16:27:59,459) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 16:27:59,560) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 16:27:59,659) [INFO]: Run Experiments. Method[FCVAE], Schema[naive].
+(2026-09-17 16:27:59,659) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/FCVAE/config.toml
+(2026-09-17 16:27:59,665) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 16:27:59,665) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:27:59,674) [INFO]:     [FCVAE] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:28:05,719) [INFO]:     [FCVAE] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 16:28:10,567) [INFO]:     [FCVAE] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 16:28:15,412) [INFO]:     [FCVAE] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 16:28:20,349) [INFO]:     [FCVAE] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 16:28:25,465) [INFO]: Run Experiments. Method[EncDecAD], Schema[naive].
+(2026-09-17 16:28:25,465) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/EncDecAD/config.toml
+(2026-09-17 16:28:25,476) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 16:28:25,477) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:28:25,490) [INFO]:     [EncDecAD] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:28:29,435) [INFO]:     [EncDecAD] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 16:28:34,006) [INFO]:     [EncDecAD] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 16:28:38,951) [INFO]:     [EncDecAD] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 16:28:43,811) [INFO]:     [EncDecAD] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 16:28:49,026) [INFO]: Run Experiments. Method[Donut], Schema[naive].
+(2026-09-17 16:28:49,026) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/Donut/config.toml
+(2026-09-17 16:28:49,038) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 16:28:49,038) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:28:49,047) [INFO]:     [Donut] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:28:49,568) [INFO]:     [Donut] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 16:28:49,945) [INFO]:     [Donut] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 16:28:50,298) [INFO]:     [Donut] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 16:28:50,665) [INFO]:     [Donut] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 16:28:51,022) [INFO]: Run Experiments. Method[SRCNN], Schema[naive].
+(2026-09-17 16:28:51,023) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/SRCNN/config.toml
+(2026-09-17 16:28:51,035) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 16:28:51,035) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:28:51,045) [INFO]:     [SRCNN] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:28:52,567) [INFO]:     [SRCNN] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 16:28:53,955) [INFO]:     [SRCNN] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 16:28:55,287) [INFO]:     [SRCNN] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 16:28:56,634) [INFO]:     [SRCNN] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 16:28:57,909) [INFO]: Run Experiments. Method[LSTMADalpha], Schema[naive].
+(2026-09-17 16:28:57,909) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/LSTMADalpha/config.toml
+(2026-09-17 16:28:57,922) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 16:28:57,922) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:28:57,930) [INFO]:     [LSTMADalpha] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:28:59,858) [INFO]:     [LSTMADalpha] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 16:29:02,407) [INFO]:     [LSTMADalpha] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 16:29:03,774) [INFO]:     [LSTMADalpha] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 16:29:04,882) [INFO]:     [LSTMADalpha] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 16:29:06,644) [INFO]: Run Experiments. Method[LSTMADbeta], Schema[naive].
+(2026-09-17 16:29:06,644) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/LSTMADbeta/config.toml
+(2026-09-17 16:29:06,656) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 16:29:06,656) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:29:06,665) [INFO]:     [LSTMADbeta] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:29:08,929) [INFO]:     [LSTMADbeta] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 16:29:10,954) [INFO]:     [LSTMADbeta] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 16:29:13,307) [INFO]:     [LSTMADbeta] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 16:29:15,087) [INFO]:     [LSTMADbeta] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 16:29:15,842) [INFO]: Run Experiments. Method[TimesNet], Schema[naive].
+(2026-09-17 16:29:15,843) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/TimesNet/config.toml
+(2026-09-17 16:29:15,855) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 16:29:15,855) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:29:15,864) [INFO]:     [TimesNet] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:29:19,727) [INFO]:     [TimesNet] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 16:29:23,444) [INFO]:     [TimesNet] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 16:29:27,363) [INFO]:     [TimesNet] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 16:29:30,733) [INFO]:     [TimesNet] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 16:29:34,335) [INFO]: Run Experiments. Method[FITS], Schema[naive].
+(2026-09-17 16:29:34,336) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/FITS/config.toml
+(2026-09-17 16:29:34,347) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 16:29:34,348) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:29:34,358) [INFO]:     [FITS] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:29:34,358) [INFO]: Run Experiments. Method[MyAlgo_DM], Schema[naive].
+(2026-09-17 16:29:34,358) [INFO]: Use Function Parameters.
+(2026-09-17 16:29:34,358) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:29:34,368) [INFO]:     [MyAlgo_DM] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:29:34,368) [INFO]: Run Experiments. Method[MyAlgo_TAE], Schema[naive].
+(2026-09-17 16:29:34,369) [INFO]: Use Function Parameters.
+(2026-09-17 16:29:34,369) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:29:34,378) [INFO]:     [MyAlgo_TAE] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:29:34,379) [INFO]: Run Experiments. Method[MyAlgo_ESN], Schema[naive].
+(2026-09-17 16:29:34,379) [INFO]: Use Function Parameters.
+(2026-09-17 16:29:34,379) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:29:34,389) [INFO]:     [MyAlgo_ESN] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:29:34,389) [INFO]: Run Experiments. Method[MyAlgo_CLOF], Schema[naive].
+(2026-09-17 16:29:34,389) [INFO]: Use Function Parameters.
+(2026-09-17 16:29:34,389) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:29:34,399) [INFO]:     [MyAlgo_CLOF] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:29:34,399) [INFO]: Run Experiments. Method[MyAlgo_ISOF], Schema[naive].
+(2026-09-17 16:29:34,399) [INFO]: Use Function Parameters.
+(2026-09-17 16:29:34,400) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:29:34,408) [INFO]:     [MyAlgo_ISOF] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:29:34,408) [INFO]: Run Experiments. Method[SubLOF], Schema[naive].
+(2026-09-17 16:29:34,408) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/SubLOF/config.toml
+(2026-09-17 16:29:34,410) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 16:29:34,410) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:29:34,420) [INFO]:     [SubLOF] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:29:34,420) [INFO]: Run Experiments. Method[SubOCSVM], Schema[naive].
+(2026-09-17 16:29:34,420) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/SubOCSVM/config.toml
+(2026-09-17 16:29:34,422) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 16:29:34,422) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:29:34,430) [INFO]:     [SubOCSVM] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:29:34,430) [INFO]: Run Experiments. Method[SAND], Schema[naive].
+(2026-09-17 16:29:34,430) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/SAND/config.toml
+(2026-09-17 16:29:34,431) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 16:29:34,431) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:29:34,440) [INFO]:     [SAND] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 16:29:34,441) [INFO]: Run Experiments. Method[MatrixProfile], Schema[naive].
+(2026-09-17 16:29:34,441) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/MatrixProfile/config.toml
+(2026-09-17 16:29:34,442) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 16:29:34,442) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 16:29:34,451) [INFO]:     [MatrixProfile] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:23:49,474) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-09-17 17:23:49,475) [INFO]: Dataset Directory has been loaded.
+(2026-09-17 17:23:51,333) [INFO]: Run Experiments. Method[AE], Schema[naive].
+(2026-09-17 17:23:51,333) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/AE/config.toml
+(2026-09-17 17:23:51,334) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 17:23:51,334) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:23:51,338) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:23:51,397) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:23:51,441) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:23:51,484) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:23:51,526) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:23:51,570) [INFO]: Run Experiments. Method[FCVAE], Schema[naive].
+(2026-09-17 17:23:51,570) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/FCVAE/config.toml
+(2026-09-17 17:23:51,571) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 17:23:51,572) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:23:51,577) [INFO]:     [FCVAE] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:23:54,868) [INFO]:     [FCVAE] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:23:58,119) [INFO]:     [FCVAE] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:24:01,341) [INFO]:     [FCVAE] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:24:04,546) [INFO]:     [FCVAE] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:24:06,161) [INFO]: Run Experiments. Method[EncDecAD], Schema[naive].
+(2026-09-17 17:24:06,161) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/EncDecAD/config.toml
+(2026-09-17 17:24:06,161) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 17:24:06,162) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:24:06,168) [INFO]:     [EncDecAD] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:24:06,861) [INFO]:     [EncDecAD] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:24:07,456) [INFO]:     [EncDecAD] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:24:08,045) [INFO]:     [EncDecAD] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:24:08,644) [INFO]:     [EncDecAD] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:24:09,238) [INFO]: Run Experiments. Method[Donut], Schema[naive].
+(2026-09-17 17:24:09,238) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/Donut/config.toml
+(2026-09-17 17:24:09,238) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 17:24:09,238) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:24:09,244) [INFO]:     [Donut] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:24:09,700) [INFO]:     [Donut] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:24:10,179) [INFO]:     [Donut] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:24:10,637) [INFO]:     [Donut] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:24:11,093) [INFO]:     [Donut] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:24:11,550) [INFO]: Run Experiments. Method[SRCNN], Schema[naive].
+(2026-09-17 17:24:11,550) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/SRCNN/config.toml
+(2026-09-17 17:24:11,550) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 17:24:11,550) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:24:11,555) [INFO]:     [SRCNN] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:24:11,570) [INFO]: Run Experiments. Method[LSTMADalpha], Schema[naive].
+(2026-09-17 17:24:11,570) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/LSTMADalpha/config.toml
+(2026-09-17 17:24:11,571) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 17:24:11,571) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:24:11,576) [INFO]:     [LSTMADalpha] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:24:11,907) [INFO]:     [LSTMADalpha] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:24:12,218) [INFO]:     [LSTMADalpha] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:24:12,525) [INFO]:     [LSTMADalpha] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:24:12,843) [INFO]:     [LSTMADalpha] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:24:13,154) [INFO]: Run Experiments. Method[LSTMADbeta], Schema[naive].
+(2026-09-17 17:24:13,154) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/LSTMADbeta/config.toml
+(2026-09-17 17:24:13,154) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 17:24:13,154) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:24:13,159) [INFO]:     [LSTMADbeta] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:24:13,570) [INFO]:     [LSTMADbeta] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:24:13,815) [INFO]:     [LSTMADbeta] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:24:14,071) [INFO]:     [LSTMADbeta] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:24:14,521) [INFO]:     [LSTMADbeta] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:24:14,831) [INFO]: Run Experiments. Method[TimesNet], Schema[naive].
+(2026-09-17 17:24:14,831) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/TimesNet/config.toml
+(2026-09-17 17:24:14,832) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 17:24:14,832) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:24:14,838) [INFO]:     [TimesNet] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:27:06,409) [INFO]:     [TimesNet] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:30:14,379) [INFO]:     [TimesNet] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:30:32,411) [INFO]:     [TimesNet] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:30:50,008) [INFO]:     [TimesNet] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:31:08,308) [INFO]: Run Experiments. Method[FITS], Schema[naive].
+(2026-09-17 17:31:08,308) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/FITS/config.toml
+(2026-09-17 17:31:08,309) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 17:31:08,309) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:31:08,315) [INFO]:     [FITS] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:31:08,315) [INFO]: Run Experiments. Method[MyAlgo_DM], Schema[naive].
+(2026-09-17 17:31:08,315) [INFO]: Use Function Parameters.
+(2026-09-17 17:31:08,315) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:31:08,320) [INFO]:     [MyAlgo_DM] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:31:08,320) [INFO]: Run Experiments. Method[MyAlgo_TAE], Schema[naive].
+(2026-09-17 17:31:08,320) [INFO]: Use Function Parameters.
+(2026-09-17 17:31:08,320) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:31:08,325) [INFO]:     [MyAlgo_TAE] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:31:08,325) [INFO]: Run Experiments. Method[MyAlgo_ESN], Schema[naive].
+(2026-09-17 17:31:08,325) [INFO]: Use Function Parameters.
+(2026-09-17 17:31:08,325) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:31:08,329) [INFO]:     [MyAlgo_ESN] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:31:08,329) [INFO]: Run Experiments. Method[MyAlgo_CLOF], Schema[naive].
+(2026-09-17 17:31:08,329) [INFO]: Use Function Parameters.
+(2026-09-17 17:31:08,329) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:31:08,334) [INFO]:     [MyAlgo_CLOF] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:31:08,334) [INFO]: Run Experiments. Method[MyAlgo_ISOF], Schema[naive].
+(2026-09-17 17:31:08,334) [INFO]: Use Function Parameters.
+(2026-09-17 17:31:08,334) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:31:08,338) [INFO]:     [MyAlgo_ISOF] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:31:08,338) [INFO]: Run Experiments. Method[SubLOF], Schema[naive].
+(2026-09-17 17:31:08,338) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/SubLOF/config.toml
+(2026-09-17 17:31:08,338) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 17:31:08,338) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:31:08,342) [INFO]:     [SubLOF] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:31:08,342) [INFO]: Run Experiments. Method[SubOCSVM], Schema[naive].
+(2026-09-17 17:31:08,342) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/SubOCSVM/config.toml
+(2026-09-17 17:31:08,342) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 17:31:08,342) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:31:08,346) [INFO]:     [SubOCSVM] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:31:08,346) [INFO]: Run Experiments. Method[SAND], Schema[naive].
+(2026-09-17 17:31:08,346) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/SAND/config.toml
+(2026-09-17 17:31:08,346) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 17:31:08,346) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:31:08,352) [INFO]:     [SAND] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:31:08,352) [INFO]: Run Experiments. Method[MatrixProfile], Schema[naive].
+(2026-09-17 17:31:08,352) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/MatrixProfile/config.toml
+(2026-09-17 17:31:08,352) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 17:31:08,352) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:31:08,356) [INFO]:     [MatrixProfile] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:41:11,672) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-09-17 17:41:11,674) [INFO]: Dataset Directory has been loaded.
+(2026-09-17 17:41:13,600) [INFO]: Run Experiments. Method[AE], Schema[naive].
+(2026-09-17 17:41:13,600) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/AE/config.toml
+(2026-09-17 17:41:13,600) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 17:41:13,600) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:41:13,605) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:41:13,680) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:41:13,733) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:41:13,786) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:41:13,837) [INFO]:     [AE] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:41:13,889) [INFO]: Run Experiments. Method[FCVAE], Schema[naive].
+(2026-09-17 17:41:13,889) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/FCVAE/config.toml
+(2026-09-17 17:41:13,891) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 17:41:13,891) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:41:13,898) [INFO]:     [FCVAE] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:41:17,980) [INFO]:     [FCVAE] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:41:21,415) [INFO]:     [FCVAE] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:41:24,780) [INFO]:     [FCVAE] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:41:28,615) [INFO]:     [FCVAE] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:41:32,077) [INFO]: Run Experiments. Method[EncDecAD], Schema[naive].
+(2026-09-17 17:41:32,078) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/EncDecAD/config.toml
+(2026-09-17 17:41:32,078) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 17:41:32,078) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:41:32,084) [INFO]:     [EncDecAD] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:41:32,749) [INFO]:     [EncDecAD] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:41:33,356) [INFO]:     [EncDecAD] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:41:33,972) [INFO]:     [EncDecAD] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:41:34,576) [INFO]:     [EncDecAD] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:41:35,163) [INFO]: Run Experiments. Method[Donut], Schema[naive].
+(2026-09-17 17:41:35,163) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/Donut/config.toml
+(2026-09-17 17:41:35,164) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 17:41:35,164) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:41:35,169) [INFO]:     [Donut] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:41:35,655) [INFO]:     [Donut] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:41:36,121) [INFO]:     [Donut] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:41:36,578) [INFO]:     [Donut] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:41:37,080) [INFO]:     [Donut] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:41:37,534) [INFO]: Run Experiments. Method[SRCNN], Schema[naive].
+(2026-09-17 17:41:37,534) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/SRCNN/config.toml
+(2026-09-17 17:41:37,535) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 17:41:37,535) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:41:37,541) [INFO]:     [SRCNN] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:41:38,508) [INFO]:     [SRCNN] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:41:39,444) [INFO]:     [SRCNN] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:41:40,388) [INFO]:     [SRCNN] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:41:41,355) [INFO]:     [SRCNN] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:41:42,309) [INFO]: Run Experiments. Method[MyAlgo_DM], Schema[naive].
+(2026-09-17 17:41:42,310) [INFO]: Use Function Parameters.
+(2026-09-17 17:41:42,310) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:41:42,315) [INFO]:     [MyAlgo_DM] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:41:42,357) [INFO]: Run Experiments. Method[MyAlgo_TAE], Schema[naive].
+(2026-09-17 17:41:42,357) [INFO]: Use Function Parameters.
+(2026-09-17 17:41:42,357) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:41:42,363) [INFO]:     [MyAlgo_TAE] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:41:42,372) [INFO]: Run Experiments. Method[LSTMADalpha], Schema[naive].
+(2026-09-17 17:41:42,372) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/LSTMADalpha/config.toml
+(2026-09-17 17:41:42,372) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 17:41:42,372) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:41:42,378) [INFO]:     [LSTMADalpha] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:41:42,726) [INFO]:     [LSTMADalpha] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:41:43,043) [INFO]:     [LSTMADalpha] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:41:43,363) [INFO]:     [LSTMADalpha] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:41:43,668) [INFO]:     [LSTMADalpha] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:41:43,982) [INFO]: Run Experiments. Method[LSTMADbeta], Schema[naive].
+(2026-09-17 17:41:43,983) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/LSTMADbeta/config.toml
+(2026-09-17 17:41:43,983) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 17:41:43,983) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:41:43,989) [INFO]:     [LSTMADbeta] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:41:44,397) [INFO]:     [LSTMADbeta] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:41:44,848) [INFO]:     [LSTMADbeta] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:41:45,499) [INFO]:     [LSTMADbeta] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:41:45,859) [INFO]:     [LSTMADbeta] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:41:46,213) [INFO]: Run Experiments. Method[TimesNet], Schema[naive].
+(2026-09-17 17:41:46,213) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/TimesNet/config.toml
+(2026-09-17 17:41:46,214) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-17 17:41:46,214) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:41:46,220) [INFO]:     [TimesNet] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:42:03,962) [INFO]:     [TimesNet] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:42:21,580) [INFO]:     [TimesNet] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:42:38,896) [INFO]:     [TimesNet] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:43:18,448) [INFO]:     [TimesNet] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:43:35,947) [INFO]: Run Experiments. Method[FITS], Schema[naive].
+(2026-09-17 17:43:35,948) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/FITS/config.toml
+(2026-09-17 17:43:35,948) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-17 17:43:35,948) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:43:35,954) [INFO]:     [FITS] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:43:36,008) [INFO]:     [FITS] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:43:36,060) [INFO]:     [FITS] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:43:36,110) [INFO]:     [FITS] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:43:36,157) [INFO]:     [FITS] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:43:36,204) [INFO]: Run Experiments. Method[MyAlgo_ESN], Schema[naive].
+(2026-09-17 17:43:36,204) [INFO]: Use Function Parameters.
+(2026-09-17 17:43:36,205) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:43:36,211) [INFO]:     [MyAlgo_ESN] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:43:36,211) [INFO]: Run Experiments. Method[MyAlgo_CLOF], Schema[naive].
+(2026-09-17 17:43:36,211) [INFO]: Use Function Parameters.
+(2026-09-17 17:43:36,211) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:43:36,216) [INFO]:     [MyAlgo_CLOF] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:43:37,404) [INFO]:     [MyAlgo_CLOF] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:43:37,411) [INFO]:     [MyAlgo_CLOF] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:43:37,416) [INFO]:     [MyAlgo_CLOF] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:43:37,421) [INFO]:     [MyAlgo_CLOF] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:43:37,427) [INFO]: Run Experiments. Method[MyAlgo_ISOF], Schema[naive].
+(2026-09-17 17:43:37,428) [INFO]: Use Function Parameters.
+(2026-09-17 17:43:37,428) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:43:37,432) [INFO]:     [MyAlgo_ISOF] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:43:37,550) [INFO]:     [MyAlgo_ISOF] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:43:37,665) [INFO]:     [MyAlgo_ISOF] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:43:37,784) [INFO]:     [MyAlgo_ISOF] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:43:37,903) [INFO]:     [MyAlgo_ISOF] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:44:46,896) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-09-17 17:44:46,897) [INFO]: Dataset Directory has been loaded.
+(2026-09-17 17:44:48,487) [INFO]: Run Experiments. Method[MyAlgo_DM], Schema[naive].
+(2026-09-17 17:44:48,487) [INFO]: Use Function Parameters.
+(2026-09-17 17:44:48,487) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:44:48,493) [INFO]:     [MyAlgo_DM] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:44:48,757) [INFO]: Run Experiments. Method[MyAlgo_TAE], Schema[naive].
+(2026-09-17 17:44:48,757) [INFO]: Use Function Parameters.
+(2026-09-17 17:44:48,757) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:44:48,762) [INFO]:     [MyAlgo_TAE] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:44:48,773) [INFO]: Run Experiments. Method[MyAlgo_ESN], Schema[naive].
+(2026-09-17 17:44:48,773) [INFO]: Use Function Parameters.
+(2026-09-17 17:44:48,773) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:44:48,779) [INFO]:     [MyAlgo_ESN] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:44:49,047) [INFO]:     [MyAlgo_ESN] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:44:49,362) [INFO]:     [MyAlgo_ESN] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:44:49,678) [INFO]:     [MyAlgo_ESN] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:44:49,976) [INFO]:     [MyAlgo_ESN] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:45:48,118) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-09-17 17:45:48,119) [INFO]: Dataset Directory has been loaded.
+(2026-09-17 17:45:49,467) [INFO]: Run Experiments. Method[MyAlgo_TAE], Schema[naive].
+(2026-09-17 17:45:49,468) [INFO]: Use Function Parameters.
+(2026-09-17 17:45:49,468) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:45:49,469) [INFO]:     [MyAlgo_TAE] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:47:12,963) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-09-17 17:47:12,964) [INFO]: Dataset Directory has been loaded.
+(2026-09-17 17:47:14,661) [INFO]: Run Experiments. Method[MyAlgo_TAE], Schema[naive].
+(2026-09-17 17:47:14,661) [INFO]: Use Function Parameters.
+(2026-09-17 17:47:14,661) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:47:14,668) [INFO]:     [MyAlgo_TAE] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:47:33,075) [INFO]:     [MyAlgo_TAE] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:47:51,047) [INFO]:     [MyAlgo_TAE] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:48:10,401) [INFO]:     [MyAlgo_TAE] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:48:28,984) [INFO]:     [MyAlgo_TAE] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-17 17:48:46,401) [INFO]: Run Experiments. Method[MyAlgo_DM], Schema[naive].
+(2026-09-17 17:48:46,401) [INFO]: Use Function Parameters.
+(2026-09-17 17:48:46,401) [INFO]:     [Load Data (Specify)] DataSets: seriejavi 
+(2026-09-17 17:48:46,409) [INFO]:     [MyAlgo_DM] handling dataset seriejavi | curve seriejavi_0.00 
+(2026-09-17 17:50:26,772) [INFO]:     [MyAlgo_DM] handling dataset seriejavi | curve seriejavi_0.02 
+(2026-09-17 17:52:06,925) [INFO]:     [MyAlgo_DM] handling dataset seriejavi | curve seriejavi_0.05 
+(2026-09-17 17:53:47,766) [INFO]:     [MyAlgo_DM] handling dataset seriejavi | curve seriejavi_0.10 
+(2026-09-17 17:55:36,146) [INFO]:     [MyAlgo_DM] handling dataset seriejavi | curve seriejavi_0.20 
