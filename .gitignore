@@ -39,6 +39,8 @@ lib/**/*.egg-info/
 lib/**/.git/
 lib/**/.vscode/
 lib/EasyTSAD/Mkdocs/site/
+# Optional reference clone of zamanzadeh/CARLA (we ship an EasyTSAD adapter).
+lib/CARLA/
 
 # IDE / OS
 .idea/

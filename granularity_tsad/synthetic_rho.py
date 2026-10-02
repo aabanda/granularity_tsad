@@ -70,11 +70,34 @@ def list_synthetic_txt(source_dir: Path) -> list[Path]:
     return files
 
 
+def find_pw_label_file(txt_path: Path, curve_id: str) -> Path | None:
+    """Locate ``{curve_id}_pw.txt`` next to the series or under ``labels/``."""
+    txt_path = Path(txt_path)
+    candidates = [
+        txt_path.with_name(f"{curve_id}_pw.txt"),
+        txt_path.parent / "labels" / f"{curve_id}_pw.txt",
+    ]
+    for path in candidates:
+        if path.is_file():
+            return path
+    return None
+
+
+def load_pw_indices(pw_path: Path) -> np.ndarray:
+    """Load absolute point-anomaly indices from a ``*_pw.txt`` file."""
+    pw_path = Path(pw_path)
+    if pw_path.stat().st_size == 0:
+        return np.asarray([], dtype=int)
+    idxs = np.loadtxt(pw_path, dtype=int).reshape(-1)
+    return np.asarray(idxs, dtype=int)
+
+
 def convert_txt_to_easytsad(
     txt_path: Path,
     export_dir: Path,
     *,
     anomaly_end_inclusive: bool = False,
+    use_pw_labels: bool = False,
 ) -> str:
     """Convert one synthetic ``.txt`` into an EasyTSAD curve folder.
 
@@ -88,6 +111,10 @@ def convert_txt_to_easytsad(
         If True, label ``[start, end]`` inclusive (UCR paper convention in
         ``data.py``). EasyTSAD's original UCR converter used an exclusive end;
         default here is exclusive ``[start, end)`` to match EasyTSAD.
+    use_pw_labels
+        If True and a sibling ``{curve_id}_pw.txt`` exists, label only those
+        absolute indices (controlled-ρ point anomalies). An empty ``_pw`` file
+        yields an all-negative label (ρ = 0).
 
     Returns
     -------
@@ -111,10 +138,22 @@ def convert_txt_to_easytsad(
         )
 
     label = np.zeros(len(series), dtype=float)
-    if anomaly_end_inclusive:
+    pw_path = find_pw_label_file(txt_path, meta["curve_id"]) if use_pw_labels else None
+    if pw_path is not None:
+        idxs = load_pw_indices(pw_path)
+        if len(idxs):
+            if idxs.min() < 0 or idxs.max() >= len(series):
+                raise ValueError(
+                    f"{pw_path.name}: pw indices out of range for length {len(series)}"
+                )
+            label[idxs] = 1.0
+        label_source = pw_path.name
+    elif anomaly_end_inclusive:
         label[a0 : a1 + 1] = 1.0
+        label_source = "segment_inclusive"
     else:
         label[a0:a1] = 1.0
+        label_source = "segment_exclusive"
 
     train = series[:train_index]
     test = series[train_index:]
@@ -136,12 +175,16 @@ def convert_txt_to_easytsad(
 
     test_ano = float(test_label.sum()) / max(len(test_label), 1)
     total_ano = float(label.sum()) / max(len(label), 1)
+    seg_len = (a1 - a0 + 1) if anomaly_end_inclusive or pw_path is not None else (a1 - a0)
     info = {
         "intervals": 1,
         "training set anomaly ratio": 0.0,
         "testset anomaly ratio": round(test_ano, 5),
         "total anomaly ratio": round(total_ano, 5),
         "source": txt_path.name,
+        "label_source": label_source,
+        "n_anomaly_points": int(label.sum()),
+        "segment_rho": round(float(label.sum()) / max(seg_len, 1), 5),
         "len data": int(len(series)),
         "len train": int(len(train)),
         "len test": int(len(test)),
@@ -156,6 +199,9 @@ def convert_synthetic_dir(
     source_dir: Path,
     data_dir: Path,
     dataset_name: str = DATASET_NAME,
+    *,
+    use_pw_labels: bool = False,
+    anomaly_end_inclusive: bool = False,
 ) -> list[str]:
     """Convert every valid ``.txt`` under ``source_dir`` to EasyTSAD layout.
 
@@ -165,7 +211,14 @@ def convert_synthetic_dir(
     export_dir.mkdir(parents=True, exist_ok=True)
     curves = []
     for txt_path in list_synthetic_txt(source_dir):
-        curves.append(convert_txt_to_easytsad(txt_path, export_dir))
+        curves.append(
+            convert_txt_to_easytsad(
+                txt_path,
+                export_dir,
+                use_pw_labels=use_pw_labels,
+                anomaly_end_inclusive=anomaly_end_inclusive,
+            )
+        )
     return curves
 
 

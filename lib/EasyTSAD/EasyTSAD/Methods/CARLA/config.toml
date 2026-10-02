@@ -1,0 +1,16 @@
+[Data_Params]
+preprocess = "z-score"
+
+[Model_Params.Default]
+window = 64
+stride = 1
+max_windows = 1500
+mid_channels = 4
+features_dim = 8
+n_classes = 4
+pretext_epochs = 5
+classification_epochs = 6
+batch_size = 32
+lr = 0.001
+seed = 4
+anomaly_portion = 0.3

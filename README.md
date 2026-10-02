@@ -87,6 +87,39 @@ plots per-cluster metric boxplots (Fig 9), and runs the Bayesian point-wise vs
 sequence-wise comparison per cluster for `F1_PAK` (Fig 10) and the stretched
 `wF1_PAK` (Fig 12), with the ROPE calibrated as `0.5 * MAD` per metric.
 
+### Extended sequence-wise set (DAMP)
+
+By default `config/paper.yaml` keeps the paper catalogue
+(`sequence_wise_extended: false`). Set the flag to include **DAMP** in the
+sequence-wise family (all point-wise methods stay unchanged):
+
+```yaml
+methods:
+  sequence_wise_extended: true   # adds sequence_wise_extra: [DAMP]
+```
+
+Then generate scores, merge metrics, and re-run the Bayesian analysis:
+
+```bash
+# Scores for the extra sequence-wise detector (needs EasyTSAD UTS/ layout)
+python scripts/1_run_detectors.py --only-extra-sequence-wise
+
+# Or explicitly:
+python scripts/1_run_detectors.py --methods DAMP
+
+# Metrics: merges DAMP columns into existing CSVs
+python scripts/2_compute_metrics.py --methods DAMP
+
+# Density annotation + Bayesian (uses cfg.methods_sequence_wise)
+python scripts/4_annotate_density_and_boxplots.py
+python scripts/3_generate_figures.py --skip-profiles --clusters figures/clusters.csv
+```
+
+`DAMP` is the Lu et al. (KDD 2022) left-discord Matrix Profile (AB-join of the
+test region against the train history). An EasyTSAD-adapted CARLA wrapper
+exists under `Methods/CARLA/` but is **not** included in the extended
+catalogue by default (weak UCR scores under the short training schedule).
+
 Build a heatmap for a single UCR curve end to end (needs EasyTSAD):
 
 ```bash

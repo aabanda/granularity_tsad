@@ -5,14 +5,16 @@ from .bayesian import (
     compare_two,
     group_paired_scores,
     plot_point_vs_seq_grid,
+    plot_rope_sensitivity,
     point_vs_seq,
     point_vs_seq_by_cluster,
     rope_from_mad,
+    rope_sensitivity_table,
 )
 from .boxplots import plot_metric_comparison_by_density, plot_performance_by_group
 from .dendrogram import plot_dendrogram
 from .heatmap import plot_cluster_heatmaps, plot_score_heatmap
-from .pak_curves import plot_pak_curves, plot_wpak_weighting
+from .pak_curves import plot_pak_curves, plot_pak_precision_recall, plot_wpak_weighting
 from .profiles import plot_profiles_by_cluster
 from .style import (
     CLUSTER_COLORS,
@@ -34,13 +36,16 @@ __all__ = [
     "plot_metric_comparison_by_density",
     "plot_profiles_by_cluster",
     "plot_pak_curves",
+    "plot_pak_precision_recall",
     "plot_wpak_weighting",
     "compare_two",
     "compare_against_all",
     "group_paired_scores",
     "rope_from_mad",
+    "rope_sensitivity_table",
     "point_vs_seq",
     "point_vs_seq_by_cluster",
     "plot_point_vs_seq_grid",
+    "plot_rope_sensitivity",
     "plot_dendrogram",
 ]

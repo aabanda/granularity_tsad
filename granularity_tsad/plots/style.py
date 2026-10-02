@@ -6,8 +6,8 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 # Cluster palette reused across figures.
-# Naming by detectability (sparse < normal < dense) stays in CLUSTER_NAMES;
-# figure panel order is CLUSTER_DISPLAY_ORDER.
+# Naming by ascending ρ / PA-precision (normal < sparse < dense) stays in
+# CLUSTER_NAMES; figure panel order is CLUSTER_DISPLAY_ORDER.
 CLUSTER_COLORS = {
     "Point-sparse": "#2196F3",
     "Point-normal": "#4CAF50",
@@ -15,7 +15,7 @@ CLUSTER_COLORS = {
 }
 CLUSTER_DISPLAY_ORDER = ["Point-dense", "Point-sparse", "Point-normal"]
 
-SCORE_CMAP = "YlOrRd"  # anomaly-score colormap used in the heatmaps
+SCORE_CMAP = "OrRd"  # orange→red (print-friendly; avoids pale yellow)
 
 
 def set_paper_style() -> None:

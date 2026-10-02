@@ -39,6 +39,8 @@ class PaperConfig:
     methods_point_wise_for_clustering: list[str] = field(default_factory=list)
     methods_point_wise_for_analysis: list[str] = field(default_factory=list)
     methods_sequence_wise: list[str] = field(default_factory=list)
+    methods_sequence_wise_extra: list[str] = field(default_factory=list)
+    sequence_wise_extended: bool = False
     split_point_wise: bool = True
     training_schema: str = "naive"
     preprocess: str = "min-max"
@@ -56,6 +58,15 @@ class PaperConfig:
             + self.methods_point_wise_for_analysis
             + self.methods_sequence_wise
         ):
+            if name not in seen:
+                seen.append(name)
+        return seen
+
+    @property
+    def analysis_methods(self) -> list[str]:
+        """Point-wise (analysis split) + active sequence-wise catalogue."""
+        seen: list[str] = []
+        for name in self.point_methods_for_analysis + self.methods_sequence_wise:
             if name not in seen:
                 seen.append(name)
         return seen
@@ -111,6 +122,18 @@ def load_config(path: Path | None = None) -> PaperConfig:
                 seen.append(name)
         point_wise = seen
     split_point_wise = bool(methods.get("split_point_wise", True))
+    sequence_wise = list(methods.get("sequence_wise", []))
+    sequence_wise_extra = list(
+        methods.get(
+            "sequence_wise_extra",
+            methods.get("sequence_wise_extended_methods", ["DAMP", "CARLA"]),
+        )
+    )
+    sequence_wise_extended = bool(methods.get("sequence_wise_extended", False))
+    if sequence_wise_extended:
+        for name in sequence_wise_extra:
+            if name not in sequence_wise:
+                sequence_wise.append(name)
 
     def _resolve(path_value: str | Path, default: str) -> Path:
         path = Path(path_value if path_value is not None else default)
@@ -124,7 +147,9 @@ def load_config(path: Path | None = None) -> PaperConfig:
         methods_point_wise=point_wise,
         methods_point_wise_for_clustering=for_clustering,
         methods_point_wise_for_analysis=for_analysis,
-        methods_sequence_wise=list(methods.get("sequence_wise", [])),
+        methods_sequence_wise=sequence_wise,
+        methods_sequence_wise_extra=sequence_wise_extra,
+        sequence_wise_extended=sequence_wise_extended,
         split_point_wise=split_point_wise,
         training_schema=benchmark.get("training_schema", "naive"),
         preprocess=benchmark.get("preprocess", "min-max"),

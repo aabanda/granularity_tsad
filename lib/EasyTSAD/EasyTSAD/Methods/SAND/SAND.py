@@ -8,6 +8,7 @@ import numpy as np
 class SAND(BaseMethod):
     def __init__(self, params: dict) -> None:
         super().__init__()
+        self.score_train = None
 
     def train_valid_phase(self, tsTrain: TSData):
         pass

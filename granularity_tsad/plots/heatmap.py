@@ -1,6 +1,6 @@
 """Score heatmap: a time series colored by its aggregated anomaly score.
 
-Each timestamp is drawn as a scatter point colored with the ``YlOrRd`` colormap
+Each timestamp is drawn as a scatter point colored with the ``OrRd`` colormap
 according to the aggregated anomaly score, over a faint gray line of the raw
 signal and a gray span marking the labelled anomaly (paper-style figure).
 """

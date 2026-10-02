@@ -111,12 +111,20 @@ def plot_one_curve(
     title: str,
     out_path: Path,
     pad: int = 100,
+    window: tuple[int, int] | None = None,
 ) -> None:
-    """One PNG: series window on top, [0,1]-normalized score subplots below."""
+    """One PNG: series window on top, [0,1]-normalized score subplots below.
+
+    ``window`` is ``(anomaly_start, anomaly_end_exclusive)`` used for shading
+    when labels are sparse or empty (controlled-ρ ``*_pw`` labels).
+    """
     anom = np.where(labels > 0.5)[0]
-    if len(anom) == 0:
+    if len(anom) > 0:
+        a0, a1 = int(anom[0]), int(anom[-1]) + 1
+    elif window is not None:
+        a0, a1 = int(window[0]), int(window[1])
+    else:
         raise ValueError(f"{title}: no anomaly labels found")
-    a0, a1 = int(anom[0]), int(anom[-1]) + 1
     w0 = max(0, a0 - pad)
     w1 = min(len(series), a1 + pad)
 
@@ -136,6 +144,16 @@ def plot_one_curve(
 
     ax0 = axs[0]
     ax0.axvspan(a0, a1, color="gray", alpha=0.28, zorder=0, label="anomaly")
+    # Mark individual labeled points when they are sparse inside the window.
+    if len(anom) > 0 and len(anom) < (a1 - a0):
+        ax0.scatter(
+            anom,
+            series[anom],
+            s=14,
+            c="#c62828",
+            zorder=3,
+            label="pw labels",
+        )
     ax0.plot(x, series_w, color="#222222", linewidth=1.0)
     ax0.set_ylabel("Value")
     ax0.set_title(
@@ -145,12 +163,16 @@ def plot_one_curve(
 
     for ax, method in zip(axs[1:], methods):
         sc_full = method_scores[method]
-        # Min-max on the plotted window, then density = mean on anomaly.
+        # Min-max on the plotted window, then density = mean on anomaly labels
+        # (fallback: mean on the shaded segment when labels are empty).
         sc01_full = np.full_like(sc_full, np.nan, dtype=float)
         sc_w = sc_full[w0:w1]
         sc01_w = _minmax01(sc_w)
         sc01_full[w0:w1] = sc01_w
-        density = _anomaly_score_density(sc01_full, a0, a1)
+        if len(anom) > 0:
+            density = float(np.nanmean(sc01_full[anom]))
+        else:
+            density = _anomaly_score_density(sc01_full, a0, a1)
         ax.axvspan(a0, a1, color="gray", alpha=0.28, zorder=0)
         ax.plot(x, sc01_w, color="#b71c1c", linewidth=1.0)
         ax.set_ylabel(method, fontsize=9)
@@ -213,6 +235,18 @@ def main() -> None:
     # Remove older plot styles so the folder only has the new layout.
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Map curve_id -> filename segment for empty / sparse label fallbacks.
+    curve_window: dict[str, tuple[int, int]] = {}
+    for path in list_synthetic_txt(args.source_dir):
+        meta = parse_synthetic_filename(path.name)
+        if meta:
+            # Exclusive end matches convert_txt_to_easytsad default; +1 if
+            # the last labeled index equals anomaly_end (inclusive pw files).
+            curve_window[meta["curve_id"]] = (
+                meta["anomaly_start"],
+                meta["anomaly_end"] + 1,
+            )
+
     for curve in curves:
         series, labels, _train_index = _load_full_series(
             args.data_dir, args.dataset, curve
@@ -238,8 +272,13 @@ def main() -> None:
             title=curve,
             out_path=out,
             pad=args.pad,
+            window=curve_window.get(curve),
         )
-        print(f"  wrote {out.relative_to(REPO_ROOT)}")
+        try:
+            shown = out.resolve().relative_to(REPO_ROOT)
+        except ValueError:
+            shown = out
+        print(f"  wrote {shown}")
 
     print("Done.")
 

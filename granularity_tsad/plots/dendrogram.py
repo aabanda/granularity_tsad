@@ -6,9 +6,15 @@ from collections import defaultdict
 
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 from scipy.cluster.hierarchy import dendrogram, fcluster
 
-from ..clustering import CLUSTER_COLORS, CLUSTER_DISPLAY_ORDER, CLUSTER_NAMES, linkage_matrix
+from ..clustering import (
+    CLUSTER_COLORS,
+    CLUSTER_DISPLAY_ORDER,
+    linkage_matrix,
+    name_clusters,
+)
 
 
 def _original_leaves(node_id: int, n_samples: int, children: np.ndarray) -> list[int]:
@@ -45,15 +51,9 @@ def plot_dendrogram(
         above_threshold_color="black",
     )
 
-    # Order clusters by mean detectability so colors match Point-sparse/normal/dense.
-    profile_vals = np.asarray(profiles.values, dtype=float)
-    means = {
-        cid: profile_vals[flat_labels == cid].mean() for cid in np.unique(flat_labels)
-    }
-    order = sorted(means, key=means.get)
-    cid_to_name = (
-        {cid: CLUSTER_NAMES[i] for i, cid in enumerate(order)} if len(order) == 3 else {}
-    )
+    # Same naming as ``name_clusters`` (ascending mean PA-precision).
+    flat = pd.Series(flat_labels, index=profiles.index, name="cluster")
+    cid_to_name = name_clusters(flat, profiles) if len(np.unique(flat_labels)) == 3 else {}
 
     # Shade leaf blocks (same layout as main_paper.py).
     if cid_to_name:

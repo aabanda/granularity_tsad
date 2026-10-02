@@ -30,6 +30,11 @@ def main() -> None:
     parser.add_argument("--methods", nargs="+", default=None, help="Override the configured detectors.")
     parser.add_argument("--curves", nargs="+", default=None, help="UCR curve ids (default: all available).")
     parser.add_argument("--no-replace", action="store_true", help="Do not overwrite existing results.")
+    parser.add_argument(
+        "--only-extra-sequence-wise",
+        action="store_true",
+        help="Run only sequence_wise_extra (DAMP, CARLA). Implies extended catalogue.",
+    )
     args = parser.parse_args()
 
     cfg = load_config(args.config)
@@ -37,12 +42,24 @@ def main() -> None:
     if not ucr_dir.exists():
         print(f"UCR data not found at {ucr_dir}. See the 'Data' section in README.md.")
         return
-    methods = args.methods or cfg.all_methods
+    if args.only_extra_sequence_wise:
+        methods = list(cfg.methods_sequence_wise_extra)
+        print("Running sequence_wise_extra only:", methods)
+    else:
+        methods = args.methods or cfg.all_methods
 
     if args.curves:
         curves = list(args.curves)
     else:
-        curves = [str(d) for d in build_anomaly_df(ucr_dir).index.tolist()]
+        anomaly_df = build_anomaly_df(ucr_dir)
+        # Match the paper analysis set: drop point anomalies when configured.
+        anomaly_df = cfg.filter_sequence_anomalies(anomaly_df)
+        curves = [str(d) for d in anomaly_df.index.tolist()]
+        print(
+            f"Curves: {len(curves)} "
+            f"(exclude_point_anomalies={cfg.exclude_point_anomalies}, "
+            f"min_anomaly_length={cfg.min_anomaly_length})"
+        )
 
     runner = EasyTSADRunner(
         data_dir=cfg.data_dir,
@@ -50,7 +67,10 @@ def main() -> None:
         training_schema=cfg.training_schema,
         preprocess=cfg.preprocess,
     )
-    print(f"Running {len(methods)} methods on {len(curves)} curves...")
+    print(
+        f"Running {len(methods)} methods on {len(curves)} curves "
+        f"(sequence_wise_extended={cfg.sequence_wise_extended})..."
+    )
     runner.run(methods, curves=curves, replace=not args.no_replace)
     print("Done. Scores under:", cfg.repo_root / "Results" / "Scores")
 

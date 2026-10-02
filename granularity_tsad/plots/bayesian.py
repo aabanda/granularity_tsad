@@ -160,6 +160,133 @@ def point_vs_seq_by_cluster(
     return pd.DataFrame(rows)
 
 
+def rope_sensitivity_table(
+    metric_tables: dict[str, pd.DataFrame],
+    point_methods: list[str],
+    seq_methods: list[str],
+    cluster_names: pd.Series,
+    mad_scales: list[float] | None = None,
+) -> pd.DataFrame:
+    """Bayesian probs vs MAD-scaled ROPE width, per metric and cluster.
+
+    For each metric, the base MAD of all paired P−S differences is computed
+    once; then ``R = scale * MAD`` is swept while keeping that R fixed across
+    density clusters within the metric (same protocol as the paper).
+    """
+    scales = mad_scales or [0.25, 0.5, 0.75, 1.0]
+    rows: list[dict] = []
+    for metric_name, table in metric_tables.items():
+        table = table.dropna(how="all")
+        paired_all = group_paired_scores(table, point_methods, seq_methods)
+        mad = rope_from_mad(paired_all, scale=1.0)
+        aligned = cluster_names.reindex(table.index)
+        for scale in scales:
+            rope = max(float(scale) * mad, 1e-6)
+            for cluster in _cluster_order(aligned):
+                sub = table.loc[aligned.index[aligned == cluster]]
+                probs, _, _ = point_vs_seq(
+                    sub, point_methods, seq_methods, rope=rope, plot=False
+                )
+                if probs is None:
+                    continue
+                p_point, p_rope, p_seq = probs
+                rows.append(
+                    {
+                        "Metric": metric_name,
+                        "Cluster": cluster,
+                        "mad_scale": float(scale),
+                        "MAD": mad,
+                        "rope": rope,
+                        "P(point better)": float(p_point),
+                        "P(rope)": float(p_rope),
+                        "P(sequence better)": float(p_seq),
+                    }
+                )
+    return pd.DataFrame(rows)
+
+
+def plot_rope_sensitivity(
+    summary: pd.DataFrame,
+    cluster_order: list[str] | None = None,
+) -> plt.Figure:
+    """Line plots of posterior probs vs MAD scale (rows=metrics, cols=clusters)."""
+    if summary.empty:
+        fig, ax = plt.subplots()
+        ax.set_axis_off()
+        ax.text(0.5, 0.5, "n/a", ha="center", va="center")
+        return fig
+
+    metrics = list(dict.fromkeys(summary["Metric"].tolist()))
+    clusters = cluster_order or [
+        c for c in CLUSTER_DISPLAY_ORDER if c in set(summary["Cluster"])
+    ]
+    extras = sorted(set(summary["Cluster"]) - set(clusters))
+    clusters = clusters + extras
+
+    n_rows, n_cols = len(metrics), len(clusters)
+    fig, axs = plt.subplots(
+        n_rows,
+        n_cols,
+        figsize=(3.4 * max(n_cols, 1), 2.8 * max(n_rows, 1)),
+        sharex=True,
+        sharey=True,
+        squeeze=False,
+    )
+    colors = {
+        "P(point better)": "#FF9800",
+        "P(rope)": "#757575",
+        "P(sequence better)": "#2196F3",
+    }
+    labels = {
+        "P(point better)": "P(point better)",
+        "P(rope)": "P(rope)",
+        "P(sequence better)": "P(seq. better)",
+    }
+
+    for i, metric in enumerate(metrics):
+        for j, cluster in enumerate(clusters):
+            ax = axs[i, j]
+            sub = summary[
+                (summary["Metric"] == metric) & (summary["Cluster"] == cluster)
+            ].sort_values("mad_scale")
+            if sub.empty:
+                ax.set_axis_off()
+                continue
+            for col, color in colors.items():
+                ax.plot(
+                    sub["mad_scale"],
+                    sub[col],
+                    "o-",
+                    color=color,
+                    label=labels[col],
+                    markersize=4,
+                    linewidth=1.5,
+                )
+            ax.axvline(0.5, color="black", ls="--", lw=0.8, alpha=0.5)
+            ax.set_ylim(-0.02, 1.02)
+            ax.set_xticks(sorted(sub["mad_scale"].unique()))
+            if i == 0:
+                ax.set_title(cluster, fontsize=11)
+            if j == 0:
+                ax.set_ylabel(metric, fontsize=11)
+            if i == n_rows - 1:
+                ax.set_xlabel(r"ROPE scale ($\times$ MAD)")
+            ax.grid(True, alpha=0.25)
+
+    handles, labs = axs[0, 0].get_legend_handles_labels()
+    if handles:
+        fig.legend(
+            handles,
+            labs,
+            loc="upper center",
+            ncol=3,
+            frameon=False,
+            bbox_to_anchor=(0.5, 1.02),
+        )
+    fig.tight_layout(rect=(0, 0, 1, 0.96))
+    return fig
+
+
 def plot_point_vs_seq_grid(
     metric_tables: dict[str, pd.DataFrame],
     point_methods: list[str],

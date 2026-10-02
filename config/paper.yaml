@@ -7,7 +7,7 @@ dataset:
   type: UTS
   # Parent of UTS/ (EasyTSAD) and raw/UCR_Anomaly_FullData (metrics).
   # Absolute paths are supported; relative paths are resolved from the repo root.
-  data_dir: /home/110646@TRI.LAN/PycharmProjects/tsad/data
+  data_dir: data
   # Keep only sequence-anomalies: drop the 3 single-point and 17 two-point series
   # (20 in total), leaving the 230 sequence-anomalies used in the paper (Section 3.1).
   exclude_point_anomalies: true
@@ -26,6 +26,12 @@ seriejavi:
   source_dir: data/seriejavi
   dataset_name: seriejavi
 
+# Controlled-ρ series (segment in filename + optional ``*_pw.txt`` point indices):
+#   data/nuevas/  ->  python scripts/run_nuevas.py
+nuevas:
+  source_dir: data/nuevas
+  dataset_name: nuevas
+
 benchmark:
   training_schema: naive
   preprocess: min-max
@@ -43,22 +49,42 @@ methods:
   split_point_wise: false
   # Fig 6–7: point-detectability profiles + hierarchical clustering.
   point_wise_for_clustering:
-    - AE
+    - LSTMADalpha
     - FCVAE
     - EncDecAD
     - Donut
-    - SRCNN
     - MyAlgo_DM
+    - MyAlgo_CLOF
     - MyAlgo_TAE
   # Fig 9–10 / 12: boxplots + Bayesian point-vs-sequence comparisons.
   point_wise_for_analysis:
-    - LSTMADalpha
+    - AE
     - LSTMADbeta
     - TimesNet
     - FITS
     - MyAlgo_ESN
-    - MyAlgo_CLOF
+    - SRCNN
     - MyAlgo_ISOF
+
+
+
+  # point_wise_for_clustering:
+  #   - AE
+  #   - FCVAE
+  #   - EncDecAD
+  #   - Donut
+  #   - SRCNN
+  #   - MyAlgo_DM
+  #   - MyAlgo_TAE
+  # # Fig 9–10 / 12: boxplots + Bayesian point-vs-sequence comparisons.
+  # point_wise_for_analysis:
+  #   - LSTMADalpha
+  #   - LSTMADbeta
+  #   - TimesNet
+  #   - FITS
+  #   - MyAlgo_ESN
+  #   - MyAlgo_CLOF
+  #   - MyAlgo_ISOF   
   # Union / all-methods mode. Default = paper ``alg_list_pred`` (12 methods).
   # CLOF/ISOF were NOT in the original dendrogram; keep them in the analysis
   # split list only, or add them here if you intentionally want them in profiles.
@@ -80,6 +106,15 @@ methods:
     - SubOCSVM
     - SAND
     - MatrixProfile
+  # If true: Bayesian / metrics / runners also include ``sequence_wise_extra``
+  # (DAMP, CARLA) together with all point-wise methods. If false: original
+  # paper catalogue (4 sequence-wise methods only).
+  sequence_wise_extended: true
+  sequence_wise_extra:
+    - DAMP
+    # CARLA omitted from the extended catalogue: the EasyTSAD-adapted
+    # contrastive wrapper under-performs on UCR (mean F1_PAK ≈ 0.05) and is
+    # not a faithful run of the official Zamanzadeh et al. pipeline.
 
 metrics:
   # Logarithmic k-grid used for the PAK curves (paper Section 3).

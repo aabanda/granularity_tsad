@@ -536,3 +536,794 @@
 (2026-09-17 17:52:06,925) [INFO]:     [MyAlgo_DM] handling dataset seriejavi | curve seriejavi_0.05 
 (2026-09-17 17:53:47,766) [INFO]:     [MyAlgo_DM] handling dataset seriejavi | curve seriejavi_0.10 
 (2026-09-17 17:55:36,146) [INFO]:     [MyAlgo_DM] handling dataset seriejavi | curve seriejavi_0.20 
+(2026-09-24 09:47:10,088) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-09-24 09:47:10,090) [INFO]: Dataset Directory has been loaded.
+(2026-09-24 09:47:14,732) [INFO]: Run Experiments. Method[AE], Schema[naive].
+(2026-09-24 09:47:14,732) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/AE/config.toml
+(2026-09-24 09:47:14,732) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-24 09:47:14,732) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 09:47:14,744) [INFO]:     [AE] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 09:47:14,831) [INFO]:     [AE] handling dataset nuevas | curve seriejavi_0.02 
+(2026-09-24 09:47:14,871) [INFO]:     [AE] handling dataset nuevas | curve seriejavi_0.05 
+(2026-09-24 09:47:14,911) [INFO]:     [AE] handling dataset nuevas | curve seriejavi_0.10 
+(2026-09-24 09:47:14,950) [INFO]:     [AE] handling dataset nuevas | curve seriejavi_0.20 
+(2026-09-24 09:47:14,991) [INFO]:     [AE] handling dataset nuevas | curve seriejavi_0.30 
+(2026-09-24 09:47:15,030) [INFO]:     [AE] handling dataset nuevas | curve seriejavi_0.40 
+(2026-09-24 09:47:15,071) [INFO]:     [AE] handling dataset nuevas | curve seriejavi_0.50 
+(2026-09-24 09:47:15,112) [INFO]:     [AE] handling dataset nuevas | curve seriejavi_0.60 
+(2026-09-24 09:47:15,155) [INFO]:     [AE] handling dataset nuevas | curve seriejavi_0.70 
+(2026-09-24 09:47:15,197) [INFO]:     [AE] handling dataset nuevas | curve seriejavi_0.80 
+(2026-09-24 09:47:15,239) [INFO]:     [AE] handling dataset nuevas | curve seriejavi_0.90 
+(2026-09-24 09:47:15,278) [INFO]: Run Experiments. Method[FCVAE], Schema[naive].
+(2026-09-24 09:47:15,279) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/FCVAE/config.toml
+(2026-09-24 09:47:15,280) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-24 09:47:15,280) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 09:47:15,294) [INFO]:     [FCVAE] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 09:47:18,546) [INFO]:     [FCVAE] handling dataset nuevas | curve seriejavi_0.02 
+(2026-09-24 09:47:21,763) [INFO]:     [FCVAE] handling dataset nuevas | curve seriejavi_0.05 
+(2026-09-24 09:47:24,934) [INFO]:     [FCVAE] handling dataset nuevas | curve seriejavi_0.10 
+(2026-09-24 09:47:28,094) [INFO]:     [FCVAE] handling dataset nuevas | curve seriejavi_0.20 
+(2026-09-24 09:47:31,256) [INFO]:     [FCVAE] handling dataset nuevas | curve seriejavi_0.30 
+(2026-09-24 09:47:34,322) [INFO]:     [FCVAE] handling dataset nuevas | curve seriejavi_0.40 
+(2026-09-24 09:47:37,446) [INFO]:     [FCVAE] handling dataset nuevas | curve seriejavi_0.50 
+(2026-09-24 09:47:40,562) [INFO]:     [FCVAE] handling dataset nuevas | curve seriejavi_0.60 
+(2026-09-24 09:47:43,748) [INFO]:     [FCVAE] handling dataset nuevas | curve seriejavi_0.70 
+(2026-09-24 09:47:46,866) [INFO]:     [FCVAE] handling dataset nuevas | curve seriejavi_0.80 
+(2026-09-24 09:47:49,945) [INFO]:     [FCVAE] handling dataset nuevas | curve seriejavi_0.90 
+(2026-09-24 09:47:53,027) [INFO]: Run Experiments. Method[EncDecAD], Schema[naive].
+(2026-09-24 09:47:53,027) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/EncDecAD/config.toml
+(2026-09-24 09:47:53,028) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-24 09:47:53,028) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 09:47:53,040) [INFO]:     [EncDecAD] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 09:47:53,682) [INFO]:     [EncDecAD] handling dataset nuevas | curve seriejavi_0.02 
+(2026-09-24 09:47:54,217) [INFO]:     [EncDecAD] handling dataset nuevas | curve seriejavi_0.05 
+(2026-09-24 09:47:54,772) [INFO]:     [EncDecAD] handling dataset nuevas | curve seriejavi_0.10 
+(2026-09-24 09:47:55,350) [INFO]:     [EncDecAD] handling dataset nuevas | curve seriejavi_0.20 
+(2026-09-24 09:47:55,896) [INFO]:     [EncDecAD] handling dataset nuevas | curve seriejavi_0.30 
+(2026-09-24 09:47:56,428) [INFO]:     [EncDecAD] handling dataset nuevas | curve seriejavi_0.40 
+(2026-09-24 09:47:56,985) [INFO]:     [EncDecAD] handling dataset nuevas | curve seriejavi_0.50 
+(2026-09-24 09:47:57,530) [INFO]:     [EncDecAD] handling dataset nuevas | curve seriejavi_0.60 
+(2026-09-24 09:47:58,074) [INFO]:     [EncDecAD] handling dataset nuevas | curve seriejavi_0.70 
+(2026-09-24 09:47:58,618) [INFO]:     [EncDecAD] handling dataset nuevas | curve seriejavi_0.80 
+(2026-09-24 09:47:59,167) [INFO]:     [EncDecAD] handling dataset nuevas | curve seriejavi_0.90 
+(2026-09-24 09:47:59,712) [INFO]: Run Experiments. Method[Donut], Schema[naive].
+(2026-09-24 09:47:59,712) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/Donut/config.toml
+(2026-09-24 09:47:59,722) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-24 09:47:59,722) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 09:47:59,732) [INFO]:     [Donut] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 09:48:00,145) [INFO]:     [Donut] handling dataset nuevas | curve seriejavi_0.02 
+(2026-09-24 09:48:00,644) [INFO]:     [Donut] handling dataset nuevas | curve seriejavi_0.05 
+(2026-09-24 09:48:01,230) [INFO]:     [Donut] handling dataset nuevas | curve seriejavi_0.10 
+(2026-09-24 09:48:01,820) [INFO]:     [Donut] handling dataset nuevas | curve seriejavi_0.20 
+(2026-09-24 09:48:02,392) [INFO]:     [Donut] handling dataset nuevas | curve seriejavi_0.30 
+(2026-09-24 09:48:02,833) [INFO]:     [Donut] handling dataset nuevas | curve seriejavi_0.40 
+(2026-09-24 09:48:03,259) [INFO]:     [Donut] handling dataset nuevas | curve seriejavi_0.50 
+(2026-09-24 09:48:03,682) [INFO]:     [Donut] handling dataset nuevas | curve seriejavi_0.60 
+(2026-09-24 09:48:04,106) [INFO]:     [Donut] handling dataset nuevas | curve seriejavi_0.70 
+(2026-09-24 09:48:04,531) [INFO]:     [Donut] handling dataset nuevas | curve seriejavi_0.80 
+(2026-09-24 09:48:04,961) [INFO]:     [Donut] handling dataset nuevas | curve seriejavi_0.90 
+(2026-09-24 09:48:05,394) [INFO]: Run Experiments. Method[SRCNN], Schema[naive].
+(2026-09-24 09:48:05,394) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/SRCNN/config.toml
+(2026-09-24 09:48:05,404) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-24 09:48:05,404) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 09:48:05,413) [INFO]:     [SRCNN] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 09:48:06,339) [INFO]:     [SRCNN] handling dataset nuevas | curve seriejavi_0.02 
+(2026-09-24 09:48:07,219) [INFO]:     [SRCNN] handling dataset nuevas | curve seriejavi_0.05 
+(2026-09-24 09:48:08,119) [INFO]:     [SRCNN] handling dataset nuevas | curve seriejavi_0.10 
+(2026-09-24 09:48:09,035) [INFO]:     [SRCNN] handling dataset nuevas | curve seriejavi_0.20 
+(2026-09-24 09:48:09,910) [INFO]:     [SRCNN] handling dataset nuevas | curve seriejavi_0.30 
+(2026-09-24 09:48:10,784) [INFO]:     [SRCNN] handling dataset nuevas | curve seriejavi_0.40 
+(2026-09-24 09:48:11,653) [INFO]:     [SRCNN] handling dataset nuevas | curve seriejavi_0.50 
+(2026-09-24 09:48:12,537) [INFO]:     [SRCNN] handling dataset nuevas | curve seriejavi_0.60 
+(2026-09-24 09:48:13,417) [INFO]:     [SRCNN] handling dataset nuevas | curve seriejavi_0.70 
+(2026-09-24 09:48:14,305) [INFO]:     [SRCNN] handling dataset nuevas | curve seriejavi_0.80 
+(2026-09-24 09:48:15,257) [INFO]:     [SRCNN] handling dataset nuevas | curve seriejavi_0.90 
+(2026-09-24 09:48:16,157) [INFO]: Run Experiments. Method[MyAlgo_DM], Schema[naive].
+(2026-09-24 09:48:16,157) [INFO]: Use Function Parameters.
+(2026-09-24 09:48:16,157) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 09:48:16,171) [INFO]:     [MyAlgo_DM] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 09:49:55,508) [INFO]:     [MyAlgo_DM] handling dataset nuevas | curve seriejavi_0.02 
+(2026-09-24 09:51:42,928) [INFO]:     [MyAlgo_DM] handling dataset nuevas | curve seriejavi_0.05 
+(2026-09-24 09:53:22,429) [INFO]:     [MyAlgo_DM] handling dataset nuevas | curve seriejavi_0.10 
+(2026-09-24 09:54:46,693) [INFO]:     [MyAlgo_DM] handling dataset nuevas | curve seriejavi_0.20 
+(2026-09-24 09:56:10,764) [INFO]:     [MyAlgo_DM] handling dataset nuevas | curve seriejavi_0.30 
+(2026-09-24 09:57:34,669) [INFO]:     [MyAlgo_DM] handling dataset nuevas | curve seriejavi_0.40 
+(2026-09-24 09:58:57,596) [INFO]:     [MyAlgo_DM] handling dataset nuevas | curve seriejavi_0.50 
+(2026-09-24 10:00:20,538) [INFO]:     [MyAlgo_DM] handling dataset nuevas | curve seriejavi_0.60 
+(2026-09-24 10:01:44,817) [INFO]:     [MyAlgo_DM] handling dataset nuevas | curve seriejavi_0.70 
+(2026-09-24 10:03:08,256) [INFO]:     [MyAlgo_DM] handling dataset nuevas | curve seriejavi_0.80 
+(2026-09-24 10:04:43,549) [INFO]:     [MyAlgo_DM] handling dataset nuevas | curve seriejavi_0.90 
+(2026-09-24 10:06:35,024) [INFO]: Run Experiments. Method[MyAlgo_TAE], Schema[naive].
+(2026-09-24 10:06:35,025) [INFO]: Use Function Parameters.
+(2026-09-24 10:06:35,025) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 10:06:35,038) [INFO]:     [MyAlgo_TAE] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 10:06:53,066) [INFO]:     [MyAlgo_TAE] handling dataset nuevas | curve seriejavi_0.02 
+(2026-09-24 10:07:10,789) [INFO]:     [MyAlgo_TAE] handling dataset nuevas | curve seriejavi_0.05 
+(2026-09-24 10:07:28,734) [INFO]:     [MyAlgo_TAE] handling dataset nuevas | curve seriejavi_0.10 
+(2026-09-24 10:07:46,741) [INFO]:     [MyAlgo_TAE] handling dataset nuevas | curve seriejavi_0.20 
+(2026-09-24 10:08:04,020) [INFO]:     [MyAlgo_TAE] handling dataset nuevas | curve seriejavi_0.30 
+(2026-09-24 10:08:23,158) [INFO]:     [MyAlgo_TAE] handling dataset nuevas | curve seriejavi_0.40 
+(2026-09-24 10:08:44,010) [INFO]:     [MyAlgo_TAE] handling dataset nuevas | curve seriejavi_0.50 
+(2026-09-24 10:09:01,992) [INFO]:     [MyAlgo_TAE] handling dataset nuevas | curve seriejavi_0.60 
+(2026-09-24 10:09:19,258) [INFO]:     [MyAlgo_TAE] handling dataset nuevas | curve seriejavi_0.70 
+(2026-09-24 10:09:37,664) [INFO]:     [MyAlgo_TAE] handling dataset nuevas | curve seriejavi_0.80 
+(2026-09-24 10:09:54,874) [INFO]:     [MyAlgo_TAE] handling dataset nuevas | curve seriejavi_0.90 
+(2026-09-24 10:10:11,988) [INFO]: Run Experiments. Method[LSTMADalpha], Schema[naive].
+(2026-09-24 10:10:11,989) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/LSTMADalpha/config.toml
+(2026-09-24 10:10:11,999) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-24 10:10:11,999) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 10:10:12,010) [INFO]:     [LSTMADalpha] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 10:10:12,326) [INFO]:     [LSTMADalpha] handling dataset nuevas | curve seriejavi_0.02 
+(2026-09-24 10:10:12,650) [INFO]:     [LSTMADalpha] handling dataset nuevas | curve seriejavi_0.05 
+(2026-09-24 10:10:12,967) [INFO]:     [LSTMADalpha] handling dataset nuevas | curve seriejavi_0.10 
+(2026-09-24 10:10:13,280) [INFO]:     [LSTMADalpha] handling dataset nuevas | curve seriejavi_0.20 
+(2026-09-24 10:10:13,593) [INFO]:     [LSTMADalpha] handling dataset nuevas | curve seriejavi_0.30 
+(2026-09-24 10:10:13,904) [INFO]:     [LSTMADalpha] handling dataset nuevas | curve seriejavi_0.40 
+(2026-09-24 10:10:14,218) [INFO]:     [LSTMADalpha] handling dataset nuevas | curve seriejavi_0.50 
+(2026-09-24 10:10:14,533) [INFO]:     [LSTMADalpha] handling dataset nuevas | curve seriejavi_0.60 
+(2026-09-24 10:10:14,843) [INFO]:     [LSTMADalpha] handling dataset nuevas | curve seriejavi_0.70 
+(2026-09-24 10:10:15,158) [INFO]:     [LSTMADalpha] handling dataset nuevas | curve seriejavi_0.80 
+(2026-09-24 10:10:15,560) [INFO]:     [LSTMADalpha] handling dataset nuevas | curve seriejavi_0.90 
+(2026-09-24 10:10:15,898) [INFO]: Run Experiments. Method[LSTMADbeta], Schema[naive].
+(2026-09-24 10:10:15,898) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/LSTMADbeta/config.toml
+(2026-09-24 10:10:15,908) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-24 10:10:15,908) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 10:10:15,921) [INFO]:     [LSTMADbeta] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 10:10:16,265) [INFO]:     [LSTMADbeta] handling dataset nuevas | curve seriejavi_0.02 
+(2026-09-24 10:10:16,545) [INFO]:     [LSTMADbeta] handling dataset nuevas | curve seriejavi_0.05 
+(2026-09-24 10:10:16,876) [INFO]:     [LSTMADbeta] handling dataset nuevas | curve seriejavi_0.10 
+(2026-09-24 10:10:17,181) [INFO]:     [LSTMADbeta] handling dataset nuevas | curve seriejavi_0.20 
+(2026-09-24 10:10:17,565) [INFO]:     [LSTMADbeta] handling dataset nuevas | curve seriejavi_0.30 
+(2026-09-24 10:10:17,953) [INFO]:     [LSTMADbeta] handling dataset nuevas | curve seriejavi_0.40 
+(2026-09-24 10:10:18,377) [INFO]:     [LSTMADbeta] handling dataset nuevas | curve seriejavi_0.50 
+(2026-09-24 10:10:18,768) [INFO]:     [LSTMADbeta] handling dataset nuevas | curve seriejavi_0.60 
+(2026-09-24 10:10:19,488) [INFO]:     [LSTMADbeta] handling dataset nuevas | curve seriejavi_0.70 
+(2026-09-24 10:10:19,887) [INFO]:     [LSTMADbeta] handling dataset nuevas | curve seriejavi_0.80 
+(2026-09-24 10:10:20,171) [INFO]:     [LSTMADbeta] handling dataset nuevas | curve seriejavi_0.90 
+(2026-09-24 10:10:20,439) [INFO]: Run Experiments. Method[TimesNet], Schema[naive].
+(2026-09-24 10:10:20,439) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/TimesNet/config.toml
+(2026-09-24 10:10:20,449) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-24 10:10:20,449) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 10:10:20,461) [INFO]:     [TimesNet] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 10:10:40,029) [INFO]:     [TimesNet] handling dataset nuevas | curve seriejavi_0.02 
+(2026-09-24 10:10:57,338) [INFO]:     [TimesNet] handling dataset nuevas | curve seriejavi_0.05 
+(2026-09-24 10:14:58,973) [INFO]:     [TimesNet] handling dataset nuevas | curve seriejavi_0.10 
+(2026-09-24 10:15:47,407) [INFO]:     [TimesNet] handling dataset nuevas | curve seriejavi_0.20 
+(2026-09-24 10:16:05,427) [INFO]:     [TimesNet] handling dataset nuevas | curve seriejavi_0.30 
+(2026-09-24 10:16:36,911) [INFO]:     [TimesNet] handling dataset nuevas | curve seriejavi_0.40 
+(2026-09-24 10:20:05,021) [INFO]:     [TimesNet] handling dataset nuevas | curve seriejavi_0.50 
+(2026-09-24 10:20:26,647) [INFO]:     [TimesNet] handling dataset nuevas | curve seriejavi_0.60 
+(2026-09-24 10:22:34,874) [INFO]:     [TimesNet] handling dataset nuevas | curve seriejavi_0.70 
+(2026-09-24 10:23:14,027) [INFO]:     [TimesNet] handling dataset nuevas | curve seriejavi_0.80 
+(2026-09-24 10:26:09,681) [INFO]:     [TimesNet] handling dataset nuevas | curve seriejavi_0.90 
+(2026-09-24 10:26:34,265) [INFO]: Run Experiments. Method[FITS], Schema[naive].
+(2026-09-24 10:26:34,266) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/FITS/config.toml
+(2026-09-24 10:26:34,267) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(min-max).
+(2026-09-24 10:26:34,267) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 10:26:34,286) [INFO]:     [FITS] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 10:26:34,375) [INFO]:     [FITS] handling dataset nuevas | curve seriejavi_0.02 
+(2026-09-24 10:26:34,459) [INFO]:     [FITS] handling dataset nuevas | curve seriejavi_0.05 
+(2026-09-24 10:26:34,547) [INFO]:     [FITS] handling dataset nuevas | curve seriejavi_0.10 
+(2026-09-24 10:26:34,632) [INFO]:     [FITS] handling dataset nuevas | curve seriejavi_0.20 
+(2026-09-24 10:26:34,691) [INFO]:     [FITS] handling dataset nuevas | curve seriejavi_0.30 
+(2026-09-24 10:26:34,776) [INFO]:     [FITS] handling dataset nuevas | curve seriejavi_0.40 
+(2026-09-24 10:26:34,859) [INFO]:     [FITS] handling dataset nuevas | curve seriejavi_0.50 
+(2026-09-24 10:26:34,978) [INFO]:     [FITS] handling dataset nuevas | curve seriejavi_0.60 
+(2026-09-24 10:26:35,072) [INFO]:     [FITS] handling dataset nuevas | curve seriejavi_0.70 
+(2026-09-24 10:26:35,158) [INFO]:     [FITS] handling dataset nuevas | curve seriejavi_0.80 
+(2026-09-24 10:26:35,235) [INFO]:     [FITS] handling dataset nuevas | curve seriejavi_0.90 
+(2026-09-24 10:26:35,294) [INFO]: Run Experiments. Method[MyAlgo_ESN], Schema[naive].
+(2026-09-24 10:26:35,294) [INFO]: Use Function Parameters.
+(2026-09-24 10:26:35,294) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 10:26:35,316) [INFO]:     [MyAlgo_ESN] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 10:26:37,247) [INFO]:     [MyAlgo_ESN] handling dataset nuevas | curve seriejavi_0.02 
+(2026-09-24 10:26:40,034) [INFO]:     [MyAlgo_ESN] handling dataset nuevas | curve seriejavi_0.05 
+(2026-09-24 10:26:41,248) [INFO]:     [MyAlgo_ESN] handling dataset nuevas | curve seriejavi_0.10 
+(2026-09-24 10:26:42,448) [INFO]:     [MyAlgo_ESN] handling dataset nuevas | curve seriejavi_0.20 
+(2026-09-24 10:26:43,949) [INFO]:     [MyAlgo_ESN] handling dataset nuevas | curve seriejavi_0.30 
+(2026-09-24 10:26:45,267) [INFO]:     [MyAlgo_ESN] handling dataset nuevas | curve seriejavi_0.40 
+(2026-09-24 10:26:46,264) [INFO]:     [MyAlgo_ESN] handling dataset nuevas | curve seriejavi_0.50 
+(2026-09-24 10:26:47,321) [INFO]:     [MyAlgo_ESN] handling dataset nuevas | curve seriejavi_0.60 
+(2026-09-24 10:26:48,392) [INFO]:     [MyAlgo_ESN] handling dataset nuevas | curve seriejavi_0.70 
+(2026-09-24 10:26:49,248) [INFO]:     [MyAlgo_ESN] handling dataset nuevas | curve seriejavi_0.80 
+(2026-09-24 10:26:50,435) [INFO]:     [MyAlgo_ESN] handling dataset nuevas | curve seriejavi_0.90 
+(2026-09-24 10:26:51,515) [INFO]: Run Experiments. Method[SubLOF], Schema[naive].
+(2026-09-24 10:26:51,515) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/SubLOF/config.toml
+(2026-09-24 10:26:51,525) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-24 10:26:51,525) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 10:26:51,544) [INFO]:     [SubLOF] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 10:26:51,608) [INFO]:     [SubLOF] handling dataset nuevas | curve seriejavi_0.02 
+(2026-09-24 10:26:51,656) [INFO]:     [SubLOF] handling dataset nuevas | curve seriejavi_0.05 
+(2026-09-24 10:26:51,700) [INFO]:     [SubLOF] handling dataset nuevas | curve seriejavi_0.10 
+(2026-09-24 10:26:51,745) [INFO]:     [SubLOF] handling dataset nuevas | curve seriejavi_0.20 
+(2026-09-24 10:26:51,794) [INFO]:     [SubLOF] handling dataset nuevas | curve seriejavi_0.30 
+(2026-09-24 10:26:51,840) [INFO]:     [SubLOF] handling dataset nuevas | curve seriejavi_0.40 
+(2026-09-24 10:26:51,884) [INFO]:     [SubLOF] handling dataset nuevas | curve seriejavi_0.50 
+(2026-09-24 10:26:51,927) [INFO]:     [SubLOF] handling dataset nuevas | curve seriejavi_0.60 
+(2026-09-24 10:26:51,970) [INFO]:     [SubLOF] handling dataset nuevas | curve seriejavi_0.70 
+(2026-09-24 10:26:52,013) [INFO]:     [SubLOF] handling dataset nuevas | curve seriejavi_0.80 
+(2026-09-24 10:26:52,055) [INFO]:     [SubLOF] handling dataset nuevas | curve seriejavi_0.90 
+(2026-09-24 10:26:52,099) [INFO]: Run Experiments. Method[SubOCSVM], Schema[naive].
+(2026-09-24 10:26:52,099) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/SubOCSVM/config.toml
+(2026-09-24 10:26:52,109) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-24 10:26:52,110) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 10:26:52,121) [INFO]:     [SubOCSVM] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 10:26:52,135) [INFO]:     [SubOCSVM] handling dataset nuevas | curve seriejavi_0.02 
+(2026-09-24 10:26:52,149) [INFO]:     [SubOCSVM] handling dataset nuevas | curve seriejavi_0.05 
+(2026-09-24 10:26:52,163) [INFO]:     [SubOCSVM] handling dataset nuevas | curve seriejavi_0.10 
+(2026-09-24 10:26:52,176) [INFO]:     [SubOCSVM] handling dataset nuevas | curve seriejavi_0.20 
+(2026-09-24 10:26:52,190) [INFO]:     [SubOCSVM] handling dataset nuevas | curve seriejavi_0.30 
+(2026-09-24 10:26:52,204) [INFO]:     [SubOCSVM] handling dataset nuevas | curve seriejavi_0.40 
+(2026-09-24 10:26:52,217) [INFO]:     [SubOCSVM] handling dataset nuevas | curve seriejavi_0.50 
+(2026-09-24 10:26:52,231) [INFO]:     [SubOCSVM] handling dataset nuevas | curve seriejavi_0.60 
+(2026-09-24 10:26:52,245) [INFO]:     [SubOCSVM] handling dataset nuevas | curve seriejavi_0.70 
+(2026-09-24 10:26:52,258) [INFO]:     [SubOCSVM] handling dataset nuevas | curve seriejavi_0.80 
+(2026-09-24 10:26:52,273) [INFO]:     [SubOCSVM] handling dataset nuevas | curve seriejavi_0.90 
+(2026-09-24 10:26:52,287) [INFO]: Run Experiments. Method[SAND], Schema[naive].
+(2026-09-24 10:26:52,288) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/SAND/config.toml
+(2026-09-24 10:26:52,297) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-24 10:26:52,298) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 10:26:52,310) [INFO]:     [SAND] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 10:26:52,310) [INFO]: Run Experiments. Method[MatrixProfile], Schema[naive].
+(2026-09-24 10:26:52,310) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/MatrixProfile/config.toml
+(2026-09-24 10:26:52,311) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-24 10:26:52,311) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 10:26:52,322) [INFO]:     [MatrixProfile] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 10:26:52,327) [INFO]:     [MatrixProfile] handling dataset nuevas | curve seriejavi_0.02 
+(2026-09-24 10:26:52,330) [INFO]:     [MatrixProfile] handling dataset nuevas | curve seriejavi_0.05 
+(2026-09-24 10:26:52,333) [INFO]:     [MatrixProfile] handling dataset nuevas | curve seriejavi_0.10 
+(2026-09-24 10:26:52,336) [INFO]:     [MatrixProfile] handling dataset nuevas | curve seriejavi_0.20 
+(2026-09-24 10:26:52,339) [INFO]:     [MatrixProfile] handling dataset nuevas | curve seriejavi_0.30 
+(2026-09-24 10:26:52,343) [INFO]:     [MatrixProfile] handling dataset nuevas | curve seriejavi_0.40 
+(2026-09-24 10:26:52,347) [INFO]:     [MatrixProfile] handling dataset nuevas | curve seriejavi_0.50 
+(2026-09-24 10:26:52,352) [INFO]:     [MatrixProfile] handling dataset nuevas | curve seriejavi_0.60 
+(2026-09-24 10:26:52,356) [INFO]:     [MatrixProfile] handling dataset nuevas | curve seriejavi_0.70 
+(2026-09-24 10:26:52,361) [INFO]:     [MatrixProfile] handling dataset nuevas | curve seriejavi_0.80 
+(2026-09-24 10:26:52,365) [INFO]:     [MatrixProfile] handling dataset nuevas | curve seriejavi_0.90 
+(2026-09-24 10:28:34,339) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-09-24 10:28:34,340) [INFO]: Dataset Directory has been loaded.
+(2026-09-24 10:28:34,815) [INFO]: Run Experiments. Method[SAND], Schema[naive].
+(2026-09-24 10:28:34,816) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/SAND/config.toml
+(2026-09-24 10:28:34,816) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-09-24 10:28:34,816) [INFO]:     [Load Data (Specify)] DataSets: nuevas 
+(2026-09-24 10:28:34,830) [INFO]:     [SAND] handling dataset nuevas | curve seriejavi_0.00 
+(2026-09-24 10:29:31,251) [INFO]:     [SAND] handling dataset nuevas | curve seriejavi_0.02 
+(2026-09-24 10:29:48,288) [INFO]:     [SAND] handling dataset nuevas | curve seriejavi_0.05 
+(2026-09-24 10:30:39,517) [INFO]:     [SAND] handling dataset nuevas | curve seriejavi_0.10 
+(2026-09-24 10:31:01,688) [INFO]:     [SAND] handling dataset nuevas | curve seriejavi_0.20 
+(2026-09-24 10:31:23,822) [INFO]:     [SAND] handling dataset nuevas | curve seriejavi_0.30 
+(2026-09-24 10:31:24,881) [INFO]:     [SAND] handling dataset nuevas | curve seriejavi_0.40 
+(2026-09-24 10:31:25,919) [INFO]:     [SAND] handling dataset nuevas | curve seriejavi_0.50 
+(2026-09-24 10:31:27,050) [INFO]:     [SAND] handling dataset nuevas | curve seriejavi_0.60 
+(2026-09-24 10:31:28,047) [INFO]:     [SAND] handling dataset nuevas | curve seriejavi_0.70 
+(2026-09-24 10:31:35,189) [INFO]:     [SAND] handling dataset nuevas | curve seriejavi_0.80 
+(2026-09-24 10:31:40,407) [INFO]:     [SAND] handling dataset nuevas | curve seriejavi_0.90 
+(2026-10-02 13:32:52,429) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-10-02 13:32:52,431) [INFO]: Dataset Directory has been loaded.
+(2026-10-02 13:38:40,478) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-10-02 13:38:40,478) [INFO]: Dataset Directory has been loaded.
+(2026-10-02 13:38:40,483) [INFO]: Run Experiments. Method[DAMP], Schema[naive].
+(2026-10-02 13:38:40,483) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/DAMP/config.toml
+(2026-10-02 13:38:40,483) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-10-02 13:38:40,483) [INFO]:     [Load Data (Specify)] DataSets: UCR 
+(2026-10-02 13:38:40,486) [INFO]:     [DAMP] handling dataset UCR | curve 4 
+(2026-10-02 13:39:00,700) [INFO]: Run Experiments. Method[CARLA], Schema[naive].
+(2026-10-02 13:39:00,701) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/CARLA/config.toml
+(2026-10-02 13:39:00,701) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-10-02 13:39:00,702) [INFO]:     [Load Data (Specify)] DataSets: UCR 
+(2026-10-02 13:39:00,704) [INFO]:     [CARLA] handling dataset UCR | curve 4 
+(2026-10-02 13:39:41,697) [INFO]: 
+                         
+███████╗ █████╗ ███████╗██╗   ██╗    ████████╗███████╗ █████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ╚══██╔══╝██╔════╝██╔══██╗██╔══██╗
+█████╗  ███████║███████╗ ╚████╔╝        ██║   ███████╗███████║██║  ██║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝         ██║   ╚════██║██╔══██║██║  ██║
+███████╗██║  ██║███████║   ██║          ██║   ███████║██║  ██║██████╔╝
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝          ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ 
+                                                                      
+                         
+(2026-10-02 13:39:41,698) [INFO]: Dataset Directory has been loaded.
+(2026-10-02 13:39:41,837) [INFO]: Run Experiments. Method[DAMP], Schema[naive].
+(2026-10-02 13:39:41,837) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/DAMP/config.toml
+(2026-10-02 13:39:41,838) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-10-02 13:39:41,838) [INFO]:     [Load Data (Specify)] DataSets: UCR 
+(2026-10-02 13:39:42,319) [INFO]:     [DAMP] handling dataset UCR | curve 1 
+(2026-10-02 13:40:01,180) [INFO]:     [DAMP] handling dataset UCR | curve 2 
+(2026-10-02 13:40:01,550) [INFO]:     [DAMP] handling dataset UCR | curve 3 
+(2026-10-02 13:40:01,912) [INFO]:     [DAMP] handling dataset UCR | curve 4 
+(2026-10-02 13:40:02,057) [INFO]:     [DAMP] handling dataset UCR | curve 6 
+(2026-10-02 13:40:02,181) [INFO]:     [DAMP] handling dataset UCR | curve 7 
+(2026-10-02 13:40:02,298) [INFO]:     [DAMP] handling dataset UCR | curve 8 
+(2026-10-02 13:40:02,407) [INFO]:     [DAMP] handling dataset UCR | curve 9 
+(2026-10-02 13:40:02,520) [INFO]:     [DAMP] handling dataset UCR | curve 10 
+(2026-10-02 13:40:02,626) [INFO]:     [DAMP] handling dataset UCR | curve 11 
+(2026-10-02 13:40:02,854) [INFO]:     [DAMP] handling dataset UCR | curve 12 
+(2026-10-02 13:40:03,115) [INFO]:     [DAMP] handling dataset UCR | curve 13 
+(2026-10-02 13:40:03,565) [INFO]:     [DAMP] handling dataset UCR | curve 14 
+(2026-10-02 13:40:03,796) [INFO]:     [DAMP] handling dataset UCR | curve 15 
+(2026-10-02 13:40:03,976) [INFO]:     [DAMP] handling dataset UCR | curve 16 
+(2026-10-02 13:40:04,255) [INFO]:     [DAMP] handling dataset UCR | curve 17 
+(2026-10-02 13:40:04,412) [INFO]:     [DAMP] handling dataset UCR | curve 18 
+(2026-10-02 13:40:04,632) [INFO]:     [DAMP] handling dataset UCR | curve 19 
+(2026-10-02 13:40:04,812) [INFO]:     [DAMP] handling dataset UCR | curve 20 
+(2026-10-02 13:40:05,010) [INFO]:     [DAMP] handling dataset UCR | curve 21 
+(2026-10-02 13:40:05,211) [INFO]:     [DAMP] handling dataset UCR | curve 22 
+(2026-10-02 13:40:05,396) [INFO]:     [DAMP] handling dataset UCR | curve 23 
+(2026-10-02 13:40:05,582) [INFO]:     [DAMP] handling dataset UCR | curve 24 
+(2026-10-02 13:40:05,691) [INFO]:     [DAMP] handling dataset UCR | curve 25 
+(2026-10-02 13:40:05,800) [INFO]:     [DAMP] handling dataset UCR | curve 26 
+(2026-10-02 13:40:05,904) [INFO]:     [DAMP] handling dataset UCR | curve 27 
+(2026-10-02 13:40:06,014) [INFO]:     [DAMP] handling dataset UCR | curve 28 
+(2026-10-02 13:40:06,137) [INFO]:     [DAMP] handling dataset UCR | curve 29 
+(2026-10-02 13:40:06,256) [INFO]:     [DAMP] handling dataset UCR | curve 30 
+(2026-10-02 13:40:06,423) [INFO]:     [DAMP] handling dataset UCR | curve 31 
+(2026-10-02 13:40:06,528) [INFO]:     [DAMP] handling dataset UCR | curve 32 
+(2026-10-02 13:40:06,627) [INFO]:     [DAMP] handling dataset UCR | curve 33 
+(2026-10-02 13:40:06,728) [INFO]:     [DAMP] handling dataset UCR | curve 34 
+(2026-10-02 13:40:06,864) [INFO]:     [DAMP] handling dataset UCR | curve 35 
+(2026-10-02 13:40:06,976) [INFO]:     [DAMP] handling dataset UCR | curve 36 
+(2026-10-02 13:40:07,088) [INFO]:     [DAMP] handling dataset UCR | curve 37 
+(2026-10-02 13:40:07,284) [INFO]:     [DAMP] handling dataset UCR | curve 38 
+(2026-10-02 13:40:07,419) [INFO]:     [DAMP] handling dataset UCR | curve 39 
+(2026-10-02 13:40:07,586) [INFO]:     [DAMP] handling dataset UCR | curve 40 
+(2026-10-02 13:40:07,749) [INFO]:     [DAMP] handling dataset UCR | curve 41 
+(2026-10-02 13:40:07,965) [INFO]:     [DAMP] handling dataset UCR | curve 42 
+(2026-10-02 13:40:08,166) [INFO]:     [DAMP] handling dataset UCR | curve 43 
+(2026-10-02 13:40:08,410) [INFO]:     [DAMP] handling dataset UCR | curve 44 
+(2026-10-02 13:40:08,641) [INFO]:     [DAMP] handling dataset UCR | curve 45 
+(2026-10-02 13:40:08,882) [INFO]:     [DAMP] handling dataset UCR | curve 46 
+(2026-10-02 13:40:09,196) [INFO]:     [DAMP] handling dataset UCR | curve 47 
+(2026-10-02 13:40:09,704) [INFO]:     [DAMP] handling dataset UCR | curve 48 
+(2026-10-02 13:40:09,856) [INFO]:     [DAMP] handling dataset UCR | curve 49 
+(2026-10-02 13:40:10,019) [INFO]:     [DAMP] handling dataset UCR | curve 50 
+(2026-10-02 13:40:10,191) [INFO]:     [DAMP] handling dataset UCR | curve 51 
+(2026-10-02 13:40:10,361) [INFO]:     [DAMP] handling dataset UCR | curve 52 
+(2026-10-02 13:40:10,545) [INFO]:     [DAMP] handling dataset UCR | curve 53 
+(2026-10-02 13:40:10,844) [INFO]:     [DAMP] handling dataset UCR | curve 54 
+(2026-10-02 13:40:11,065) [INFO]:     [DAMP] handling dataset UCR | curve 55 
+(2026-10-02 13:40:11,442) [INFO]:     [DAMP] handling dataset UCR | curve 56 
+(2026-10-02 13:40:11,609) [INFO]:     [DAMP] handling dataset UCR | curve 57 
+(2026-10-02 13:40:11,812) [INFO]:     [DAMP] handling dataset UCR | curve 58 
+(2026-10-02 13:40:12,108) [INFO]:     [DAMP] handling dataset UCR | curve 59 
+(2026-10-02 13:40:12,777) [INFO]:     [DAMP] handling dataset UCR | curve 60 
+(2026-10-02 13:40:13,975) [INFO]:     [DAMP] handling dataset UCR | curve 61 
+(2026-10-02 13:40:14,849) [INFO]:     [DAMP] handling dataset UCR | curve 62 
+(2026-10-02 13:40:15,368) [INFO]:     [DAMP] handling dataset UCR | curve 63 
+(2026-10-02 13:40:15,767) [INFO]:     [DAMP] handling dataset UCR | curve 64 
+(2026-10-02 13:40:16,238) [INFO]:     [DAMP] handling dataset UCR | curve 65 
+(2026-10-02 13:40:16,409) [INFO]:     [DAMP] handling dataset UCR | curve 66 
+(2026-10-02 13:40:17,096) [INFO]:     [DAMP] handling dataset UCR | curve 67 
+(2026-10-02 13:40:17,939) [INFO]:     [DAMP] handling dataset UCR | curve 68 
+(2026-10-02 13:40:18,074) [INFO]:     [DAMP] handling dataset UCR | curve 70 
+(2026-10-02 13:40:18,428) [INFO]:     [DAMP] handling dataset UCR | curve 71 
+(2026-10-02 13:40:19,115) [INFO]:     [DAMP] handling dataset UCR | curve 72 
+(2026-10-02 13:40:19,783) [INFO]:     [DAMP] handling dataset UCR | curve 73 
+(2026-10-02 13:40:20,562) [INFO]:     [DAMP] handling dataset UCR | curve 74 
+(2026-10-02 13:40:20,763) [INFO]:     [DAMP] handling dataset UCR | curve 75 
+(2026-10-02 13:40:20,962) [INFO]:     [DAMP] handling dataset UCR | curve 76 
+(2026-10-02 13:40:21,524) [INFO]:     [DAMP] handling dataset UCR | curve 78 
+(2026-10-02 13:40:22,137) [INFO]:     [DAMP] handling dataset UCR | curve 83 
+(2026-10-02 13:40:22,538) [INFO]:     [DAMP] handling dataset UCR | curve 84 
+(2026-10-02 13:40:22,779) [INFO]:     [DAMP] handling dataset UCR | curve 85 
+(2026-10-02 13:40:22,983) [INFO]:     [DAMP] handling dataset UCR | curve 86 
+(2026-10-02 13:40:23,363) [INFO]:     [DAMP] handling dataset UCR | curve 87 
+(2026-10-02 13:40:23,664) [INFO]:     [DAMP] handling dataset UCR | curve 88 
+(2026-10-02 13:40:24,022) [INFO]:     [DAMP] handling dataset UCR | curve 89 
+(2026-10-02 13:40:24,715) [INFO]:     [DAMP] handling dataset UCR | curve 90 
+(2026-10-02 13:40:25,244) [INFO]:     [DAMP] handling dataset UCR | curve 91 
+(2026-10-02 13:40:25,700) [INFO]:     [DAMP] handling dataset UCR | curve 93 
+(2026-10-02 13:40:26,092) [INFO]:     [DAMP] handling dataset UCR | curve 94 
+(2026-10-02 13:40:26,241) [INFO]:     [DAMP] handling dataset UCR | curve 95 
+(2026-10-02 13:40:26,410) [INFO]:     [DAMP] handling dataset UCR | curve 96 
+(2026-10-02 13:40:26,566) [INFO]:     [DAMP] handling dataset UCR | curve 97 
+(2026-10-02 13:40:26,749) [INFO]:     [DAMP] handling dataset UCR | curve 98 
+(2026-10-02 13:40:26,842) [INFO]:     [DAMP] handling dataset UCR | curve 99 
+(2026-10-02 13:40:26,971) [INFO]:     [DAMP] handling dataset UCR | curve 100 
+(2026-10-02 13:40:27,125) [INFO]:     [DAMP] handling dataset UCR | curve 101 
+(2026-10-02 13:40:27,371) [INFO]:     [DAMP] handling dataset UCR | curve 102 
+(2026-10-02 13:40:27,620) [INFO]:     [DAMP] handling dataset UCR | curve 103 
+(2026-10-02 13:40:27,782) [INFO]:     [DAMP] handling dataset UCR | curve 104 
+(2026-10-02 13:40:27,979) [INFO]:     [DAMP] handling dataset UCR | curve 105 
+(2026-10-02 13:40:28,512) [INFO]:     [DAMP] handling dataset UCR | curve 106 
+(2026-10-02 13:40:28,959) [INFO]:     [DAMP] handling dataset UCR | curve 107 
+(2026-10-02 13:40:29,105) [INFO]:     [DAMP] handling dataset UCR | curve 109 
+(2026-10-02 13:40:29,474) [INFO]:     [DAMP] handling dataset UCR | curve 110 
+(2026-10-02 13:40:29,886) [INFO]:     [DAMP] handling dataset UCR | curve 111 
+(2026-10-02 13:40:30,324) [INFO]:     [DAMP] handling dataset UCR | curve 112 
+(2026-10-02 13:40:30,477) [INFO]:     [DAMP] handling dataset UCR | curve 114 
+(2026-10-02 13:40:30,606) [INFO]:     [DAMP] handling dataset UCR | curve 115 
+(2026-10-02 13:40:30,852) [INFO]:     [DAMP] handling dataset UCR | curve 116 
+(2026-10-02 13:40:30,993) [INFO]:     [DAMP] handling dataset UCR | curve 117 
+(2026-10-02 13:40:31,129) [INFO]:     [DAMP] handling dataset UCR | curve 118 
+(2026-10-02 13:40:31,362) [INFO]:     [DAMP] handling dataset UCR | curve 119 
+(2026-10-02 13:40:31,645) [INFO]:     [DAMP] handling dataset UCR | curve 120 
+(2026-10-02 13:40:31,931) [INFO]:     [DAMP] handling dataset UCR | curve 121 
+(2026-10-02 13:40:32,294) [INFO]:     [DAMP] handling dataset UCR | curve 122 
+(2026-10-02 13:40:32,513) [INFO]:     [DAMP] handling dataset UCR | curve 123 
+(2026-10-02 13:40:32,687) [INFO]:     [DAMP] handling dataset UCR | curve 124 
+(2026-10-02 13:40:32,842) [INFO]:     [DAMP] handling dataset UCR | curve 125 
+(2026-10-02 13:40:32,997) [INFO]:     [DAMP] handling dataset UCR | curve 126 
+(2026-10-02 13:40:33,228) [INFO]:     [DAMP] handling dataset UCR | curve 127 
+(2026-10-02 13:40:33,480) [INFO]:     [DAMP] handling dataset UCR | curve 128 
+(2026-10-02 13:40:33,662) [INFO]:     [DAMP] handling dataset UCR | curve 129 
+(2026-10-02 13:40:33,838) [INFO]:     [DAMP] handling dataset UCR | curve 130 
+(2026-10-02 13:40:34,021) [INFO]:     [DAMP] handling dataset UCR | curve 131 
+(2026-10-02 13:40:34,197) [INFO]:     [DAMP] handling dataset UCR | curve 132 
+(2026-10-02 13:40:34,329) [INFO]:     [DAMP] handling dataset UCR | curve 133 
+(2026-10-02 13:40:34,457) [INFO]:     [DAMP] handling dataset UCR | curve 134 
+(2026-10-02 13:40:34,578) [INFO]:     [DAMP] handling dataset UCR | curve 135 
+(2026-10-02 13:40:34,685) [INFO]:     [DAMP] handling dataset UCR | curve 136 
+(2026-10-02 13:40:34,804) [INFO]:     [DAMP] handling dataset UCR | curve 137 
+(2026-10-02 13:40:34,913) [INFO]:     [DAMP] handling dataset UCR | curve 138 
+(2026-10-02 13:40:35,041) [INFO]:     [DAMP] handling dataset UCR | curve 139 
+(2026-10-02 13:40:35,181) [INFO]:     [DAMP] handling dataset UCR | curve 140 
+(2026-10-02 13:40:35,297) [INFO]:     [DAMP] handling dataset UCR | curve 141 
+(2026-10-02 13:40:35,412) [INFO]:     [DAMP] handling dataset UCR | curve 142 
+(2026-10-02 13:40:35,532) [INFO]:     [DAMP] handling dataset UCR | curve 143 
+(2026-10-02 13:40:35,641) [INFO]:     [DAMP] handling dataset UCR | curve 144 
+(2026-10-02 13:40:35,748) [INFO]:     [DAMP] handling dataset UCR | curve 145 
+(2026-10-02 13:40:35,897) [INFO]:     [DAMP] handling dataset UCR | curve 146 
+(2026-10-02 13:40:36,058) [INFO]:     [DAMP] handling dataset UCR | curve 147 
+(2026-10-02 13:40:36,221) [INFO]:     [DAMP] handling dataset UCR | curve 148 
+(2026-10-02 13:40:36,386) [INFO]:     [DAMP] handling dataset UCR | curve 149 
+(2026-10-02 13:40:36,792) [INFO]:     [DAMP] handling dataset UCR | curve 150 
+(2026-10-02 13:40:37,045) [INFO]:     [DAMP] handling dataset UCR | curve 151 
+(2026-10-02 13:40:37,298) [INFO]:     [DAMP] handling dataset UCR | curve 152 
+(2026-10-02 13:40:37,529) [INFO]:     [DAMP] handling dataset UCR | curve 153 
+(2026-10-02 13:40:37,791) [INFO]:     [DAMP] handling dataset UCR | curve 154 
+(2026-10-02 13:40:38,090) [INFO]:     [DAMP] handling dataset UCR | curve 155 
+(2026-10-02 13:40:38,679) [INFO]:     [DAMP] handling dataset UCR | curve 156 
+(2026-10-02 13:40:38,833) [INFO]:     [DAMP] handling dataset UCR | curve 157 
+(2026-10-02 13:40:39,010) [INFO]:     [DAMP] handling dataset UCR | curve 158 
+(2026-10-02 13:40:39,172) [INFO]:     [DAMP] handling dataset UCR | curve 159 
+(2026-10-02 13:40:39,330) [INFO]:     [DAMP] handling dataset UCR | curve 160 
+(2026-10-02 13:40:39,490) [INFO]:     [DAMP] handling dataset UCR | curve 161 
+(2026-10-02 13:40:39,590) [INFO]:     [DAMP] handling dataset UCR | curve 162 
+(2026-10-02 13:40:39,689) [INFO]:     [DAMP] handling dataset UCR | curve 163 
+(2026-10-02 13:40:39,954) [INFO]:     [DAMP] handling dataset UCR | curve 164 
+(2026-10-02 13:40:40,132) [INFO]:     [DAMP] handling dataset UCR | curve 165 
+(2026-10-02 13:40:40,319) [INFO]:     [DAMP] handling dataset UCR | curve 166 
+(2026-10-02 13:40:40,521) [INFO]:     [DAMP] handling dataset UCR | curve 167 
+(2026-10-02 13:40:40,941) [INFO]:     [DAMP] handling dataset UCR | curve 168 
+(2026-10-02 13:40:42,457) [INFO]:     [DAMP] handling dataset UCR | curve 169 
+(2026-10-02 13:40:44,107) [INFO]:     [DAMP] handling dataset UCR | curve 170 
+(2026-10-02 13:40:45,689) [INFO]:     [DAMP] handling dataset UCR | curve 171 
+(2026-10-02 13:40:46,910) [INFO]:     [DAMP] handling dataset UCR | curve 172 
+(2026-10-02 13:40:47,393) [INFO]:     [DAMP] handling dataset UCR | curve 173 
+(2026-10-02 13:40:47,565) [INFO]:     [DAMP] handling dataset UCR | curve 174 
+(2026-10-02 13:40:47,733) [INFO]:     [DAMP] handling dataset UCR | curve 175 
+(2026-10-02 13:40:48,038) [INFO]:     [DAMP] handling dataset UCR | curve 176 
+(2026-10-02 13:40:48,157) [INFO]:     [DAMP] handling dataset UCR | curve 178 
+(2026-10-02 13:40:48,458) [INFO]:     [DAMP] handling dataset UCR | curve 179 
+(2026-10-02 13:40:48,973) [INFO]:     [DAMP] handling dataset UCR | curve 180 
+(2026-10-02 13:40:49,526) [INFO]:     [DAMP] handling dataset UCR | curve 181 
+(2026-10-02 13:40:50,247) [INFO]:     [DAMP] handling dataset UCR | curve 182 
+(2026-10-02 13:40:50,442) [INFO]:     [DAMP] handling dataset UCR | curve 183 
+(2026-10-02 13:40:50,607) [INFO]:     [DAMP] handling dataset UCR | curve 184 
+(2026-10-02 13:40:51,044) [INFO]:     [DAMP] handling dataset UCR | curve 186 
+(2026-10-02 13:40:51,513) [INFO]:     [DAMP] handling dataset UCR | curve 191 
+(2026-10-02 13:40:52,056) [INFO]:     [DAMP] handling dataset UCR | curve 192 
+(2026-10-02 13:40:52,343) [INFO]:     [DAMP] handling dataset UCR | curve 193 
+(2026-10-02 13:40:52,571) [INFO]:     [DAMP] handling dataset UCR | curve 194 
+(2026-10-02 13:40:52,946) [INFO]:     [DAMP] handling dataset UCR | curve 195 
+(2026-10-02 13:40:53,310) [INFO]:     [DAMP] handling dataset UCR | curve 196 
+(2026-10-02 13:40:53,641) [INFO]:     [DAMP] handling dataset UCR | curve 197 
+(2026-10-02 13:40:54,565) [INFO]:     [DAMP] handling dataset UCR | curve 198 
+(2026-10-02 13:40:55,081) [INFO]:     [DAMP] handling dataset UCR | curve 199 
+(2026-10-02 13:40:55,539) [INFO]:     [DAMP] handling dataset UCR | curve 201 
+(2026-10-02 13:40:55,819) [INFO]:     [DAMP] handling dataset UCR | curve 202 
+(2026-10-02 13:40:56,062) [INFO]:     [DAMP] handling dataset UCR | curve 203 
+(2026-10-02 13:40:56,308) [INFO]:     [DAMP] handling dataset UCR | curve 204 
+(2026-10-02 13:40:56,561) [INFO]:     [DAMP] handling dataset UCR | curve 205 
+(2026-10-02 13:40:56,808) [INFO]:     [DAMP] handling dataset UCR | curve 206 
+(2026-10-02 13:40:57,235) [INFO]:     [DAMP] handling dataset UCR | curve 207 
+(2026-10-02 13:40:57,400) [INFO]:     [DAMP] handling dataset UCR | curve 208 
+(2026-10-02 13:40:57,578) [INFO]:     [DAMP] handling dataset UCR | curve 209 
+(2026-10-02 13:40:57,875) [INFO]:     [DAMP] handling dataset UCR | curve 210 
+(2026-10-02 13:40:58,183) [INFO]:     [DAMP] handling dataset UCR | curve 211 
+(2026-10-02 13:40:58,675) [INFO]:     [DAMP] handling dataset UCR | curve 212 
+(2026-10-02 13:40:58,895) [INFO]:     [DAMP] handling dataset UCR | curve 213 
+(2026-10-02 13:40:59,365) [INFO]:     [DAMP] handling dataset UCR | curve 214 
+(2026-10-02 13:40:59,658) [INFO]:     [DAMP] handling dataset UCR | curve 215 
+(2026-10-02 13:40:59,990) [INFO]:     [DAMP] handling dataset UCR | curve 216 
+(2026-10-02 13:41:00,315) [INFO]:     [DAMP] handling dataset UCR | curve 217 
+(2026-10-02 13:41:00,681) [INFO]:     [DAMP] handling dataset UCR | curve 218 
+(2026-10-02 13:41:01,048) [INFO]:     [DAMP] handling dataset UCR | curve 219 
+(2026-10-02 13:41:01,393) [INFO]:     [DAMP] handling dataset UCR | curve 220 
+(2026-10-02 13:41:01,735) [INFO]:     [DAMP] handling dataset UCR | curve 221 
+(2026-10-02 13:41:02,111) [INFO]:     [DAMP] handling dataset UCR | curve 222 
+(2026-10-02 13:41:02,583) [INFO]:     [DAMP] handling dataset UCR | curve 223 
+(2026-10-02 13:41:03,022) [INFO]:     [DAMP] handling dataset UCR | curve 224 
+(2026-10-02 13:41:03,695) [INFO]:     [DAMP] handling dataset UCR | curve 225 
+(2026-10-02 13:41:04,224) [INFO]:     [DAMP] handling dataset UCR | curve 226 
+(2026-10-02 13:41:05,056) [INFO]:     [DAMP] handling dataset UCR | curve 227 
+(2026-10-02 13:41:05,393) [INFO]:     [DAMP] handling dataset UCR | curve 228 
+(2026-10-02 13:41:05,639) [INFO]:     [DAMP] handling dataset UCR | curve 229 
+(2026-10-02 13:41:05,932) [INFO]:     [DAMP] handling dataset UCR | curve 230 
+(2026-10-02 13:41:06,262) [INFO]:     [DAMP] handling dataset UCR | curve 231 
+(2026-10-02 13:41:06,462) [INFO]:     [DAMP] handling dataset UCR | curve 232 
+(2026-10-02 13:41:06,673) [INFO]:     [DAMP] handling dataset UCR | curve 236 
+(2026-10-02 13:41:06,967) [INFO]:     [DAMP] handling dataset UCR | curve 237 
+(2026-10-02 13:41:07,277) [INFO]:     [DAMP] handling dataset UCR | curve 238 
+(2026-10-02 13:41:07,619) [INFO]:     [DAMP] handling dataset UCR | curve 239 
+(2026-10-02 13:41:07,993) [INFO]:     [DAMP] handling dataset UCR | curve 240 
+(2026-10-02 13:41:08,414) [INFO]:     [DAMP] handling dataset UCR | curve 241 
+(2026-10-02 13:41:08,892) [INFO]:     [DAMP] handling dataset UCR | curve 242 
+(2026-10-02 13:41:09,447) [INFO]:     [DAMP] handling dataset UCR | curve 243 
+(2026-10-02 13:41:09,873) [INFO]:     [DAMP] handling dataset UCR | curve 244 
+(2026-10-02 13:41:10,321) [INFO]:     [DAMP] handling dataset UCR | curve 245 
+(2026-10-02 13:41:10,718) [INFO]:     [DAMP] handling dataset UCR | curve 246 
+(2026-10-02 13:41:11,201) [INFO]:     [DAMP] handling dataset UCR | curve 247 
+(2026-10-02 13:41:11,620) [INFO]:     [DAMP] handling dataset UCR | curve 248 
+(2026-10-02 13:41:11,779) [INFO]:     [DAMP] handling dataset UCR | curve 249 
+(2026-10-02 13:41:11,910) [INFO]:     [DAMP] handling dataset UCR | curve 250 
+(2026-10-02 13:41:12,033) [INFO]: Run Experiments. Method[CARLA], Schema[naive].
+(2026-10-02 13:41:12,034) [INFO]:     Use Default Method Config. Path: /home/110646@TRI.LAN/PycharmProjects/granularity_tsad/lib/EasyTSAD/EasyTSAD/Methods/CARLA/config.toml
+(2026-10-02 13:41:12,035) [WARNING]: The params "preprocess"(min-max) will overwrite the original ones(z-score).
+(2026-10-02 13:41:12,035) [INFO]:     [Load Data (Specify)] DataSets: UCR 
+(2026-10-02 13:41:12,375) [INFO]:     [CARLA] handling dataset UCR | curve 1 
+(2026-10-02 13:41:23,615) [INFO]:     [CARLA] handling dataset UCR | curve 2 
+(2026-10-02 13:41:33,553) [INFO]:     [CARLA] handling dataset UCR | curve 3 
+(2026-10-02 13:41:43,177) [INFO]:     [CARLA] handling dataset UCR | curve 4 
+(2026-10-02 13:41:51,586) [INFO]:     [CARLA] handling dataset UCR | curve 6 
+(2026-10-02 13:42:01,030) [INFO]:     [CARLA] handling dataset UCR | curve 7 
+(2026-10-02 13:42:10,370) [INFO]:     [CARLA] handling dataset UCR | curve 8 
+(2026-10-02 13:42:19,912) [INFO]:     [CARLA] handling dataset UCR | curve 9 
+(2026-10-02 13:42:29,247) [INFO]:     [CARLA] handling dataset UCR | curve 10 
+(2026-10-02 13:42:38,422) [INFO]:     [CARLA] handling dataset UCR | curve 11 
+(2026-10-02 13:42:48,356) [INFO]:     [CARLA] handling dataset UCR | curve 12 
+(2026-10-02 13:42:58,654) [INFO]:     [CARLA] handling dataset UCR | curve 13 
+(2026-10-02 13:43:08,968) [INFO]:     [CARLA] handling dataset UCR | curve 14 
+(2026-10-02 13:43:18,371) [INFO]:     [CARLA] handling dataset UCR | curve 15 
+(2026-10-02 13:43:27,003) [INFO]:     [CARLA] handling dataset UCR | curve 16 
+(2026-10-02 13:43:35,448) [INFO]:     [CARLA] handling dataset UCR | curve 17 
+(2026-10-02 13:43:45,065) [INFO]:     [CARLA] handling dataset UCR | curve 18 
+(2026-10-02 13:43:55,304) [INFO]:     [CARLA] handling dataset UCR | curve 19 
+(2026-10-02 13:44:04,863) [INFO]:     [CARLA] handling dataset UCR | curve 20 
+(2026-10-02 13:44:14,682) [INFO]:     [CARLA] handling dataset UCR | curve 21 
+(2026-10-02 13:44:24,122) [INFO]:     [CARLA] handling dataset UCR | curve 22 
+(2026-10-02 13:44:33,401) [INFO]:     [CARLA] handling dataset UCR | curve 23 
+(2026-10-02 13:44:41,891) [INFO]:     [CARLA] handling dataset UCR | curve 24 
+(2026-10-02 13:44:48,980) [INFO]:     [CARLA] handling dataset UCR | curve 25 
+(2026-10-02 13:44:58,005) [INFO]:     [CARLA] handling dataset UCR | curve 26 
+(2026-10-02 13:45:03,276) [INFO]:     [CARLA] handling dataset UCR | curve 27 
+(2026-10-02 13:45:10,605) [INFO]:     [CARLA] handling dataset UCR | curve 28 
+(2026-10-02 13:45:15,698) [INFO]:     [CARLA] handling dataset UCR | curve 29 
+(2026-10-02 13:45:22,965) [INFO]:     [CARLA] handling dataset UCR | curve 30 
+(2026-10-02 13:45:34,365) [INFO]:     [CARLA] handling dataset UCR | curve 31 
+(2026-10-02 13:45:45,097) [INFO]:     [CARLA] handling dataset UCR | curve 32 
+(2026-10-02 13:45:52,732) [INFO]:     [CARLA] handling dataset UCR | curve 33 
+(2026-10-02 13:46:02,546) [INFO]:     [CARLA] handling dataset UCR | curve 34 
+(2026-10-02 13:46:12,483) [INFO]:     [CARLA] handling dataset UCR | curve 35 
+(2026-10-02 13:46:21,631) [INFO]:     [CARLA] handling dataset UCR | curve 36 
+(2026-10-02 13:46:31,810) [INFO]:     [CARLA] handling dataset UCR | curve 37 
+(2026-10-02 13:46:40,826) [INFO]:     [CARLA] handling dataset UCR | curve 38 
+(2026-10-02 13:46:49,874) [INFO]:     [CARLA] handling dataset UCR | curve 39 
+(2026-10-02 13:46:58,559) [INFO]:     [CARLA] handling dataset UCR | curve 40 
+(2026-10-02 13:47:09,145) [INFO]:     [CARLA] handling dataset UCR | curve 41 
+(2026-10-02 13:47:18,968) [INFO]:     [CARLA] handling dataset UCR | curve 42 
+(2026-10-02 13:47:28,860) [INFO]:     [CARLA] handling dataset UCR | curve 43 
+(2026-10-02 13:47:38,946) [INFO]:     [CARLA] handling dataset UCR | curve 44 
+(2026-10-02 13:47:50,790) [INFO]:     [CARLA] handling dataset UCR | curve 45 
+(2026-10-02 13:48:01,570) [INFO]:     [CARLA] handling dataset UCR | curve 46 
+(2026-10-02 13:48:12,215) [INFO]:     [CARLA] handling dataset UCR | curve 47 
+(2026-10-02 13:48:23,264) [INFO]:     [CARLA] handling dataset UCR | curve 48 
+(2026-10-02 13:48:31,762) [INFO]:     [CARLA] handling dataset UCR | curve 49 
+(2026-10-02 13:48:39,973) [INFO]:     [CARLA] handling dataset UCR | curve 50 
+(2026-10-02 13:48:48,263) [INFO]:     [CARLA] handling dataset UCR | curve 51 
+(2026-10-02 13:48:56,413) [INFO]:     [CARLA] handling dataset UCR | curve 52 
+(2026-10-02 13:49:04,685) [INFO]:     [CARLA] handling dataset UCR | curve 53 
+(2026-10-02 13:49:14,932) [INFO]:     [CARLA] handling dataset UCR | curve 54 
+(2026-10-02 13:49:24,423) [INFO]:     [CARLA] handling dataset UCR | curve 55 
+(2026-10-02 13:49:34,750) [INFO]:     [CARLA] handling dataset UCR | curve 56 
+(2026-10-02 13:49:44,284) [INFO]:     [CARLA] handling dataset UCR | curve 57 
+(2026-10-02 13:49:55,989) [INFO]:     [CARLA] handling dataset UCR | curve 58 
+(2026-10-02 13:50:06,566) [INFO]:     [CARLA] handling dataset UCR | curve 59 
+(2026-10-02 13:50:16,879) [INFO]:     [CARLA] handling dataset UCR | curve 60 
+(2026-10-02 13:50:27,112) [INFO]:     [CARLA] handling dataset UCR | curve 61 
+(2026-10-02 13:50:38,691) [INFO]:     [CARLA] handling dataset UCR | curve 62 
+(2026-10-02 13:50:49,782) [INFO]:     [CARLA] handling dataset UCR | curve 63 
+(2026-10-02 13:51:02,295) [INFO]:     [CARLA] handling dataset UCR | curve 64 
+(2026-10-02 13:51:12,761) [INFO]:     [CARLA] handling dataset UCR | curve 65 
+(2026-10-02 13:51:23,517) [INFO]:     [CARLA] handling dataset UCR | curve 66 
+(2026-10-02 13:51:32,683) [INFO]:     [CARLA] handling dataset UCR | curve 67 
+(2026-10-02 13:51:42,179) [INFO]:     [CARLA] handling dataset UCR | curve 68 
+(2026-10-02 13:51:52,182) [INFO]:     [CARLA] handling dataset UCR | curve 70 
+(2026-10-02 13:52:03,575) [INFO]:     [CARLA] handling dataset UCR | curve 71 
+(2026-10-02 13:52:14,620) [INFO]:     [CARLA] handling dataset UCR | curve 72 
+(2026-10-02 13:52:25,632) [INFO]:     [CARLA] handling dataset UCR | curve 73 
+(2026-10-02 13:52:37,071) [INFO]:     [CARLA] handling dataset UCR | curve 74 
+(2026-10-02 13:52:46,214) [INFO]:     [CARLA] handling dataset UCR | curve 75 
+(2026-10-02 13:52:55,294) [INFO]:     [CARLA] handling dataset UCR | curve 76 
+(2026-10-02 13:53:05,342) [INFO]:     [CARLA] handling dataset UCR | curve 78 
+(2026-10-02 13:53:16,097) [INFO]:     [CARLA] handling dataset UCR | curve 83 
+(2026-10-02 13:53:26,769) [INFO]:     [CARLA] handling dataset UCR | curve 84 
+(2026-10-02 13:53:37,478) [INFO]:     [CARLA] handling dataset UCR | curve 85 
+(2026-10-02 13:53:47,674) [INFO]:     [CARLA] handling dataset UCR | curve 86 
+(2026-10-02 13:53:57,938) [INFO]:     [CARLA] handling dataset UCR | curve 87 
+(2026-10-02 13:54:07,983) [INFO]:     [CARLA] handling dataset UCR | curve 88 
+(2026-10-02 13:54:18,014) [INFO]:     [CARLA] handling dataset UCR | curve 89 
+(2026-10-02 13:54:28,497) [INFO]:     [CARLA] handling dataset UCR | curve 90 
+(2026-10-02 13:54:39,149) [INFO]:     [CARLA] handling dataset UCR | curve 91 
+(2026-10-02 13:54:50,642) [INFO]:     [CARLA] handling dataset UCR | curve 93 
+(2026-10-02 13:55:01,404) [INFO]:     [CARLA] handling dataset UCR | curve 94 
+(2026-10-02 13:55:10,588) [INFO]:     [CARLA] handling dataset UCR | curve 95 
+(2026-10-02 13:55:20,609) [INFO]:     [CARLA] handling dataset UCR | curve 96 
+(2026-10-02 13:55:30,116) [INFO]:     [CARLA] handling dataset UCR | curve 97 
+(2026-10-02 13:55:38,739) [INFO]:     [CARLA] handling dataset UCR | curve 98 
+(2026-10-02 13:55:47,681) [INFO]:     [CARLA] handling dataset UCR | curve 99 
+(2026-10-02 13:55:58,069) [INFO]:     [CARLA] handling dataset UCR | curve 100 
+(2026-10-02 13:56:06,907) [INFO]:     [CARLA] handling dataset UCR | curve 101 
+(2026-10-02 13:56:17,415) [INFO]:     [CARLA] handling dataset UCR | curve 102 
+(2026-10-02 13:56:27,636) [INFO]:     [CARLA] handling dataset UCR | curve 103 
+(2026-10-02 13:56:36,308) [INFO]:     [CARLA] handling dataset UCR | curve 104 
+(2026-10-02 13:56:47,135) [INFO]:     [CARLA] handling dataset UCR | curve 105 
+(2026-10-02 13:56:57,519) [INFO]:     [CARLA] handling dataset UCR | curve 106 
+(2026-10-02 13:57:08,225) [INFO]:     [CARLA] handling dataset UCR | curve 107 
+(2026-10-02 13:57:17,372) [INFO]:     [CARLA] handling dataset UCR | curve 109 
+(2026-10-02 13:57:27,702) [INFO]:     [CARLA] handling dataset UCR | curve 110 
+(2026-10-02 13:57:38,076) [INFO]:     [CARLA] handling dataset UCR | curve 111 
+(2026-10-02 13:57:48,378) [INFO]:     [CARLA] handling dataset UCR | curve 112 
+(2026-10-02 13:57:57,039) [INFO]:     [CARLA] handling dataset UCR | curve 114 
+(2026-10-02 13:58:06,329) [INFO]:     [CARLA] handling dataset UCR | curve 115 
+(2026-10-02 13:58:15,877) [INFO]:     [CARLA] handling dataset UCR | curve 116 
+(2026-10-02 13:58:25,769) [INFO]:     [CARLA] handling dataset UCR | curve 117 
+(2026-10-02 13:58:34,799) [INFO]:     [CARLA] handling dataset UCR | curve 118 
+(2026-10-02 13:58:43,788) [INFO]:     [CARLA] handling dataset UCR | curve 119 
+(2026-10-02 13:58:53,496) [INFO]:     [CARLA] handling dataset UCR | curve 120 
+(2026-10-02 13:59:02,936) [INFO]:     [CARLA] handling dataset UCR | curve 121 
+(2026-10-02 13:59:11,636) [INFO]:     [CARLA] handling dataset UCR | curve 122 
+(2026-10-02 13:59:19,558) [INFO]:     [CARLA] handling dataset UCR | curve 123 
+(2026-10-02 13:59:26,647) [INFO]:     [CARLA] handling dataset UCR | curve 124 
+(2026-10-02 13:59:33,994) [INFO]:     [CARLA] handling dataset UCR | curve 125 
+(2026-10-02 13:59:41,527) [INFO]:     [CARLA] handling dataset UCR | curve 126 
+(2026-10-02 13:59:49,506) [INFO]:     [CARLA] handling dataset UCR | curve 127 
+(2026-10-02 13:59:57,312) [INFO]:     [CARLA] handling dataset UCR | curve 128 
+(2026-10-02 14:00:04,526) [INFO]:     [CARLA] handling dataset UCR | curve 129 
+(2026-10-02 14:00:12,170) [INFO]:     [CARLA] handling dataset UCR | curve 130 
+(2026-10-02 14:00:20,229) [INFO]:     [CARLA] handling dataset UCR | curve 131 
+(2026-10-02 14:00:28,090) [INFO]:     [CARLA] handling dataset UCR | curve 132 
+(2026-10-02 14:00:34,366) [INFO]:     [CARLA] handling dataset UCR | curve 133 
+(2026-10-02 14:00:42,830) [INFO]:     [CARLA] handling dataset UCR | curve 134 
+(2026-10-02 14:00:47,900) [INFO]:     [CARLA] handling dataset UCR | curve 135 
+(2026-10-02 14:00:56,351) [INFO]:     [CARLA] handling dataset UCR | curve 136 
+(2026-10-02 14:01:01,539) [INFO]:     [CARLA] handling dataset UCR | curve 137 
+(2026-10-02 14:01:09,038) [INFO]:     [CARLA] handling dataset UCR | curve 138 
+(2026-10-02 14:01:18,184) [INFO]:     [CARLA] handling dataset UCR | curve 139 
+(2026-10-02 14:01:26,792) [INFO]:     [CARLA] handling dataset UCR | curve 140 
+(2026-10-02 14:01:34,440) [INFO]:     [CARLA] handling dataset UCR | curve 141 
+(2026-10-02 14:01:45,048) [INFO]:     [CARLA] handling dataset UCR | curve 142 
+(2026-10-02 14:01:54,582) [INFO]:     [CARLA] handling dataset UCR | curve 143 
+(2026-10-02 14:02:03,551) [INFO]:     [CARLA] handling dataset UCR | curve 144 
+(2026-10-02 14:02:14,204) [INFO]:     [CARLA] handling dataset UCR | curve 145 
+(2026-10-02 14:02:22,851) [INFO]:     [CARLA] handling dataset UCR | curve 146 
+(2026-10-02 14:02:31,892) [INFO]:     [CARLA] handling dataset UCR | curve 147 
+(2026-10-02 14:02:41,491) [INFO]:     [CARLA] handling dataset UCR | curve 148 
+(2026-10-02 14:02:52,666) [INFO]:     [CARLA] handling dataset UCR | curve 149 
+(2026-10-02 14:03:02,191) [INFO]:     [CARLA] handling dataset UCR | curve 150 
+(2026-10-02 14:03:11,904) [INFO]:     [CARLA] handling dataset UCR | curve 151 
+(2026-10-02 14:03:21,828) [INFO]:     [CARLA] handling dataset UCR | curve 152 
+(2026-10-02 14:03:33,529) [INFO]:     [CARLA] handling dataset UCR | curve 153 
+(2026-10-02 14:03:43,814) [INFO]:     [CARLA] handling dataset UCR | curve 154 
+(2026-10-02 14:03:54,394) [INFO]:     [CARLA] handling dataset UCR | curve 155 
+(2026-10-02 14:04:05,757) [INFO]:     [CARLA] handling dataset UCR | curve 156 
+(2026-10-02 14:04:13,965) [INFO]:     [CARLA] handling dataset UCR | curve 157 
+(2026-10-02 14:04:21,720) [INFO]:     [CARLA] handling dataset UCR | curve 158 
+(2026-10-02 14:04:30,915) [INFO]:     [CARLA] handling dataset UCR | curve 159 
+(2026-10-02 14:04:39,774) [INFO]:     [CARLA] handling dataset UCR | curve 160 
+(2026-10-02 14:04:49,671) [INFO]:     [CARLA] handling dataset UCR | curve 161 
+(2026-10-02 14:05:02,360) [INFO]:     [CARLA] handling dataset UCR | curve 162 
+(2026-10-02 14:05:12,072) [INFO]:     [CARLA] handling dataset UCR | curve 163 
+(2026-10-02 14:05:23,734) [INFO]:     [CARLA] handling dataset UCR | curve 164 
+(2026-10-02 14:05:33,867) [INFO]:     [CARLA] handling dataset UCR | curve 165 
+(2026-10-02 14:05:46,418) [INFO]:     [CARLA] handling dataset UCR | curve 166 
+(2026-10-02 14:05:58,275) [INFO]:     [CARLA] handling dataset UCR | curve 167 
+(2026-10-02 14:06:09,866) [INFO]:     [CARLA] handling dataset UCR | curve 168 
+(2026-10-02 14:06:20,812) [INFO]:     [CARLA] handling dataset UCR | curve 169 
+(2026-10-02 14:06:31,419) [INFO]:     [CARLA] handling dataset UCR | curve 170 
+(2026-10-02 14:06:41,590) [INFO]:     [CARLA] handling dataset UCR | curve 171 
+(2026-10-02 14:06:52,859) [INFO]:     [CARLA] handling dataset UCR | curve 172 
+(2026-10-02 14:07:04,080) [INFO]:     [CARLA] handling dataset UCR | curve 173 
+(2026-10-02 14:07:15,510) [INFO]:     [CARLA] handling dataset UCR | curve 174 
+(2026-10-02 14:07:24,987) [INFO]:     [CARLA] handling dataset UCR | curve 175 
+(2026-10-02 14:07:35,073) [INFO]:     [CARLA] handling dataset UCR | curve 176 
+(2026-10-02 14:07:43,857) [INFO]:     [CARLA] handling dataset UCR | curve 178 
+(2026-10-02 14:07:53,995) [INFO]:     [CARLA] handling dataset UCR | curve 179 
+(2026-10-02 14:08:05,268) [INFO]:     [CARLA] handling dataset UCR | curve 180 
+(2026-10-02 14:08:15,827) [INFO]:     [CARLA] handling dataset UCR | curve 181 
+(2026-10-02 14:08:27,022) [INFO]:     [CARLA] handling dataset UCR | curve 182 
+(2026-10-02 14:08:35,790) [INFO]:     [CARLA] handling dataset UCR | curve 183 
+(2026-10-02 14:08:44,139) [INFO]:     [CARLA] handling dataset UCR | curve 184 
+(2026-10-02 14:08:54,013) [INFO]:     [CARLA] handling dataset UCR | curve 186 
+(2026-10-02 14:09:03,546) [INFO]:     [CARLA] handling dataset UCR | curve 191 
+(2026-10-02 14:09:14,509) [INFO]:     [CARLA] handling dataset UCR | curve 192 
+(2026-10-02 14:09:25,469) [INFO]:     [CARLA] handling dataset UCR | curve 193 
+(2026-10-02 14:09:35,696) [INFO]:     [CARLA] handling dataset UCR | curve 194 
+(2026-10-02 14:09:46,371) [INFO]:     [CARLA] handling dataset UCR | curve 195 
+(2026-10-02 14:09:56,721) [INFO]:     [CARLA] handling dataset UCR | curve 196 
+(2026-10-02 14:10:07,303) [INFO]:     [CARLA] handling dataset UCR | curve 197 
+(2026-10-02 14:10:18,457) [INFO]:     [CARLA] handling dataset UCR | curve 198 
+(2026-10-02 14:10:29,548) [INFO]:     [CARLA] handling dataset UCR | curve 199 
+(2026-10-02 14:10:39,229) [INFO]:     [CARLA] handling dataset UCR | curve 201 
+(2026-10-02 14:10:49,259) [INFO]:     [CARLA] handling dataset UCR | curve 202 
+(2026-10-02 14:11:00,255) [INFO]:     [CARLA] handling dataset UCR | curve 203 
+(2026-10-02 14:11:09,911) [INFO]:     [CARLA] handling dataset UCR | curve 204 
+(2026-10-02 14:11:19,046) [INFO]:     [CARLA] handling dataset UCR | curve 205 
+(2026-10-02 14:11:27,972) [INFO]:     [CARLA] handling dataset UCR | curve 206 
+(2026-10-02 14:11:37,809) [INFO]:     [CARLA] handling dataset UCR | curve 207 
+(2026-10-02 14:11:44,731) [INFO]:     [CARLA] handling dataset UCR | curve 208 
+(2026-10-02 14:11:52,982) [INFO]:     [CARLA] handling dataset UCR | curve 209 
+(2026-10-02 14:12:02,744) [INFO]:     [CARLA] handling dataset UCR | curve 210 
+(2026-10-02 14:12:12,315) [INFO]:     [CARLA] handling dataset UCR | curve 211 
+(2026-10-02 14:12:21,915) [INFO]:     [CARLA] handling dataset UCR | curve 212 
+(2026-10-02 14:12:31,673) [INFO]:     [CARLA] handling dataset UCR | curve 213 
+(2026-10-02 14:12:42,304) [INFO]:     [CARLA] handling dataset UCR | curve 214 
+(2026-10-02 14:12:53,378) [INFO]:     [CARLA] handling dataset UCR | curve 215 
+(2026-10-02 14:13:04,374) [INFO]:     [CARLA] handling dataset UCR | curve 216 
+(2026-10-02 14:13:15,462) [INFO]:     [CARLA] handling dataset UCR | curve 217 
+(2026-10-02 14:13:26,291) [INFO]:     [CARLA] handling dataset UCR | curve 218 
+(2026-10-02 14:13:36,652) [INFO]:     [CARLA] handling dataset UCR | curve 219 
+(2026-10-02 14:13:46,417) [INFO]:     [CARLA] handling dataset UCR | curve 220 
+(2026-10-02 14:13:56,417) [INFO]:     [CARLA] handling dataset UCR | curve 221 
+(2026-10-02 14:14:06,028) [INFO]:     [CARLA] handling dataset UCR | curve 222 
+(2026-10-02 14:14:16,131) [INFO]:     [CARLA] handling dataset UCR | curve 223 
+(2026-10-02 14:14:26,043) [INFO]:     [CARLA] handling dataset UCR | curve 224 
+(2026-10-02 14:14:37,186) [INFO]:     [CARLA] handling dataset UCR | curve 225 
+(2026-10-02 14:14:48,272) [INFO]:     [CARLA] handling dataset UCR | curve 226 
+(2026-10-02 14:14:59,306) [INFO]:     [CARLA] handling dataset UCR | curve 227 
+(2026-10-02 14:15:09,428) [INFO]:     [CARLA] handling dataset UCR | curve 228 
+(2026-10-02 14:15:18,877) [INFO]:     [CARLA] handling dataset UCR | curve 229 
+(2026-10-02 14:15:29,919) [INFO]:     [CARLA] handling dataset UCR | curve 230 
+(2026-10-02 14:15:40,911) [INFO]:     [CARLA] handling dataset UCR | curve 231 
+(2026-10-02 14:15:51,300) [INFO]:     [CARLA] handling dataset UCR | curve 232 
+(2026-10-02 14:16:01,984) [INFO]:     [CARLA] handling dataset UCR | curve 236 
+(2026-10-02 14:16:12,673) [INFO]:     [CARLA] handling dataset UCR | curve 237 
+(2026-10-02 14:16:22,480) [INFO]:     [CARLA] handling dataset UCR | curve 238 
+(2026-10-02 14:16:32,828) [INFO]:     [CARLA] handling dataset UCR | curve 239 
+(2026-10-02 14:16:43,666) [INFO]:     [CARLA] handling dataset UCR | curve 240 
+(2026-10-02 14:16:54,554) [INFO]:     [CARLA] handling dataset UCR | curve 241 
+(2026-10-02 14:17:03,956) [INFO]:     [CARLA] handling dataset UCR | curve 242 
+(2026-10-02 14:17:13,038) [INFO]:     [CARLA] handling dataset UCR | curve 243 
+(2026-10-02 14:17:22,259) [INFO]:     [CARLA] handling dataset UCR | curve 244 
+(2026-10-02 14:17:31,364) [INFO]:     [CARLA] handling dataset UCR | curve 245 
+(2026-10-02 14:17:41,593) [INFO]:     [CARLA] handling dataset UCR | curve 246 
+(2026-10-02 14:17:51,309) [INFO]:     [CARLA] handling dataset UCR | curve 247 
+(2026-10-02 14:18:01,156) [INFO]:     [CARLA] handling dataset UCR | curve 248 
+(2026-10-02 14:18:07,302) [INFO]:     [CARLA] handling dataset UCR | curve 249 
+(2026-10-02 14:18:16,674) [INFO]:     [CARLA] handling dataset UCR | curve 250 

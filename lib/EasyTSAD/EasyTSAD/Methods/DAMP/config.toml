@@ -1,0 +1,11 @@
+[Data_Params]
+preprocess = "z-score"
+
+[Model_Params.Default]
+# Subsequence length (discord window), same order of magnitude as MatrixProfile.
+window = 100
+# Optional override for the train/test split index inside the concatenated series.
+# If omitted / null, set to len(train)+len(valid) at runtime (must be > window).
+sp_index = 0
+# Lookback for left-discord search; 0 → 2**ceil(log2(8*window)) as in Lu et al. 2022.
+x_lag = 0
