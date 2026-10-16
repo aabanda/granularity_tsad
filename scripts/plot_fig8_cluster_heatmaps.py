@@ -19,13 +19,14 @@ Example
 -------
     PYTHONPATH=. python scripts/plot_fig8_cluster_heatmaps.py
 """
-
+th
 from __future__ import annotations
 
 import argparse
 import sys
 from pathlib import Path
 
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -48,15 +49,12 @@ from granularity_tsad.plots.style import (  # noqa: E402
     set_paper_style,
 )
 
-# Paper *titles* (pre-filter 0-based positional = UCR Dataset − 1).
-# From published ``heatmap_{dense,sparse,normal}_1.png`` / Fig. 11 dense column.
+# Paper panel *titles* (pre-filter positional index). Load UCR Dataset = title+1
+# (tsad ``reset_index``: positional i ↔ UCR i+1). Same numbers as published Fig. 8.
 PAPER_FIG8_TITLES: dict[str, list[int]] = {
     "Point-dense": [135, 111, 32, 93, 139],
-    "Point-sparse": [13, 225, 118, 75, 10],
-    # Titles as printed on heatmap_normal_1.png (TS 188 is pre-filter
-    # positional; UCR 189 is a dropped point-anomaly, so resolver falls
-    # back to treating 188 as a post-filter index → UCR 206).
-    "Point-normal": [42, 17, 188, 141, 171],
+    "Point-sparse": [13, 224, 118, 75, 10],
+    "Point-normal": [41, 151, 100, 155, 160],
 }
 # main_paper.py forced originals (pre-filter positional), used with --from-clusters.
 DEFAULT_FORCED = [41, 13, 224, 151, 135]
@@ -92,9 +90,7 @@ def point_anomaly_index_maps(
     n = len(anomaly_lengths)
     dropped_set = set(int(i) for i in dropped)
     orig_to_new = {
-        int(o): int(o - np.sum(dropped < o))
-        for o in range(n)
-        if o not in dropped_set
+        int(o): int(o - np.sum(dropped < o)) for o in range(n) if o not in dropped_set
     }
     new_to_orig = {new: orig for orig, new in orig_to_new.items()}
     return orig_to_new, new_to_orig, dropped
@@ -172,12 +168,21 @@ def _windowed_heatmap(
     ax.axvspan(a0, a1, color="gray", alpha=0.2, zorder=0)
     ax.plot(x, y, color="gray", linewidth=0.5, alpha=0.35, zorder=1)
     sc = ax.scatter(
-        x, y, c=c_norm, cmap=SCORE_CMAP, s=point_size, vmin=0, vmax=1,
-        edgecolors="none", zorder=2,
+        x,
+        y,
+        c=c_norm,
+        cmap=SCORE_CMAP,
+        s=point_size,
+        vmin=0,
+        vmax=1,
+        edgecolors="none",
+        zorder=2,
     )
     ax.set_xlim(plot_start, plot_end - 1)
-    ax.set_ylabel("Value", fontsize=10)
-    ax.set_title(title, fontsize=11, fontweight="bold")
+    ax.set_ylim(0.0, 1.0)
+    # Title above the axes box (no background — does not cover the series).
+    ax.set_title(title, fontsize=18, fontweight="bold", pad=8)
+    ax.tick_params(axis="both", labelsize=14)
     ax.grid(False)
     return sc
 
@@ -221,8 +226,8 @@ def main() -> None:
     parser.add_argument(
         "--point-size",
         type=float,
-        default=2.0,
-        help="Scatter marker size (paper uses ~2).",
+        default=3.5,
+        help="Scatter marker size (larger helps when panels are side-by-side).",
     )
     parser.add_argument(
         "--methods",
@@ -289,8 +294,7 @@ def main() -> None:
             if cluster in set(cluster_names.values)
         }
         titles_by_cluster = {
-            c: [ucr_to_paper_title(u) for u in ids]
-            for c, ids in ucr_by_cluster.items()
+            c: [ucr_to_paper_title(u) for u in ids] for c, ids in ucr_by_cluster.items()
         }
     else:
         titles_by_cluster = {k: list(v) for k, v in PAPER_FIG8_TITLES.items()}
@@ -302,7 +306,9 @@ def main() -> None:
             ]
             ucr_by_cluster[cluster] = ucrs
             for t, u in zip(titles, ucrs):
-                via = "title+1" if u == paper_title_to_ucr(t) else "post-filter fallback"
+                via = (
+                    "title+1" if u == paper_title_to_ucr(t) else "post-filter fallback"
+                )
                 print(f"  {cluster}: TS {t} → UCR {u} ({via})")
 
     needed = sorted({sid for ids in ucr_by_cluster.values() for sid in ids})
@@ -331,7 +337,19 @@ def main() -> None:
             continue
         print(f"{cluster}: titles={sample_titles} UCR={sample_ucr}")
 
-        fig, axs = plt.subplots(len(sample_ucr), 1, figsize=(5.2, 1.55 * len(sample_ucr)))
+        n_panels = len(sample_ucr)
+        # Identical canvas + margins for all three so rows align in LaTeX.
+        # Horizontal colorbar at the bottom on Point-sparse only; dense/normal
+        # keep the same bottom gutter empty.
+        with_cbar = cluster == "Point-sparse"
+        fig_w, fig_h = 5.5, 15.0
+        hspace = 0.75
+        fig, axs = plt.subplots(
+            n_panels,
+            1,
+            figsize=(fig_w, fig_h),
+            gridspec_kw={"hspace": hspace},
+        )
         axs = np.atleast_1d(axs)
         last_sc = None
         for ax, sid, title_id in zip(axs, sample_ucr, sample_titles):
@@ -342,7 +360,11 @@ def main() -> None:
                     continue
                 arrays.append(np.asarray(cell, dtype=float).reshape(-1))
             if not arrays:
-                ax.set_title(f"TS {title_id} (missing scores for UCR {sid})")
+                ax.set_title(
+                    f"TS {title_id} (missing scores for UCR {sid})",
+                    fontsize=18,
+                    fontweight="bold",
+                )
                 continue
             agg = aggregate_scores(arrays)
             series = np.asarray(data_test.loc[sid], dtype=float).reshape(-1)
@@ -365,22 +387,36 @@ def main() -> None:
                 point_size=args.point_size,
             )
 
-        color = CLUSTER_COLORS.get(cluster, "#333")
-        fig.suptitle(
-            f"{CLUSTER_TITLE.get(cluster, cluster)}:",
-            fontsize=13,
-            fontweight="bold",
-            color=color,
-        )
-        if last_sc is not None:
-            fig.colorbar(
-                last_sc, ax=list(axs), fraction=0.025, pad=0.04, label="Anomaly score"
-            )
-        fig.subplots_adjust(hspace=0.45, top=0.92, right=0.88)
         short = cluster.replace("Point-", "").lower()
         out = fig_dir / f"fig8_heatmap_{short}.pdf"
-        fig.savefig(out, bbox_inches="tight")
-        fig.savefig(out.with_suffix(".png"), dpi=150, bbox_inches="tight")
+        # Full width for axes; bottom gutter reserved for a horizontal colorbar.
+        left, right = 0.10, 0.98
+        fig.subplots_adjust(
+            hspace=hspace, top=0.94, bottom=0.12, left=left, right=right
+        )
+        color = CLUSTER_COLORS.get(cluster, "#333")
+        # Centered over the plot column (not the full figure incl. y-tick margin).
+        fig.suptitle(
+            CLUSTER_TITLE.get(cluster, cluster),
+            fontsize=22,
+            fontweight="bold",
+            color=color,
+            x=0.5 * (left + right),
+            y=0.985,
+            ha="center",
+        )
+        if with_cbar and last_sc is not None:
+            # Centered horizontal colorbar; leave room below for the label.
+            cax = fig.add_axes([0.22, 0.055, 0.56, 0.02])
+            cbar = fig.colorbar(last_sc, cax=cax, orientation="horizontal")
+            cbar.set_label("Anomaly Score", fontsize=14, labelpad=8)
+            cbar.ax.tick_params(labelsize=12)
+        # Style sets savefig.bbox='tight'; passing bbox_inches=None still
+        # falls back to that rcParam. Force a fixed canvas so all three PDFs
+        # share identical geometry (needed for side-by-side LaTeX alignment).
+        with mpl.rc_context({"savefig.bbox": None}):
+            fig.savefig(out)
+            fig.savefig(out.with_suffix(".png"), dpi=150)
         plt.close(fig)
         print(f"Wrote {out}")
 

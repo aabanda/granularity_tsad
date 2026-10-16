@@ -15,7 +15,7 @@ CLUSTER_COLORS = {
 }
 CLUSTER_DISPLAY_ORDER = ["Point-dense", "Point-sparse", "Point-normal"]
 
-SCORE_CMAP = "OrRd"  # orange→red (print-friendly; avoids pale yellow)
+SCORE_CMAP = "viridis_r"  # orange→red (print-friendly; avoids pale yellow)
 
 
 def set_paper_style() -> None:
