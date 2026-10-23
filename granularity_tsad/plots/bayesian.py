@@ -6,13 +6,21 @@ Wraps :func:`baycomp.two_on_multiple` to produce the posterior over
 
 from __future__ import annotations
 
-import io
-
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from matplotlib.lines import Line2D
+from matplotlib.patches import Polygon
 
 from ..clustering import CLUSTER_DISPLAY_ORDER
+from .style import CLUSTER_COLORS
+
+METRIC_LABELS = {
+    "F1_point": r"$F1_{point}$",
+    "F1_seq": r"$F1_{seq}$",
+    "F1_PAK": r"$F1_{PAK}$",
+    "wF1_PAK": r"$wF1_{PAK}$",
+}
 
 
 def _two_on_multiple():
@@ -287,25 +295,111 @@ def plot_rope_sensitivity(
     return fig
 
 
+def _project_simplex(sample: np.ndarray) -> np.ndarray:
+    """Map ``(p_left, p_rope, p_right)`` samples onto the baycomp triangle."""
+    left = np.asarray(sample[:, 0], dtype=float)
+    rope = np.asarray(sample[:, 1], dtype=float)
+    right = np.asarray(sample[:, 2], dtype=float)
+    p1 = left / np.sqrt(3.0)
+    p2 = right / np.sqrt(3.0)
+    p3 = rope / np.sqrt(3.0)
+    x = (p2 - p1) * np.cos(np.pi / 6) + 0.5
+    y = p3 - (p1 + p2) * np.sin(np.pi / 6) + 1.0 / (2.0 * np.sqrt(3.0))
+    return np.column_stack((x, y))
+
+
+def _draw_simplex(ax: plt.Axes, sample: np.ndarray, name_a: str, name_b: str) -> None:
+    """Draw a simplex whose posterior cloud stays visible at a vertex.
+
+    baycomp's hexbin uses ``Blues_r``, so the densest bins are white. A
+    posterior piled on one corner then disappears on the white background.
+    A dark scatter, drawn larger when the cloud collapses, stays readable.
+    """
+    xy = _project_simplex(sample)
+
+    rng = np.random.default_rng(0)
+    n_draw = min(len(xy), 4000)
+    pts = xy if n_draw == len(xy) else xy[rng.choice(len(xy), n_draw, replace=False)]
+    center = np.median(pts, axis=0)
+    centered = pts - center
+    # Minor-axis width: a cloud stuck on an edge is long but paper-thin, so the
+    # median radius stays moderate and a fixed marker size leaves a hairline.
+    cov = np.cov(centered.T)
+    minor = float(np.sqrt(max(np.linalg.eigvalsh(cov)[0], 0.0)))
+    tightness = float(np.exp(-minor / 0.006))
+    size = 10.0 + 52.0 * tightness
+    alpha = 0.2 + 0.45 * tightness
+
+    ax.set_aspect("equal", adjustable="box")
+    orange = "#e67e22"
+    ax.add_line(
+        Line2D(
+            [0, 0.5, 1.0, 0],
+            [0, np.sqrt(3) / 2, 0, 0],
+            color=orange,
+            lw=1.8,
+            zorder=4,
+        )
+    )
+    cx, cy = _project_simplex(np.array([[1 / 3, 1 / 3, 1 / 3]]))[0]
+    for vertex in ((0.5, 0.0, 0.5), (0.5, 0.5, 0.0), (0.0, 0.5, 0.5)):
+        vx, vy = _project_simplex(np.array([vertex]))[0]
+        ax.add_line(Line2D([cx, vx], [cy, vy], color=orange, lw=1.35, zorder=4))
+    cloud = ax.scatter(
+        pts[:, 0],
+        pts[:, 1],
+        s=size,
+        c="#0d47a1",
+        alpha=alpha,
+        linewidths=0,
+        zorder=3,
+    )
+    # Cut markers flush with the edges so a cloud on a vertex stays inside.
+    cloud.set_clip_path(
+        Polygon(
+            [(0.0, 0.0), (0.5, np.sqrt(3) / 2), (1.0, 0.0)],
+            closed=True,
+            transform=ax.transData,
+        )
+    )
+
+    label_kw = dict(fontsize=14, color="#222222", clip_on=False, zorder=5)
+    ax.text(0, -0.05, name_a, ha="center", va="top", **label_kw)
+    ax.text(0.5, np.sqrt(3) / 2 + 0.03, "Rope", ha="center", va="bottom", **label_kw)
+    ax.text(1, -0.05, name_b, ha="center", va="top", **label_kw)
+
+    ax.set_xlim(-0.18, 1.18)
+    ax.set_ylim(-0.14, np.sqrt(3) / 2 + 0.12)
+    ax.set_xticks([])
+    ax.set_yticks([])
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+    ax.set_facecolor("white")
+
+
 def plot_point_vs_seq_grid(
     metric_tables: dict[str, pd.DataFrame],
     point_methods: list[str],
     seq_methods: list[str],
     cluster_names: pd.Series,
     cluster_order: list[str] | None = None,
+    show_metric_labels: bool = True,
 ) -> tuple[plt.Figure, pd.DataFrame]:
-    """Unified Bayesian grid: rows = metrics, columns = clusters.
+    """Bayesian grid: rows = metrics, columns = clusters.
 
     Each cell is the point-wise vs sequence-wise simplex for that
-    (metric, cluster). Returns ``(figure, summary_table)``.
+    (metric, cluster). ``show_metric_labels`` prints the metric name on the
+    left of each row. Returns ``(figure, summary_table)``.
     """
+    from baycomp import SignedRankTest
+
     metrics = list(metric_tables.keys())
     clusters = cluster_order or _cluster_order(cluster_names)
     n_rows, n_cols = len(metrics), len(clusters)
     fig, axs = plt.subplots(
         n_rows,
         n_cols,
-        figsize=(3.6 * max(n_cols, 1), 3.4 * max(n_rows, 1)),
+        figsize=(5.6 * max(n_cols, 1), 5.1 * max(n_rows, 1)),
         squeeze=False,
     )
     summaries = []
@@ -314,35 +408,33 @@ def plot_point_vs_seq_grid(
         table = metric_tables[metric_name].dropna(how="all")
         aligned = cluster_names.reindex(table.index)
         rope = rope_from_mad(group_paired_scores(table, point_methods, seq_methods))
+        used_rope = max(float(rope), 1e-6)
         for j, cluster in enumerate(clusters):
             ax = axs[i, j]
-            sub = table.loc[aligned.index[aligned == cluster]]
-            probs, subfig, used_rope = point_vs_seq(
-                sub, point_methods, seq_methods, rope=rope, plot=True
-            )
             if i == 0:
-                ax.set_title(cluster, fontsize=12)
-            if j == 0:
-                ax.set_ylabel(metric_name, fontsize=12)
-            if probs is None or subfig is None:
-                ax.set_axis_off()
-                ax.text(
-                    0.5, 0.5, "n/a", ha="center", va="center", transform=ax.transAxes
+                ax.set_title(
+                    cluster,
+                    color=CLUSTER_COLORS.get(cluster, "#333333"),
+                    fontsize=18,
+                    pad=10,
                 )
-                if subfig is not None:
-                    plt.close(subfig)
+            if j == 0 and show_metric_labels:
+                ax.set_ylabel(METRIC_LABELS.get(metric_name, metric_name), fontsize=18)
+            sub = table.loc[aligned.index[aligned == cluster]]
+            paired = group_paired_scores(sub, point_methods, seq_methods)
+            if len(paired) < 2:
+                ax.set_axis_off()
+                ax.text(0.5, 0.5, "n/a", ha="center", va="center", transform=ax.transAxes)
                 continue
-            buf = io.BytesIO()
-            subfig.savefig(buf, format="png", dpi=160, bbox_inches="tight")
-            plt.close(subfig)
-            buf.seek(0)
-            img = plt.imread(buf)
-            ax.imshow(img)
-            ax.set_xticks([])
-            ax.set_yticks([])
-            for spine in ax.spines.values():
-                spine.set_visible(False)
-            p_point, p_rope, p_seq = probs
+            posterior = SignedRankTest(
+                paired["P"].to_numpy(dtype=float),
+                paired["S"].to_numpy(dtype=float),
+                rope=used_rope,
+                nsamples=50000,
+                random_state=0,
+            )
+            _draw_simplex(ax, posterior.sample, "Point-wise", "Sequence-wise")
+            p_point, p_rope, p_seq = posterior.probs()
             summaries.append(
                 {
                     "Metric": metric_name,
@@ -354,7 +446,14 @@ def plot_point_vs_seq_grid(
                 }
             )
 
-    fig.tight_layout()
+    if show_metric_labels:
+        fig.subplots_adjust(
+            left=0.08, right=0.99, top=0.90, bottom=0.06, wspace=0.42, hspace=0.42
+        )
+    else:
+        fig.subplots_adjust(
+            left=0.03, right=0.99, top=0.88, bottom=0.08, wspace=0.42, hspace=0.42
+        )
     return fig, pd.DataFrame(summaries)
 
 

@@ -19,7 +19,7 @@ Example
 -------
     PYTHONPATH=. python scripts/plot_fig8_cluster_heatmaps.py
 """
-th
+
 from __future__ import annotations
 
 import argparse

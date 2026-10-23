@@ -109,15 +109,26 @@ def _bayesian_figures(
     fig_dir: Path,
     tag: str,
 ) -> None:
-    """Save one unified Bayesian grid (rows=metrics, cols=clusters) + CSV."""
-    fig, summary = plot_point_vs_seq_grid(
-        metric_tables, point_methods, seq_methods, cluster_names
-    )
-    fig.savefig(fig_dir / f"bayesian_{tag}.pdf")
-    plt.close(fig)
-    if not summary.empty:
-        summary.to_csv(fig_dir / f"bayesian_{tag}.csv", index=False)
-        print(f"Saved bayesian_{tag}.pdf / .csv ({len(summary)} cells)")
+    """Save one Bayesian figure per metric (columns = clusters) plus a CSV."""
+    summaries = []
+    for metric_name, table in metric_tables.items():
+        fig, summary = plot_point_vs_seq_grid(
+            {metric_name: table},
+            point_methods,
+            seq_methods,
+            cluster_names,
+            show_metric_labels=True,
+        )
+        slug = metric_name.lower()
+        fig.savefig(fig_dir / f"bayesian_{slug}.pdf")
+        plt.close(fig)
+        if not summary.empty:
+            summaries.append(summary)
+            print(f"Saved bayesian_{slug}.pdf ({len(summary)} cells)")
+    if summaries:
+        combined = pd.concat(summaries, ignore_index=True)
+        combined.to_csv(fig_dir / f"bayesian_{tag}.csv", index=False)
+        print(f"Saved bayesian_{tag}.csv ({len(combined)} cells)")
     else:
         print(f"No Bayesian cells for tag={tag}")
 

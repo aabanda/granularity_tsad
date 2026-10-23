@@ -15,7 +15,21 @@ CLUSTER_COLORS = {
 }
 CLUSTER_DISPLAY_ORDER = ["Point-dense", "Point-sparse", "Point-normal"]
 
-SCORE_CMAP = "viridis_r"  # orange→red (print-friendly; avoids pale yellow)
+# SCORE_CMAP = "RdYlBu_r"  # orange→red (print-friendly; avoids pale yellow)
+from matplotlib.colors import LinearSegmentedColormap
+
+SCORE_CMAP = LinearSegmentedColormap.from_list(
+    "fig8_score",
+    [
+        "#d73027",
+        "#fc8d59",
+        "#fee090",
+        "#ebeb6d",
+        "#80cade",
+        "#62a9d5",
+        "#00439c",
+    ],
+).reversed()
 
 
 def set_paper_style() -> None:
